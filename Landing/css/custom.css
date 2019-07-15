@@ -1,0 +1,138 @@
+.bg{
+    background: linear-gradient(50deg,#360971 0,#6c5ce7 100%);
+    background-repeat: repeat;
+    background-repeat: no-repeat;
+    height: 900px;
+    top: -30%;
+    left: -1rem;
+    width: 100%;
+    transform: rotate(-7deg);
+    border-bottom-left-radius: 3rem;
+    position: absolute;
+    z-index: -2;
+}
+#regis{
+    color: white;
+    margin-left:20px;
+
+}
+.label1{
+    color:white;
+}
+.logo{
+    height: 70px;
+}
+.navbar{
+    height: 80px;
+}
+nav input, button{
+    float:right;
+    box-sizing: border-box;
+    
+}
+.form-control{
+    width: 180px !important;
+    border-radius: 30px;
+    background-color: transparent;
+    border:1px solid white;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+.form-control::placeholder{
+    color:white;
+}
+.btn{
+    color: #360971;
+    border:1px solid #360971;
+}
+.btn:hover{
+    background-color: #36097148;
+}
+.busqueda{
+    color: white;
+    text-align: center;
+}
+h1{
+    font-size: 1.4rem;
+    
+}
+.form{
+    width: 85%;
+    padding: 20px
+}
+#contenedor{
+    margin-top: 80px;
+}
+.form-input{
+    box-sizing: content-box;
+    border-radius: 2px;
+    border: 5px solid white;
+    padding: inherit;
+}
+.col{
+    max-width: 45%;
+}
+#correo-registrarse , #inputPassword4{
+    width: 200%;
+}
+.text-muted {
+    color: #b3b6c1 !important;
+}
+.form-text {
+    width: 200%;
+}
+#select{
+    color: gray;
+    border: 5px solid white;
+    border-radius: 4px;
+    width: 104%;
+    padding: inherit;
+}
+option{
+    padding:4px;
+}
+.ancord{
+    color:#fdcb6d ;
+}
+.ancord:hover{
+    text-decoration: none;
+    color: #ddb365;
+}
+.btn2{
+    margin-left:30%;
+    background-color:transparent;
+    border-color: #fdcb6d;
+    border-radius: 30px;
+    padding:7px;
+    width:180px;
+    border:1px solid #fdcb6d;
+    color: #fdcb6d;
+}
+.btn2:hover{
+    background-color: #fdcb6d;
+    color:black;
+}
+.bd-example{
+    width: 75%;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+.carousel-inner{
+    margin-top:-50px;
+}
+.carousel-control-next {
+    
+}
+.carousel-control-prev {
+
+}
+.carousel-caption{
+    width: 100%;
+    background-color: black;
+    bottom: 0px;
+    left: 0%;
+    opacity: 0.5999999999;
+}
+.carousel-indicators{
+}
