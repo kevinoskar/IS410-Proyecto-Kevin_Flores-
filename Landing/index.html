@@ -13,7 +13,7 @@
 <body>
     <div class="bg"></div>
     <nav class="navbar">
-        <img class="logo" src="img/Fly-white.png">
+        <img class="logo" src="img/Fly-black.png">
         <form class="form-inline my-2 my-lg-0">
             <input  class="form-control mr-sm-2" type="email" name="email" id="email" placeholder="Correo Electrónico">
             <input  class="form-control mr-sm-2" type="password" name="password" id="password" placeholder="Contraseña">
@@ -21,9 +21,9 @@
         </form>
     </nav>
     <div class="row" id="contenedor">
-        <div class="col-md-6 col-xl-6 col-xs-12">
+        <div  id="carrousel1"class="col-md-6 col-xl-6 col-xs-12">
             <div class="busqueda">
-            <h1>Encuentra lo que estás buscando</h1>
+              <h1>Encuentra lo que estás buscando</h1>
             </div> 
             <div class="bd-example">
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -64,10 +64,8 @@
                         <span class="sr-only">Next</span>
                       </a>
                     </div>
-                  </div> 
+            </div> 
         </div>
-        
-    
         <div class="col-md-6 col-xl-6 col-xs-12">
             <div class="Registrarse">
                 <h1 id="regis">Regístrate</h1>
@@ -133,7 +131,7 @@
                                     <option value="Taiwan">Taiwan</option>
                                     <option value="Uruguay">Uruguay</option>
                                     <option value="Venezuela">Venezuela</option></select>
-                            <small id="emailHelp" class="form-text text-muted">*Solo están permitidos ciertos paises</small>
+                            <small id="emailHelp" class="form-text text-muted">*Solo están permitidos ciertos paises.</small>
                         </div>
                     </div>
                     <div class="row">
@@ -150,14 +148,27 @@
                         </div>
                     </div>
                     <div class="row">
-                            <button type="button" class="btn2 my-3 my-sm-0">Registrar</button>
+                            <button type="button" class="btn2 mx-auto">Registrar</button>
                     </div>
-                  </form>
+                </form>
             </div>
         </div>
-
-
     </div>
+    <footer>
+        <div class="foot-page">
+          <div id="icons">
+              <div class="item1"><img src="img/facebook-s.png" alt=""></div>
+              <div class="item1"><img src="img/twitter-s.jpg" alt=""></div>
+              <div class="item1"><img src="img/instagram-s.jpg" alt=""></div>
+              <div class="item1"><img src="img/pinterest-s.png" alt=""></div>
+              <div class="item1"><img src="img/LinkedIn-s.png" alt=""></div>
+          </div>
+          <div class="copyright">
+              <p>Copyright ®2019 Fly Inc-Aviso legal, política de privacidad y de afiliación.</p>
+              <p id="item2">Fly.com Powered by UNAH</p>
+          </div>
+        </div>
+    </footer>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
