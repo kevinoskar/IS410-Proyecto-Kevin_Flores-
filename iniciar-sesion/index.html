@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="img/Fly-purpole.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Inicar Sesión</title>
 </head>
 <body>
@@ -19,18 +19,20 @@
                 <h1>Iniciar Sesión</h1>
             </div>
             <form>
-                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Correo Electrónico">
-                <input type="text" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-                <input type="button" class="fadeIn fourth" value="Iniciar Sesión">
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Correo Electrónico"> 
+                <div id="email-invalid-feedback">
+                    
+                </div>
+                <input type="text" id="password" class="fadeIn third " name="login" placeholder="Contraseña">
+                <input type="button" onclick="iniciarSesion()" class="fadeIn fourth" value="Iniciar Sesión"></button>
             </form>
             <div id="formFooter">
                 <a class="underlineHover" href="#">¿No tienes cuenta? Regístrate ahora</a>
             </div>
         </div>
     </div>
-
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/controlador.js"></script>
 </body>
 </html>
