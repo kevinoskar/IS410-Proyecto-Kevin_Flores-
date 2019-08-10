@@ -88,7 +88,7 @@
   
   /* FORM TYPOGRAPHY*/
   
-  input[type=button], input[type=submit], input[type=reset]  {
+  input[type=button], input[type=submit], input[type=reset]{
     background-color: #6b5be6;
     border: none;
     color: white;
@@ -146,6 +146,12 @@
   input[type=text]:focus {
     background-color: #fff;
     border-bottom: 2px solid #6b5be6;
+  }
+  .is-valid{
+      border-bottom: 2px solid #4bd885 !important;
+  }
+  .is-invalid{
+      border-bottom: 2px solid #d33333!important;
   }
   
   input[type=text]:placeholder {
@@ -259,4 +265,7 @@
   #icon {
     width:60%;
   }
-  
+  .email-invalid-feedback{
+    color:rgba(214, 55, 55, 0.973);
+    font-size: 0.6;
+  }
