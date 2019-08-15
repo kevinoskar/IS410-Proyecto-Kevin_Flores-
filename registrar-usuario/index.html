@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/Fly-purpole.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Registrarse</title>
+</head>
+<body>
+    <div class="box">
+        <img id="imagen-1" src="img/Fly-white.png" alt="">
+    </div>
+    <div class="form wrapper fadeInDown">
+        <div id="formContent">
+            <div class="fadeIn first">
+                <h1>Registrarse</h1>
+                <div class="sub-titule">
+                    Fly.com te da la bienvenida. No te preocupes está corre por nosotros.
+                </div>
+            </div>
+            <hr class="hr">
+            <form>
+                <input type="text" id="name" class="fadeIn second" name="login" placeholder="Nombre"> 
+                <input type="text" id="last-name" class="fadeIn second" name="login" placeholder="Apellido"><br>
+                <div class="advice">Fecha de Nacimiento</div>
+                <input type="date" id="birthday" class="fadeIn second" placeholder="Fecha de Nacimiento">
+                <select id="gender" class="select-gender second">
+                    <option value="Femenino">Femenino</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="NoBinario">No binario</option>
+                </select>
+                <div class="advice">Correo Actual</div>
+                <input type="text" id="email" class="fadeIn third " name="login" placeholder="Correo Electrónico">
+                <div class="advice">*Debe conteneder más de 8 caracteres.</div>
+                <input type="text" id="password" class="fadeIn third " name="login" placeholder="Contraseña">
+            <div id="formFooter">
+                <input type="checkbox" id="checkbox1">
+                Acepto las <a href="#" class="link-politics">Condiciones y Políticas</a> y la<a href="#"class="link-politics">Política de Envío.</a><br>
+                <button id="btn-register" type="button" onclick="registrarUsuario()" class="fadeIn fourth" value="Registrar"">INCIAR SESION</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <table class="table">
+        <thead>    
+            <tr>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Fecha de Nacimiento</td>
+                <td>Genero</td>
+                <td>correo</td>
+                <td>Contraseña</td>
+                <td>Acepto Codigos</td>
+        </tr>
+        </thead>
+        <tbody id="tabla-registros">
+
+        </tbody>
+    </table>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/controlador.js"></script>
+</body>
+</html>
