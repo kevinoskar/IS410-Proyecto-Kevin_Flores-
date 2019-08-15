@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/Fly-purpole.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Registrarse</title>
+</head>
+<body>
+    <div class="box">
+        <img id="imagen-1" src="img/Fly-blue2.png" alt="">
+    </div>
+    <div class="form wrapper fadeInDown">
+        <div id="formContent">
+            <div class="fadeIn first">
+                <h1>Registrarse</h1>
+                <div class="sub-titule">
+                    Fly.com te da la bienvenida. Registra tu empresa.
+                </div>
+            </div>
+            <hr class="hr">
+            <form>
+                <input type="text" id="name" class="fadeIn second" name="login" placeholder="Nombre de la Empresa"> 
+                <input type="text" id="bussines" class="fadeIn second" name="login" placeholder="Rubro"><br>
+                <div class="advice">Fecha de Fundación</div>
+                <input type="date" id="fundation" class="fadeIn second" placeholder="Fecha de Fundación">
+                <div class="advice">Correo Empresarial</div>
+                <input type="text" id="email-company" class="fadeIn third " name="login" placeholder="name-company@company.com">
+                <div class="advice">*Debe conteneder más de 8 caracteres.</div>
+                <input type="text" id="password" class="fadeIn third " name="login" placeholder="Contraseña">
+            <div id="formFooter">
+                <input type="checkbox" id="checkbox1">
+                Acepto las <a href="#" class="link-politics">Condiciones y Políticas</a> y la<a href="#"class="link-politics">Política de Venta.</a><br>
+                <button id="btn-register" type="button" onclick="registrarUsuario()" class="fadeIn fourth" value="Registrar"">REGISTRAR</button>
+            </div>
+            </form>
+        </div>
+    </div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/controlador.js"></script>
+</body>
+</html>
