@@ -14,10 +14,8 @@
         <nav class="navbar">
             <a href="#"><img id="icon" src="img/Fly-blue2.png" alt=""></a>
             <div>
-                <input type="search" name="search" id="search-login" placeholder="¿Qué estás buscando?">
-                <button type="button" class="search-icon-login">Buscar</button>
-                <button type="button" class="btn-login">Regístrarse</button>
-                <button type="button" class="btn-login">Iniciar Sesión</button>
+                <button type="button" id="singIn" onclick="redirect()" class="btn-login">Regístrarse</button>
+                <button type="button" id="logIn" onclick="redirect2()" class="btn-login">Iniciar Sesión</button>
             </div>
         </nav>
     </header>
@@ -28,7 +26,7 @@
                     <div id="main-1">
                         <h1 class="titule-main">¿Quiéres formar parte de la gran familia <br/>de Fly.com? <br/>Únete ahora</h1>
                         <hi class="subtitule">Compra todo lo que necesitas cuando lo necesites.</hi><br>
-                        <button type="button" class="btn-main-register">Regístrate ahora</button>
+                        <button type="button" onclick="redirect()" class="btn-main-register">Regístrate ahora</button>
                     </div>
                 </div>
                 <div class="col-lg-6 col-xs-12 col-md-6 box">
@@ -106,8 +104,8 @@
                         <div id="main-1">
                             <h1 class="titule-main2">¿Erés dueño de un negocio y deseas vender aquí?<br/></h1>
                             <p id="label2">La plataforma de fly.com te permite promocionar tus productos que tengas en descuento, totalmente Gratis!.</p>
-                            <button type="button" class="btn-register-buissnes">Registrar Empresa</button>
-                            <button type="button" class="btn-register-buissnes2">Inicia sesión</button>
+                            <button type="button" id="signInComapany" onclick="redirect3()" class="btn-register-buissnes">Registrar Empresa</button>
+                            <button type="button" id="logInCompany" onclick="redirect4()" class="btn-register-buissnes2">Inicia sesión</button>
                         </div>
                     </div>
                     <div class="col-lg-6 col-xs-12 col-md-6 col-xs-12 box4">
