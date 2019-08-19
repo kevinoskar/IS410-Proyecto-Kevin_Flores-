@@ -13,5 +13,5 @@ function redirect4(){
 }
 function redirectHome(){
  console.log("Acceder al Home")
-  window.location="../Pagina Central/index.html"
+  window.location="../Pagina-Central/index.html"
 }
