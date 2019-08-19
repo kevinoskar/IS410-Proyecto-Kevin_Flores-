@@ -11,3 +11,7 @@ function redirect3(){
 function redirect4(){
   window.location="../iniciar-sesion-empresa/index.html"
 }
+function redirectHome(){
+ console.log("Acceder al Home")
+  window.location="../Pagina Central/index.html"
+}
