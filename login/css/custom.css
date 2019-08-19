@@ -287,4 +287,72 @@ nav div{
     background-color: rgba(255, 0, 200, 0.253);
 
 }
+#footer {
+    background: #15161D;
+    color: #B9BABC;
+  }
+  
+  #bottom-footer {
+    background: #1E1F29;
+  }
+  
+  .footer {
+    margin: 30px 0px;
+  }
+  
+  .footer .footer-title {
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 0px 0px 30px;
+  }
+  
+  .footer-links li+li {
+    margin-top: 15px;
+  }
+  
+  .footer-links li a {
+    color: #B9BABC;
+  }
+  
+  .footer-links li i {
+    margin-right: 15px;
+    color: #6b5be6;
+    width: 14px;
+    text-align: center;
+  }
+  
+  .footer-links li a:hover {
+    color: #fdcb6d;
+    text-decoration: none;
+  }
+  
+  .copyright {
+    margin-top: 30px;
+    display: block;
+    font-size: 12px;
+  }
+  
+  .footer-payments li {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .footer-payments li a {
+    font-size: 36px;
+    display: block;
+    color: #fdcb6d;
+  }
+  .btn4{
+      background-color: transparent !important;
+      color: #B9BABC !important;
+      border:0px solid transparent;
 
+  }
+  .btn4:hover{
+      color: #fdcb6d !important;
+  }
+  .form-1{
+    width: 300px;
+  }
+  
