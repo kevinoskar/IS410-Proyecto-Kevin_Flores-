@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="shortcut icon" href="img/Fly-purpole.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
     <title>Fly</title>
 </head>
 <body>
@@ -45,7 +47,7 @@
                         <div id="main-1">
                             <h1 id="main-2">Busca ahora de manera automática</h1>
                             <p id="label3">Cotiza lo que necesitas sin necesidad de iniciar sesión.</p>
-                            <button type="button" class="btn-insearch">Buscar</button>
+                            <button type="button" onclick="redirectHome()" class="btn-insearch">Buscar</button>
                         </div>
 
                     </div>
@@ -119,88 +121,119 @@
     
     </main>
     <!-- Footer -->
-    <footer class="page-footer">
-        <div id="footer-1">
+    <footer id="footer">
+        <div class="section">
             <div class="container">
-                <div class="row py-4 d-flex align-items-center">
-                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                        <h6 class="mb-0">Conéctate a nuestras redes sociales!</h6>
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Nosotros</h3>
+                            <p>Sólidez y servicio de entrega en tiempo y forma, logrando la fidelidad de nuestros clientes.</p>
+                            <ul class="footer-links">
+                                <li><a href="#"><i class="fa fa-map-marker"></i>UNAH Tegucigalpa, HN</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i>504 233 865 42</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>infofly@fly-support.com</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-md-6 col-lg-7 col-xs-12">
-                        <div class="foot-page">
-                            <div id="icons">
-                                <div class="item1"><img src="img/facebook-s.png" alt=""></div>
-                                <div class="item1"><img src="img/twitter-s.jpg" alt=""></div>
-                                <div class="item1"><img src="img/instagram-s.jpg" alt=""></div>
-                                <div class="item1"><img src="img/pinterest-s.png" alt=""></div>
-                                <div class="item1"><img src="img/LinkedIn-s.png" alt=""></div>
-                            </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Categorias</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Tecnología</a></li>
+                                <li><a href="#">Moda</a></li>
+                                <li><a href="#">Deportes</a></li>
+                                <li><a href="#">Hogar</a></li>
+                                <li><a href="#">Electrodomésticos</a></li>
+                                <li><a href="#">Accesorios</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Informacion</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Nosotros</a></li>
+                                <li><a href="#">Contactanos</a></li>
+                                <li><a href="#">Política y Privacidad</a></li>
+                                <li><a href="#">Ordenes y Envíos</a></li>
+                                <li><a href="#">Términos y condiciones</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Servicio</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Mi cuenta</a></li>
+                                <li><a href="#">Ver Carrito</a></li>
+                                <li><a href="#">Lista de Deseos</a></li>
+                                <li>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn4 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          SuperUsuario
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <form class="px-4 py-3 form-1">
+                                                <div class="form-group">
+                                                <label for="exampleDropdownFormEmail1">Correo Electrónico</label>
+                                                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="example@flysu.com">
+                                                </div>
+                                                <div class="form-group">
+                                                <label for="exampleDropdownFormPassword1">Contraseña</label>
+                                                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña">
+                                                </div>
+                                                <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                                <label class="form-check-label" for="dropdownCheck">
+                                                    Recordarme
+                                                </label>
+                                                </div>
+                                                <button type="submit" class="btn-main-register">Iniciar Sesión</button>
+                                            </form>
+                                            <div class="dropdown-divider"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="#">Ayuda</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container text-center text-md-left mt-5">
-            <div class="row mt-3">
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <h6 class="text-uppercase font-weight-bold">Fly.com</h6>
-                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto size1" >
-                    <p>Solamente aceptamos pagos a trávez de las siguientes tarjetas</p>
-                    <div class="footer-targets">
-                        <div class="item2"><img src="img/master-card.svg"></div>
-                        <div class="item2"><img src="img/paypal.svg"></div>
-                        <div class="item2"><img src="img/visa.svg"></div>
+
+        <!-- bottom footer -->
+        <div id="bottom-footer" class="section">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="footer-payments">
+                            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                            <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                        </ul>
+                        <span class="copyright">
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Fly.com </a>
+                        </span>
                     </div>
-                </div>
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase font-weight-bold">Productos</h6>
-                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto size1" >
-                    <p>
-                        <a class="footer-products" href="#!">MDBootstrap</a>
-                    </p>
-                    <p>
-                        <a class="footer-products" href="#!">MDWordPress</a>
-                    </p>
-                    <p>
-                        <a class="footer-products" href="#!">BrandFlow</a>
-                    </p>
-                    <p>
-                        <a class="footer-products" href="#!">Empresas</a>
-                    </p>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase font-weight-bold">links</h6>
-                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto size1">
-                    <p>
-                        <a class="footer-links" href="#!">Cuenta</a>
-                    </p>
-                    <p>
-                        <a class="footer-links" href="#!">Condiciones y Políticas</a>
-                    </p>
-                    <p>
-                        <a class="footer-links" href="#!">Política de Envío</a>
-                    </p>
-                    <p>
-                        <a class="footer-links" href="#!">SuperUsuario</a>
-                    </p> 
-                </div>
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <h6 class="text-uppercase font-weight-bold">Contacto</h6>
-                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto size1"">
-                    <p><i class="fas fa-home "></i> Tegucigalpa, CU, HN</p>
-                    <p><i class="fas fa-envelope "></i> infofly@fly-support.com</p>
-                    <p><i class="fas fa-phone "></i> + 504 233 865 42</p>
-                    <p><i class="fas fa-print "></i> + 504 234 567 89</p>
-        
                 </div>
             </div>
         </div>
-        <hr class="hr-final">
-        <div class="footer-copyright text-center py-3">© 2019 Copyright Fly.com</div>
     </footer>
 
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/controlador.js"></script>
+    <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/controlador.js"></script>
 </body>
 </html>
