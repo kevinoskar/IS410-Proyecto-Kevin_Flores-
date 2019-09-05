@@ -1912,7 +1912,7 @@ textarea.input {
 
 .footer-links li i {
   margin-right: 15px;
-  color: ##6b5be6;
+  color: #6b5be6;
   width: 14px;
   text-align: center;
 }
@@ -2068,4 +2068,10 @@ textarea.input {
     float: none;
     margin-top: 10px;
   }
+}
+.ul1{
+  padding: 5px;
+  background-color: black;
+  color: white;
+
 }
