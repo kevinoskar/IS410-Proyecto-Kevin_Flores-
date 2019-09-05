@@ -10,6 +10,7 @@ function iniciarSesion(){
     }
     console.log(campos[1].campoValido);
     guardarUsuario(validarEmail(document.getElementById("login").value));
+    window.location="../Pagina Central/index.html";
 }
 
 function validarCampoVacio(id,i){
@@ -40,19 +41,4 @@ function validarEmail(email){
     console.log(`El email es correcto? `+resultado);
     validarCampoEmail('login',resultado);
     return resultado;
-}
-function guardarUsuario(valido){
-    if(campos[0].campoValido==valido){
-        if(campos[1].campoValido==valido){
-            let usuario={
-                correo:document.getElementById("login").value,
-                contraseña:document.getElementById("password").value
-                };
-            console.log(usuario);
-        }else{
-            return;
-        }
-    }else{
-        return;
-    }
 }
