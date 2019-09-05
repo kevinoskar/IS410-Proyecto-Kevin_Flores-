@@ -1131,7 +1131,7 @@ textarea.input {
 }
 
 .noUi-connect {
-  background-color: #D10024;
+  background-color: #fdcb6d;
 }
 
 .noUi-horizontal {
@@ -1209,7 +1209,7 @@ textarea.input {
 }
 
 .store-grid li.active {
-  background-color: #D10024;
+  background-color: #fdcb6d4b;
   border-color: #fdcb6d;
   color: #FFF;
   cursor: default;
@@ -1710,12 +1710,12 @@ textarea.input {
 }
 
 .review-form .input-rating .stars>label:hover:before, .review-form .input-rating .stars>label:hover~label:before {
-  color: #D10024;
+  color: #fdcb6d;
 }
 
 .review-form .input-rating .stars>input:checked label:before, .review-form .input-rating .stars>input:checked~label:before {
   content: "\f005";
-  color: #D10024;
+  color: #fdcb6d;
 }
 
 /*=========================================================
