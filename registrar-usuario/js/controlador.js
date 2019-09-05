@@ -1,16 +1,4 @@
 
-llenarTabla();
-//Leer toda la información del localStorage
-function llenarTabla(){
-    document.getElementById('tabla-registros').innerHTML = ""; //Limpiar la tabla
-    for (let i=0;i<localStorage.length;i++){
-        console.log(localStorage.key(i));
-        let persona = JSON.parse(localStorage.getItem(localStorage.key(i))); //Convertir de cadena a JSON
-        anexarTabla(persona, localStorage.key(i));
-    }
-}
-
-
 
 let campos=[
     {id:'name',campoValido:false},
@@ -89,19 +77,4 @@ function Marcar(id,valido){
         document.getElementById(id).classList.remove('is-valid');
         document.getElementById(id).classList.add('is-invalid');
    }
-}
-
-function anexarTabla(usuario,id){
-    console.log(usuario);
-    document.getElementById("tabla-registros").innerHTML+=`
-        <tr>
-            <td>${usuario.name}</td>
-            <td>${usuario.lastname}</td>
-            <td>${usuario.birthday}</td>
-            <td>${usuario.gender}</td>
-            <td>${usuario.email}</td>
-            <td>${usuario.password}</td>
-            <td>${usuario.checkbox}</td>
-        </tr>
-    `;
 }
