@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/Fly-purpole.ico" type="image/x-icon">
-    <title>Empresas Siguiendo Usuario</title>
+    <title>Perfil Usuario</title>
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" >
@@ -34,8 +34,8 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="../configuracion-usuario/perfil-usuario.html"><i class="fa fa-cog icon-profile-dropdown"></i>Configuración</a>
                                     <a class="dropdown-item" href="../historial-usuario/historial-usuario.html"><i class="fas fa-shopping-bag icon-profile-dropdown"></i>Historial de compras</a>
-                                    <a class="dropdown-item" href="../lista-deseos-usuario/lista-deseos-usuario.html"><i class="fas fa-heart icon-profile-dropdown"></i></i>Lista de Deseos</a>
-                                    <a class="dropdown-item" href="../empresas-siguiendo-usuario/empresas-siguiendo.html"><i class="fas fa-building icon-profile-dropdown selected-sidebar"></i>Empresas Siguiendo</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-heart icon-profile-dropdown selected-sidebar"></i></i>Lista de Deseos</a>
+                                    <a class="dropdown-item" href="../empresas-siguiendo-usuario/empresas-siguiendo.html"><i class="fas fa-building icon-profile-dropdown"></i>Empresas Siguiendo</a>
                                     <a class="dropdown-item" href="#"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
                                   </div>
                             </div>
@@ -52,85 +52,34 @@
         </div>
     </header>
     <main>
-        <div class="d-flex mb-5" id="wrapper">
+        <div class="d-flex" id="wrapper">
 
             <!-- Sidebar -->
             <div class="bg-light border-right" id="sidebar-wrapper">
               <div class="list-group list-group-flush">
                 <a href="../configuracion-usuario/perfil-usuario.html" class="list-group-item list-group-item-action bg-light">Configuración</a>
                 <a href="../historial-usuario/historial-usuario.html" class="list-group-item list-group-item-action bg-light">Historial de compras</a>
-                <a href="../lista-deseos-usuario/lista-deseos-usuario.html" class="list-group-item list-group-item-action bg-light">Lista de Deseos</a>
-                <a href="../empresas-siguiendo-usuario/empresas-siguiendo.html" class="list-group-item list-group-item-action bg-light selected-sidebar">Empresas que sigues</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light selected-sidebar">Lista de Deseos</a>
+                <a href="../empresas-siguiendo-usuario/empresas-siguiendo.html" class="list-group-item list-group-item-action bg-light">Empresas que sigues</a>
               </div>
             </div>
             <!-- /#sidebar-wrapper -->
         
             <!-- Page Content -->
             <div id="page-content-wrapper">
-                <div class="col-md-3 col-xs-12 col-lg-12 ">
-                    <h2 class="title-company">Empresas a las que sigues.</h2>
-                </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="card col-lg-3 col-md-6 col-xs-12">
-                                <img src="img/RadioShack_Social.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Radioshack <button type="button" id="btnlike" class="btn-like"><i class="fas fa-thumbs-up"></i></button></h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="#" class="card-link">Perfil</a></li>
-                                    <li class="list-group-item"><a href="#" class="card-link">Productos en Promoción</a></li>
-                                </ul>
-                            </div>
-                            <div class="card col-lg-3 col-md-6 col-xs-12">
-                                <img src="img/samsung-logo.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Radioshack <button type="button" id="btnlike" class="btn-like"><i class="fas fa-thumbs-up"></i></button></h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="#" class="card-link">Perfil</a></li>
-                                    <li class="list-group-item"><a href="#" class="card-link">Productos en Promoción</a></li>
-                                </ul>
-                            </div>
-                            <div class="card col-lg-3 col-md-6 col-xs-12">
-                                <img src="img/RadioShack_Social.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Radioshack <button type="button" id="btnlike" class="btn-like"><i class="fas fa-thumbs-up"></i></button></h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="#" class="card-link">Perfil</a></li>
-                                    <li class="list-group-item"><a href="#" class="card-link">Productos en Promoción</a></li>
-                                </ul>
-                            </div>
-                            <div class="card col-lg-3 col-md-6 col-xs-12">
-                                <img src="img/RadioShack_Social.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Radioshack <button type="button" id="btnlike" class="btn-like"><i class="fas fa-thumbs-up"></i></button></h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="#" class="card-link">Perfil</a></li>
-                                    <li class="list-group-item"><a href="#" class="card-link">Productos en Promoción</a></li>
-                                </ul>
-                            </div>
-                            <div class="card col-lg-3 col-md-6 col-xs-12">
-                                <img src="img/RadioShack_Social.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Radioshack <button type="button" id="btnlike" class="btn-like"><i class="fas fa-thumbs-up"></i></button></h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="#" class="card-link">Perfil</a></li>
-                                    <li class="list-group-item"><a href="#" class="card-link">Productos en Promoción</a></li>
-                                </ul>
-                            </div>
+                <div class="col-md-3 col-xs-12 col-lg-12">
+                    <form action="">
+                        <div class="image-profile">
+                            <img class="box-profile-image" src="img/profile-image-anounimous.jpg" alt="">
                         </div>
-                    </div>
-                        
-        </div>
+                        <h2>Listo para modificar tus campos Kevin.</h2>
+                    </form>
+                </div>
+            </div>
+
+        
+    
+
 
     </main>
     <footer id="footer">
@@ -204,7 +153,7 @@
                                 <ul class="footer-links">
                                     <li><a href="../configuracion-usuario/perfil-usuario.html">Mi cuenta</a></li>
                                     <li><a href="#">Ver Carrito</a></li>
-                                    <li><a href="../lista-deseos-usuario/lista-deseos-usuario.html">Lista de Deseos</a></li>
+                                    <li><a href="#">Lista de Deseos</a></li>
 
                                 </ul>
                             </div>
