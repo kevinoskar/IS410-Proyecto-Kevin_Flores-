@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/Fly-purpole.ico" type="image/x-icon">
-    <title>Historial Usuario</title>
+    <title>Empresas Siguiendo Usuario</title>
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" >
@@ -32,10 +32,10 @@
                                     <img class="profile-image" src="img/profile-image-anounimous.jpg">
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#"><i class="fa fa-cog icon-profile-dropdown"></i>Configuración</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-shopping-bag icon-profile-dropdown"></i>Historial de compras</a>
+                                    <a class="dropdown-item" href="../configuracion-usuario/perfil-usuario.html"><i class="fa fa-cog icon-profile-dropdown"></i>Configuración</a>
+                                    <a class="dropdown-item" href="../historial-usuario/historial-usuario.html"><i class="fas fa-shopping-bag icon-profile-dropdown"></i>Historial de compras</a>
                                     <a class="dropdown-item" href="#"><i class="fas fa-heart icon-profile-dropdown"></i></i>Lista de Deseos</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-building icon-profile-dropdown"></i>Empresas Siguiendo</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-building icon-profile-dropdown selected-sidebar"></i>Empresas Siguiendo</a>
                                     <a class="dropdown-item" href="#"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
                                   </div>
                             </div>
@@ -52,93 +52,85 @@
         </div>
     </header>
     <main>
-        <div class="d-flex" id="wrapper">
+        <div class="d-flex mb-5" id="wrapper">
 
             <!-- Sidebar -->
             <div class="bg-light border-right" id="sidebar-wrapper">
               <div class="list-group list-group-flush">
                 <a href="../configuracion-usuario/perfil-usuario.html" class="list-group-item list-group-item-action bg-light">Configuración</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light selected-sidebar">Historial de compras</a>
+                <a href="../historial-usuario/historial-usuario.html" class="list-group-item list-group-item-action bg-light">Historial de compras</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Lista de Deseos</a>
-                <a href="../empresas-siguiendo-usuario/empresas-siguiendo.html" class="list-group-item list-group-item-action bg-light">Empresas que sigues</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light selected-sidebar">Empresas que sigues</a>
               </div>
             </div>
             <!-- /#sidebar-wrapper -->
         
             <!-- Page Content -->
             <div id="page-content-wrapper">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-xs-12 col-lg-12">
-                                <h2 class="titule-buy">Compras realizadas por ti Kevin.</h2>
-                        </div>
-                        <div class="card mb-3 ml-2">
-                            <div class="row no-gutters">
-                                <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                    <img src="img/product06.png" class="card-img" alt="...">
-                                </div>
-                                <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Laptop</h5>
-                                        <small class="text-muted">Empresa A</small>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-muted">Hace 4 Dias</small></p>
-                                        <p class="card-text">Costo:<small class="text-muted">$990.00</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 ml-2">
-                            <div class="row no-gutters">
-                                <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                    <img src="img/product06.png" class="card-img" alt="...">
-                                </div>
-                                <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Laptop</h5>
-                                        <small class="text-muted">Empresa A</small>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-muted">Hace 4 Dias</small></p>
-                                        <p class="card-text">Costo:<small class="text-muted">$990.00</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 ml-2">
-                                <div class="row no-gutters">
-                                    <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                        <img src="img/product06.png" class="card-img" alt="...">
-                                    </div>
-                                    <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Laptop</h5>
-                                            <small class="text-muted">Empresa A</small>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <p class="card-text"><small class="text-muted">Hace 4 Dias</small></p>
-                                            <p class="card-text">Costo:<small class="text-muted">$990.00</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-3 ml-2">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                            <img src="img/product06.png" class="card-img" alt="...">
-                                        </div>
-                                        <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Laptop</h5>
-                                                <small class="text-muted">Empresa A</small>
-                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                <p class="card-text"><small class="text-muted">Hace 4 Dias</small></p>
-                                                <p class="card-text">Costo:<small class="text-muted">$990.00</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                    </div>
+                <div class="col-md-3 col-xs-12 col-lg-12 ">
+                    <h2 class="title-company">Empresas a las que sigues.</h2>
                 </div>
-            </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="card col-lg-3 col-md-6 col-xs-12">
+                                <img src="img/RadioShack_Social.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Radioshack <button type="button" id="btnlike" class="btn-like"><i class="fas fa-thumbs-up"></i></button></h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a href="#" class="card-link">Perfil</a></li>
+                                    <li class="list-group-item"><a href="#" class="card-link">Productos en Promoción</a></li>
+                                </ul>
+                            </div>
+                            <div class="card col-lg-3 col-md-6 col-xs-12">
+                                <img src="img/samsung-logo.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Radioshack <button type="button" id="btnlike" class="btn-like"><i class="fas fa-thumbs-up"></i></button></h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a href="#" class="card-link">Perfil</a></li>
+                                    <li class="list-group-item"><a href="#" class="card-link">Productos en Promoción</a></li>
+                                </ul>
+                            </div>
+                            <div class="card col-lg-3 col-md-6 col-xs-12">
+                                <img src="img/RadioShack_Social.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Radioshack <button type="button" id="btnlike" class="btn-like"><i class="fas fa-thumbs-up"></i></button></h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a href="#" class="card-link">Perfil</a></li>
+                                    <li class="list-group-item"><a href="#" class="card-link">Productos en Promoción</a></li>
+                                </ul>
+                            </div>
+                            <div class="card col-lg-3 col-md-6 col-xs-12">
+                                <img src="img/RadioShack_Social.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Radioshack <button type="button" id="btnlike" class="btn-like"><i class="fas fa-thumbs-up"></i></button></h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a href="#" class="card-link">Perfil</a></li>
+                                    <li class="list-group-item"><a href="#" class="card-link">Productos en Promoción</a></li>
+                                </ul>
+                            </div>
+                            <div class="card col-lg-3 col-md-6 col-xs-12">
+                                <img src="img/RadioShack_Social.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Radioshack <button type="button" id="btnlike" class="btn-like"><i class="fas fa-thumbs-up"></i></button></h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a href="#" class="card-link">Perfil</a></li>
+                                    <li class="list-group-item"><a href="#" class="card-link">Productos en Promoción</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                        
+        </div>
 
     </main>
     <footer id="footer">
