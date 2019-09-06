@@ -33,8 +33,10 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#"><i class="fa fa-cog icon-profile-dropdown"></i>Configuración</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-cog icon-profile-dropdown"></i>Lista de Deseos</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-cog icon-profile-dropdown"></i>Empresas Siguiendo</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-shopping-bag icon-profile-dropdown"></i>Historial de compras</a>
+                                    <a class="dropdown-item" href="#"><i class="far fa-credit-card icon-profile-dropdown"></i></i>Monedero</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-heart icon-profile-dropdown"></i></i>Lista de Deseos</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-building icon-profile-dropdown"></i>Empresas Siguiendo</a>
                                     <a class="dropdown-item" href="#"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
                                   </div>
                             </div>
@@ -50,7 +52,107 @@
             </div>
         </div>
     </header>
-    <main></main>
+    <main>
+        <div class="d-flex" id="wrapper">
+
+            <!-- Sidebar -->
+            <div class="border-right" id="sidebar-wrapper">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action selected-sidebar">Configuración</a>
+                <a href="#" class="list-group-item list-group-item-action">Historial de compras</a>
+                <a href="#" class="list-group-item list-group-item-action">Monedero</a>
+                <a href="#" class="list-group-item list-group-item-action">Lista de Deseos</a>
+                <a href="#" class="list-group-item list-group-item-action">Empresas que sigues</a>
+              </div>
+            </div>
+            <!-- /#sidebar-wrapper -->
+        
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="col-md-3 col-xs-12 col-lg-12">
+                    <form action="">
+                        <button class="form-control image-profile">
+                            <img class="box-profile-image" src="img/profile-image-anounimous.jpg" alt="profile-image" title="Cambiar Imagen">
+                        </button><hr class="hr1">
+                        <h2>Listos para modificar tus campos Kevin.</h2>
+                        <h1>Datos Personales</h1>
+                        <table>
+                            <tbody class="col-md-12 col-xs-12 col-lg-12">
+                                <tr>
+                                    <td><label for="">Nombre Completo</label><br></td>
+                                    <td><input type="text" value="Pedro Luis"><br></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Apellidos</label><br></td>
+                                    <td><input type="text" value="Alvarez Estrada"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Fecha de Nacimiento</label><br></td>
+                                    <td><input type="datetime" name="" value="12/05/19" id=""></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Sexo</label><br></td>
+                                    <td><input type="text" value="Masculino"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Código Postal</label><br></td>
+                                    <td><input type="text" value="+220"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Pais</label><br></td>
+                                    <td><input type="text" value="Estados Unidos"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Estado o Departamento</label><br></td>
+                                    <td><input type="text" value="New York"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Dirección</label><br></td>
+                                    <td><input type="text" value="1420 Bronx south"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Telefono</label><br></td>
+                                    <td><input type="text" value="892-257-26"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Correo Electroníco</label><br></td>
+                                    <td><input type="text" value="Pedro@gmail.com"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Contraseña Actual</label><br></td>
+                                    <td><input type="text" value="Pepitos14"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h1>Crédito/Débito</h1>
+                        <table>
+                            <tbody class="col-md-12 col-xs-12 col-lg-12">
+                                <tr>
+                                    <td><label for="">Titular de la tarjeta</label></td>
+                                    <td><input type="text" value="Pedro Alvarez"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Número de tarjeta de crédito/débito</label><br></td>
+                                    <td><input type="text" value="1542-2152-1558-1283"><br>
+                                    <i class="card-1 fab fa-cc-visa"></i>
+                                    <i class="card-1 fab fa-cc-mastercard"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Fecha de Vencimiento</label><br></td>
+                                    <td><input type="datetime" name="" value="12/05/19" id=""></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">CVV</label><br></td>
+                                    <td><input type="text" value="Masculino"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn-save-changes form-control" type="button">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+    </main>
     <footer id="footer">
             <div class="section">
                 <div class="container">
