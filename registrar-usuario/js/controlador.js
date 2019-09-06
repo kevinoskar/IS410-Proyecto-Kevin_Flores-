@@ -27,20 +27,8 @@ let usuario={
 
     console.log(usuario);
     validarCampo();
-    if(verificarTodos()==true){
-        console.log(verificarTodos());
-        if(localStorage.key(localStorage.length-1)==null){
-            key=0;
-        }else{
-           key= parseInt(localStorage.key(localStorage.length-1))+1; 
-        } 
-        console.log("Llave a guardar: "+ key);
-        localStorage.setItem( key,JSON.stringify(usuario));
-        anexarTabla(usuario);
-        llenarTabla();
-    }else{
-
-    }
+    if(verificarTodos()==true)
+    window.location="../Pagina-Central/index.html"
 }
 
 function validarCampo(){
@@ -78,3 +66,4 @@ function Marcar(id,valido){
         document.getElementById(id).classList.add('is-invalid');
    }
 }
+
