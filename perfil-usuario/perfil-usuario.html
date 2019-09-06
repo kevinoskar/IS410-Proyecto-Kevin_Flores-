@@ -70,10 +70,13 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <div class="col-md-3 col-xs-12 col-lg-12">
-                    <form action="">
-                        <button class="form-control image-profile">
-                            <img class="box-profile-image" src="img/profile-image-anounimous.jpg" alt="profile-image" title="Cambiar Imagen">
-                        </button><hr class="hr1">
+                    <form enctype="multipart/form-data" method="POST">
+                            <div id="Imagen" class="form-control image-profile">
+                                <img class="box-profile-image" src="img/profile-image-anounimous.jpg" alt="profile-image" title="Cambiar Imagen">
+                            </div>
+                            <input id="urlimagen" name="uploadedfile" type="file">
+                            <button id="buttonUpload" type="button" value="" onclick="subirImagen()">Subir Imagen</button>
+                            <hr class="hr1">
                         <h2>Listos para modificar tus campos Kevin.</h2>
                         <h1>Datos Personales</h1>
                         <table>
@@ -260,4 +263,5 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/controlador.js"></script>
 </html>

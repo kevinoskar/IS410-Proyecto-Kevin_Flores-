@@ -441,3 +441,19 @@ form{
   transition:1s;
 
 }
+
+#buttonUpload{
+  background-color: #fdcb6d;
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 7px;
+  border-radius: 3px;
+}
+#buttonUpload:hover{
+  background-color: #f5b53f;
+  transition:1s;
+}
+#urlimagen{
+  width: 50%;
+  margin: 10px auto 10px auto;
+}
