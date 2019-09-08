@@ -5,14 +5,23 @@ let campos=[
     {id:'last-name',campoValido:false},
     {id:'birthday',campoValido:false},
     {id:'gender',campoValido:false},
+    {id:'postal',campoValido:false},
+    {id:'country',campoValido:false},
+    {id:'state',campoValido:false},
+    {id:'address',campoValido:false},
+    {id:'phone',campoValido:false},
     {id:'email',campoValido:false},
     {id:'password',campoValido:false},
     {id:'checkbox1',campoValido:false}
 ];
 //Modelo usuario
 
-let registros=[];
-
+let campos2=[
+    {id:'nameOwner',campoValido:false},
+    {id:'creditNumber',campoValido:false},
+    {id:'expirationDate',campoValido:false},
+    {id:'cvv',campoValido:false}
+];
 
 function registrarUsuario(){
 let usuario={
@@ -20,6 +29,11 @@ let usuario={
     lastname:document.getElementById("last-name").value,
     birthday:document.getElementById("birthday").value,
     gender:document.getElementById("gender").value,
+    postal:document.getElementById("postal").value,
+    country:document.getElementById("country").value,
+    state:document.getElementById("state").value,
+    address:document.getElementById("address").value,
+    phone:document.getElementById("phone").value,
     email:document.getElementById("email").value,
     password:document.getElementById("password").value,
     checkbox:$("#checkbox1").is(":checked")
@@ -27,12 +41,15 @@ let usuario={
 
     console.log(usuario);
     validarCampo();
-    if(verificarTodos()==true)
-    window.location="../Pagina-Central/index.html"
+    if(verificarTodos()==true){
+        console.log(campos);
+        formularioNuevo();
+    }
+    
 }
 
 function validarCampo(){
-    campos[6].campoValido=$("#checkbox1").is(':checked');
+    campos[11].campoValido=$("#checkbox1").is(':checked');
     for(var i=0;i<campos.length-1;i++)
         campos[i].campoValido=validarCampoVacio(campos[i].id);
         
@@ -45,9 +62,12 @@ function verificarTodos(){
         }
     }
     if(contador==campos.length){
+        $("#btn-register").removeClass("Wrong");
         $("#btn-register").addClass("Ready");
         return true;
     }else{
+        $("#btn-register").removeClass("Ready");
+        $("#btn-register").addClass("Wrong");
         return false;
     }
 }
@@ -65,5 +85,58 @@ function Marcar(id,valido){
         document.getElementById(id).classList.remove('is-valid');
         document.getElementById(id).classList.add('is-invalid');
    }
+}
+
+function formularioNuevo(){
+    document.getElementById("form").innerHTML="";
+    document.getElementById("form").innerHTML+=`
+    <h1>Tarjeta de Crédito/Débito</h1>
+    <input type="text" id="nameOwner" class="fadeIn second" name="login" placeholder="Titular de la Tarjeta">
+    <div class="advice">Número de tarjeta de crédito/débito</div>
+    <input type="text" id="creditNumber" class="fadeIn second" name="login" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+    <div class="advice">Fecha de Vencimiento</div>
+    <input type="date" id="expirationDate" class="fadeIn second" name="login" placeholder="Fecha de Vencimiento">
+    <input type="text" id="cvv" class="fadeIn second" name="login" placeholder="CVV">
+    <button id="btn-register" type="button" onclick="registrarUsuario2()" class="fadeIn fourth" value="Registrar"">REGISTRAR</button>
+    `;
+}
+function registrarUsuario2(){
+    let usuariosCredito={
+        nameOwner:document.getElementById("nameOwner").value,
+        creditNumber:document.getElementById("creditNumber").value,
+        expirationDate:document.getElementById("expirationDate").value,
+        cvv:document.getElementById("cvv").value
+        };
+
+    console.log(usuariosCredito);
+    validarCampo2();
+    if(verificarTodos2()==true){
+        console.log(campos2);
+        window.location="../Pagina-Central/index.html";
+    }
+    
+}
+
+function validarCampo2(){
+    for(var i=0;i<campos2.length;i++)
+        campos2[i].campoValido=validarCampoVacio(campos2[i].id);
+}
+
+function verificarTodos2(){
+    var contador=0;
+    for(let i=0;i<campos2.length;i++){
+        if(campos2[i].campoValido==true){
+           contador++; 
+        }
+    }
+    if(contador==campos2.length){
+        $("#btn-register").removeClass("Wrong");
+        $("#btn-register").addClass("Ready");
+        return true;
+    }else{
+        $("#btn-register").removeClass("Ready");
+        $("#btn-register").addClass("Wrong");
+        return false;
+    }
 }
 

@@ -297,6 +297,9 @@ a {
   .Ready{
     background-color: #4bd885 !important;
   }
+  .Wrong{
+    background-color: #d33333!important;
+  }
   .table{
     background-color: white;
   }
