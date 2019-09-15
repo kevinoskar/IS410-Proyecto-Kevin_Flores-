@@ -12,7 +12,6 @@ body {
     margin: 0 0 10px;
   }
   
-  }
   form h2{
     margin-left: 20px;
     font-size: 1.5rem;
@@ -370,8 +369,11 @@ body {
   }
 
 form{
-  background-color: #B9BABC21;
+  background-color: #FFF;
+  padding: 10px;
   padding-bottom: 20px;
+  margin: 10px;
+  border-radius: 11px
 }
   
 
@@ -405,7 +407,10 @@ form{
 
 #page-content-wrapper {
   min-width: 100vw;
+  background-image: url("../img/background-settings2.jpg");
+  background-color: #B9BABC;
 }
+
 
 #wrapper.toggled #sidebar-wrapper {
   margin-left: 0;
