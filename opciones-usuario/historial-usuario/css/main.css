@@ -331,6 +331,8 @@ form{
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out;
+  background-color: #15161D;
+
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -369,6 +371,14 @@ form{
   max-width: 540px;
 }
 .card:hover{
-  border:1px solid #6b5be6;
+  border:1px solid #000000;
   transition: 0.5s;
+}
+.list-group-flush .list-group-item{
+  background-color: #15161D;
+  color: #FFF;
+}
+.list-group-flush .list-group-item:hover{
+  color: #f5b53f;
+
 }

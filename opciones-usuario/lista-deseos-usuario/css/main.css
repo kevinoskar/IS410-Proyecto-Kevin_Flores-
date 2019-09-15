@@ -341,6 +341,7 @@ form{
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out;
+  background-color: #15161D;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -373,6 +374,14 @@ form{
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
   }
+}
+.list-group-flush .list-group-item{
+  background-color: #15161D;
+  color: #FFF;
+}
+.list-group-flush .list-group-item:hover{
+  color: #f5b53f;
+
 }
 
 
@@ -606,8 +615,5 @@ form{
 .product .add-to-cart .add-to-cart-btn:hover>i {
   opacity: 1;
   visibility: visible;
-}
-.foot{
-  margin-bottom: 60px;
 }
 

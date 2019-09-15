@@ -336,7 +336,26 @@ form{
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out;
+  background-color: #15161D;
 }
+.list-group-flush .list-group-item{
+  background-color: #15161D;
+  color: #FFF;
+}
+.list-group-flush .list-group-item:hover{
+  color: #f5b53f;
+
+}
+.list-group-item2{
+
+  background-color: #FFF;
+  color: #15161D;
+  margin: 10px 20px;
+}
+.list-group-item2:hover{
+  color:#f5b53f;
+}
+
 
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;
@@ -399,4 +418,9 @@ form{
 .card-img-top{
   height:250px;
   width: 250px;
+}
+.card > .list-group:last-child .list-group-item:last-child .list-group-item2:last-child {
+
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
