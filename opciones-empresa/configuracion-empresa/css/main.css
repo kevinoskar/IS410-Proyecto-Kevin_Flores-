@@ -39,7 +39,7 @@ body {
     padding: 0;
     list-style: none
   }
-  input, select{
+  input, select,textarea{
     color: #8D99AE;
     border-radius: 5px;
     border: 1px solid #c4bcb6;
@@ -48,7 +48,7 @@ body {
     padding: 5px;
     font-size: 1.0rem;
   }
-  input:focus,select:hover{
+  input:focus,select:hover,textarea:hover{
     border-bottom: 2px solid #6b5be6; 
   }
   td{
