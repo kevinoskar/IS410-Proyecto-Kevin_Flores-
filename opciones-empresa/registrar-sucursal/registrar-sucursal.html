@@ -55,7 +55,6 @@
     </header>
     <main>
         <div class="d-flex" id="wrapper">
-
             <!-- Sidebar -->
             <div class="border-right" id="sidebar-wrapper">
               <div class="list-group list-group-flush">
@@ -64,7 +63,7 @@
                 <a href="../registrar-sucursal/registrar-sucursal.html" class="list-group-item list-group-item-action selected-sidebar">Registrar Sucursal</a>
                 <a href="../registrar-promociones/registrar-promociones.html" class="list-group-item list-group-item-action">Registrar Promociones</a>
                 <a href="../dashboard-admin/dashboard-admin.html" class="list-group-item list-group-item-action">Dashboard Administrativo</a>
-                <a href="../ficha-impresion/ficha-impresion.html" class="list-group-item list-group-item-action">Ficha de Impresión</a>
+                <a href="" class="list-group-item list-group-item-action">Productos</a>
                 <a href="#" class="list-group-item list-group-item-action">Salir</a>
               </div>
             </div>
@@ -73,96 +72,82 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <div class="col-md-3 col-xs-12 col-lg-12">
-                    <form enctype="multipart/form-data" method="POST">
-                        <div id="dataProfile">
-                            <div id="Imagen" class="image-profile">
-                                <img class="box-profile-image" src="img/profile-image-anounimous.jpg" alt="profile-image" title="Cambiar Imagen">
-                                <img src="img/background-banner-example.jpg" class="box-profile-banner" alt="" title="Cambiar Banner">
+                   <div class="container1">
+                        <form id="formBranchOffice">
+                            <h1 class="title-branch-office">Nueva Sucursal</h1>
+                            <table class="branch-office-main">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="text"placeholder="Nombre de la Sucursal">
+                                            <input type="text" placeholder="Ubicación">
+                                            <input type="text"placeholder="Latitud-Longitud">
+                                            <input type="number" placeholder="Cantidad Total de Personal">
+                                            <input type="tel"placeholder="Teléfono">
+                                            <input type="email"placeholder="Correo Electrónico">
+                                        </td>
+                                        <td>
+                                            <img class="branch-office-image" src="img/background-banner-example.jpg">
+                                            <input type="file" id="uploadImageBranch"><br>
+                                            <button type="button" id="buttonUpload">Subir Imagen</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="foot-branch">
+                                <button type="button" id="buttonSave">Agregar Sucursal</button>
                             </div>
-                            <input id="urlimagen" name="uploadedfile" type="file">
-                            <button id="buttonUpload" type="button" value="" onclick="subirImagen()">Subir Imagen</button>
-                            <input type="file" id="urlbanner" name="uploadfile">
-                            <button id="buttonUploadBanner" type="button" value="" onclick="subirImagenBanner()">Subir Banner</button>
-                            <hr class="hr1">
-                        </div>   
-                        <h2>Listos para modificar tus campos Kevin.</h2>
-                        <h1>Datos Personales</h1>
-                        <table>
-                            <tbody class="col-md-12 col-xs-12 col-lg-12">
-                                <tr>
-                                    <td><label for="">Nombre Completo</label><br></td>
-                                    <td><input type="text" value="Pedro Luis"><br></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Apellidos</label><br></td>
-                                    <td><input type="text" value="Alvarez Estrada"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Fecha de Nacimiento</label><br></td>
-                                    <td><input type="date" name="" value="2019-09-05" id="date"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Sexo</label><br></td>
-                                    <td><input type="text" value="Masculino"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Código Postal</label><br></td>
-                                    <td><input type="text" value="+220"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Pais</label><br></td>
-                                    <td><input type="text" value="Estados Unidos"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Estado o Departamento</label><br></td>
-                                    <td><input type="text" value="New York"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Dirección</label><br></td>
-                                    <td><input type="text" value="1420 Bronx south"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Teléfono</label><br></td>
-                                    <td><input type="text" value="892-257-26"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Correo Electroníco</label><br></td>
-                                    <td><input type="text" value="Pedro@gmail.com"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Contraseña Actual</label><br></td>
-                                    <td><input type="text" value="Pepitos14"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h1>Crédito/Débito</h1>
-                        <table>
-                            <tbody class="col-md-12 col-xs-12 col-lg-12">
-                                <tr>
-                                    <td><label for="">Titular de la tarjeta</label></td>
-                                    <td><input type="text" value="Pedro Alvarez"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Número de tarjeta de crédito/débito</label><br></td>
-                                    <td><input type="text" value="1542-2152-1558-1283"><br>
-                                    <i class="card-1 fab fa-cc-visa"></i>
-                                    <i class="card-1 fab fa-cc-mastercard"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Fecha de Vencimiento</label><br></td>
-                                    <td><input type="datetime" name="" value="12/05/19" id=""></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">CVV</label><br></td>
-                                    <td><input type="text" value="Masculino"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button class="btn-save-changes form-control" type="button">Guardar Cambios</button>
-                    </form>
+                        </form>
+                   </div> 
+                </div>
+                <div class="branchs-office">
+                    <h1 class="title-new-branch-office">Sucursales Actuales</h1>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12 col-lg-12">
+                                <div class="branchs-office-item">
+                                    <h1 class="title-branch-unique">Sucursal Los Angeles</h1>
+                                    <div class="branchs-office-description">
+                                        <div class="col-md-4 col-xs-12 col-lg-12">
+                                            <img class="img-branchs-office" src="img/branch-office-example.jpg"> 
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-lg-12">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><label >Ubicación</label></td>
+                                                        <td>Col: 3 de Mayo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label >Latitud-Longitud</label></td>
+                                                        <td>+18.500</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label >Cantidad total de Personal</label></td>
+                                                        <td>10</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label >Teléfono</label></td>
+                                                        <td>8585-9522</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label >Correo Electrónico</label></td>
+                                                        <td>losangeles@gmail.com</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="tcol-md-12 col-xs-12 col-lg-12">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15480.179707066367!2d-87.2128529!3d14.0745244!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbdb7f2ff72f90fc0!2sMetroMall!5e0!3m2!1ses-419!2shn!4v1568608983160!5m2!1ses-419!2shn" width="600" height="450" frameborder="0" class="google-maps" allowfullscreen=""></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
     </main>
     <footer id="footer">
             <div class="section">

@@ -56,12 +56,13 @@ body {
     width: 50%;
   }
   label{
-    margin: 8px 0px;
+    margin: 2px 0px;
     border: 1px solid transparent;
     font-size: 1.0rem;
   }
   table{
     width: 100%;
+    padding: 20px;
   }
   #top-header {
     padding-top: 10px;
@@ -411,8 +412,7 @@ form{
 
 #page-content-wrapper {
   min-width: 100vw;
-  background-image: url("../img/background-settings2.jpg");
-  background-color: #B9BABC;
+  background-color: rgba(185, 186, 188, 0.164);
 }
 
 
@@ -451,25 +451,96 @@ form{
 
 }
 
-#buttonUpload ,#buttonUploadBanner{
+#buttonUpload{
   background-color: #fdcb6d;
   color: #fff;
   border: 1px solid transparent;
   padding: 7px;
   border-radius: 3px;
+  margin: 10px auto;
 }
-#buttonUpload:hover,#buttonUploadBanner:hover{
+#buttonUpload:hover{
   background-color: #f5b53f;
   transition:1s;
 }
-#urlimagen{
-  width: 50%;
-  margin: 10px auto 10px auto;
+.branch-office-image{
+  height: 200px;
+  width: 75%;
+  margin-top: 60px;
+
 }
-.box-profile-banner{
-  z-index: 0;
-  height: 220px;
-  border-radius: 32px;
-  width: 47%;
-  position: absolute;
+#buttonSave{
+  background-color: #6b5be6;
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 7px;
+  border-radius: 3px;
+  margin: 10px auto;
+  width: 100%;
+}
+#buttonSave{
+  background-color: #6454d8;
+}
+
+.foot-branch{
+  margin: 30px auto;
+  width: 20%;
+}
+#formBranchOffice{
+  border: 1px solid rgb(202, 201, 201);
+}
+.title-branch-office{
+  background-color: #000;
+  color: #FFF;
+  margin: -10px -10px 30px -10px;
+  height: 70px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 10px;
+  padding: 20px;
+
+}
+.branchs-office{
+  margin: 30px 25px;
+}
+.title-new-branch-office{
+  background-color: #000;
+  color: #f5b53f;
+  height: 70px;
+  font-size: 1.5rem;
+  padding: 20px;
+  border-radius: 10px;
+}
+.container{
+  padding: 0px -0px !important;
+}
+.branchs-office-item{
+  border: 1px solid rgba(128, 128, 128, 0.315);
+  border-radius: 10px;
+}
+.title-branch-unique{
+  background-color: #000;
+  color: white;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+
+}
+.img-branchs-office{
+  height: 300px;
+  width: 100%;
+  border-radius: 5px;
+}
+.td-branch{
+  width: 33%;
+}
+.google-maps{
+  border:0;
+  width: 100%;
+  height: 200px;
+}
+@media only screen and (max-width: 500px) {
+  .branchs-office-description{
+    overflow-x:auto;
+  }
 }
