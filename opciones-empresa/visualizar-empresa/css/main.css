@@ -478,22 +478,3 @@ form{
   width: 50%;
   margin: 10px auto 10px auto;
 }
-.box-profile-banner{
-  z-index: 0;
-height: 220px;
-border-radius: 32px;
-width: 47%;
-position: absolute;
-}
-
-#dataProfile{
-  display: flex;
-  width: 50%;
-  margin: 30px auto;
-}
-.google-maps{
-  border: 0;
-  margin: 30px auto 30px auto !important;
-  border-radius: 12px;
-  width: 1090px;
-}
