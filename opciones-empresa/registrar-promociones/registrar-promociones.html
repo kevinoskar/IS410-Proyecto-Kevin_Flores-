@@ -29,7 +29,7 @@
                             <div class="dropdown">
                                 <button class="hearder-icons btn-profile dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span>Empresa</span>
-                                    <img class="profile-image" src="img/profile-image-anounimous.jpg">
+                                    <img class="profile-image" src="img/logo-example.jpg">
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="../configuracion-empresa/perfil-empresa.html"><i class="fa fa-cog icon-profile-dropdown"></i>Actualizar Perfil</a>
@@ -72,95 +72,102 @@
         
             <!-- Page Content -->
             <div id="page-content-wrapper">
-                <div class="col-md-3 col-xs-12 col-lg-12">
-                    <form enctype="multipart/form-data" method="POST">
-                        <div id="dataProfile">
-                            <div id="Imagen" class="image-profile">
-                                <img class="box-profile-image" src="img/profile-image-anounimous.jpg" alt="profile-image" title="Cambiar Imagen">
-                                <img src="img/background-banner-example.jpg" class="box-profile-banner" alt="" title="Cambiar Banner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-lg-12">
+                            <div class="content-new-product">
+                                <label class="title-new-product">Nuevo Producto</label>
+                                <div class="description">
+                                    <form>
+                                        <h1>Descripción del producto</h1></br>
+                                        <input type="text" placeholder="Nombre del Producto">
+                                        <input type="text" placeholder="Código">
+                                        <input type="text" placeholder="Modelo">
+                                        <input type="text" placeholder="Marca">
+                                        <textarea name="" id="" cols="20" rows="6" placeholder="Descripción"></textarea>
+                                        <input type="number" placeholder="Cantidad en existencia">
+                                        <select name="typeProduct" id="typeProduct">
+                                    
+                                        </select></br>
+                                        <div class="price-box" id="prices">
+                                            <h1>Precio Lempiras</h1></br>
+                                            <label >Precio Original L.</label>
+                                            <input type="text" id="salePrice" placeholder=" L.00.00">
+                                            <label >Porcentaje de Descuento</label>
+                                            <input id="saleDiscountPercentage" type="text" placeholder="%00.00" onkeyup="calcularPorcentaje()" >
+                                            <label >Precio Total L.</label>
+                                            <input type="text" id="saleDiscount">
+                                        </div> 
+                                        <div id="especification">
+                                        
+                                        </div>
+                                        <div id="imageProduct"class="image-product">
+                                            
+                                        </div>
+                                        <div id="imagenFileUpload">
+
+                                        </div>
+
+                                        <button class="btn-save-all" type="button">
+                                                <i class="fas fa-plus"></i>Guardar Producto</button>
+                                    </form>
+                                </div>
                             </div>
-                            <input id="urlimagen" name="uploadedfile" type="file">
-                            <button id="buttonUpload" type="button" value="" onclick="subirImagen()">Subir Imagen</button>
-                            <input type="file" id="urlbanner" name="uploadfile">
-                            <button id="buttonUploadBanner" type="button" value="" onclick="subirImagenBanner()">Subir Banner</button>
-                            <hr class="hr1">
-                        </div>   
-                        <h2>Listos para modificar tus campos Kevin.</h2>
-                        <h1>Datos Personales</h1>
-                        <table>
-                            <tbody class="col-md-12 col-xs-12 col-lg-12">
-                                <tr>
-                                    <td><label for="">Nombre Completo</label><br></td>
-                                    <td><input type="text" value="Pedro Luis"><br></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Apellidos</label><br></td>
-                                    <td><input type="text" value="Alvarez Estrada"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Fecha de Nacimiento</label><br></td>
-                                    <td><input type="date" name="" value="2019-09-05" id="date"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Sexo</label><br></td>
-                                    <td><input type="text" value="Masculino"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Código Postal</label><br></td>
-                                    <td><input type="text" value="+220"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Pais</label><br></td>
-                                    <td><input type="text" value="Estados Unidos"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Estado o Departamento</label><br></td>
-                                    <td><input type="text" value="New York"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Dirección</label><br></td>
-                                    <td><input type="text" value="1420 Bronx south"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Teléfono</label><br></td>
-                                    <td><input type="text" value="892-257-26"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Correo Electroníco</label><br></td>
-                                    <td><input type="text" value="Pedro@gmail.com"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Contraseña Actual</label><br></td>
-                                    <td><input type="text" value="Pepitos14"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h1>Crédito/Débito</h1>
-                        <table>
-                            <tbody class="col-md-12 col-xs-12 col-lg-12">
-                                <tr>
-                                    <td><label for="">Titular de la tarjeta</label></td>
-                                    <td><input type="text" value="Pedro Alvarez"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Número de tarjeta de crédito/débito</label><br></td>
-                                    <td><input type="text" value="1542-2152-1558-1283"><br>
-                                    <i class="card-1 fab fa-cc-visa"></i>
-                                    <i class="card-1 fab fa-cc-mastercard"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Fecha de Vencimiento</label><br></td>
-                                    <td><input type="datetime" name="" value="12/05/19" id=""></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">CVV</label><br></td>
-                                    <td><input type="text" value="Masculino"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button class="btn-save-changes form-control" type="button">Guardar Cambios</button>
-                    </form>
+                        </div>
+                        <div class="content-all-products container">
+                            <label class="title-all-products">Todos los Productos</label>
+                            <div id="product-category" >
+                                <h1 class="head-title-product">Tecnología</h1>
+                                <div class=" row category"id="category">
+                                    <div class="card category col-md-6 col-xs-12 col-lg-4">
+                                        <img src="img/camisa-polo-unah.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Nombre del producto</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <h1 class="card-title2">Precio: L55.00</h1>
+                                            <button type="button" class="btn-edit">
+                                                <i class="fas fa-minus"></i>Editar Producto</button>
+                                            <button type="button" class="btn-delete">
+                                                <i class="fas fa-edit"></i>Eliminar Producto</button>
+                                        </div>
+                                    </div>
+                                    <div class="card category col-md-12 col-xs-12 col-lg-4">
+                                        <img src="img/camisa-polo-unah.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Nombre del producto</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <h1 class="card-title2">Precio: L55.00</h1>
+                                            <button type="button" class="btn-edit" data-toggle="modal" data-target="#Modal1">
+                                                <i class="fas fa-minus"></i>Editar Producto</button>
+                                            <button type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete">
+                                                <i class="fas fa-edit"></i>Eliminar Producto</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Ventana Modal--><!--Cuidado con el id al hacerlo dinamico-->
+            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel">Borrar producto</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Estás seguro que deseas borrar éste producto?</br>
+                            No se podrá recurper nunca más.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-danger">Eliminar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
     </main>
