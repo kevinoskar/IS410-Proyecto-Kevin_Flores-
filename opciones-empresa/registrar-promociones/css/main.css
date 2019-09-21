@@ -543,6 +543,7 @@ input[type="checkbox"]{
   text-align: start;
   background-color: bisque;
   padding: 20px;
+  border-radius: 10px;
 
 }
 .card-title2{
