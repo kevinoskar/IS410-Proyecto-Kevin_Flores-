@@ -142,7 +142,7 @@ function Form2(){
         <option value="">Seleccione su pais</option>
     </select>
     <div class="advice2">Subir Logotipo de la empresa</div>
-    <input type="file" name="locotype" id="logotype" >
+    <input type="file" name="locotype" id="logotype">
     <div id="formFooter">
         <button id="btn-register" type="button" onclick="registrarUsuario2()" class="fadeIn fourth" value="Registrar"">REGISTRAR</button>
     </div>

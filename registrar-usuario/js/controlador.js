@@ -2,7 +2,7 @@
 
 let campos=[
     {id:'name',campoValido:false},
-    {id:'last-name',campoValido:false},
+    {id:'lastName',campoValido:false},
     {id:'birthday',campoValido:false},
     {id:'gender',campoValido:false},
     {id:'postal',campoValido:false},
@@ -12,7 +12,7 @@ let campos=[
     {id:'phone',campoValido:false},
     {id:'email',campoValido:false},
     {id:'password',campoValido:false},
-    {id:'checkbox1',campoValido:false}
+    {id:'politcs',campoValido:false}
 ];
 //Modelo usuario
 
@@ -26,7 +26,7 @@ let campos2=[
 function registrarUsuario(){
 let usuario={
     name:document.getElementById("name").value,
-    lastname:document.getElementById("last-name").value,
+    lastname:document.getElementById("lastName").value,
     birthday:document.getElementById("birthday").value,
     gender:document.getElementById("gender").value,
     postal:document.getElementById("postal").value,
@@ -36,7 +36,7 @@ let usuario={
     phone:document.getElementById("phone").value,
     email:document.getElementById("email").value,
     password:document.getElementById("password").value,
-    checkbox:$("#checkbox1").is(":checked")
+    checkbox:$("#politcs").is(":checked")
     };
 
     console.log(usuario);
@@ -49,7 +49,7 @@ let usuario={
 }
 
 function validarCampo(){
-    campos[11].campoValido=$("#checkbox1").is(':checked');
+    campos[11].campoValido=$("#politcs").is(':checked');
     for(var i=0;i<campos.length-1;i++)
         campos[i].campoValido=validarCampoVacio(campos[i].id);
         
@@ -97,6 +97,8 @@ function formularioNuevo(){
     <div class="advice">Fecha de Vencimiento</div>
     <input type="date" id="expirationDate" class="fadeIn second" name="login" placeholder="Fecha de Vencimiento">
     <input type="text" id="cvv" class="fadeIn second" name="login" placeholder="CVV">
+    <div class="advice">Sube una imagen de Perfil</div></br>
+    <input type="file" name="profileImage" id="profileImage">
     <button id="btn-register" type="button" onclick="registrarUsuario2()" class="fadeIn fourth" value="Registrar"">REGISTRAR</button>
     `;
 }
