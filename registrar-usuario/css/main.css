@@ -303,3 +303,11 @@ a {
   .table{
     background-color: white;
   }
+  .small-image-profile,.small-image-profile img{
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+

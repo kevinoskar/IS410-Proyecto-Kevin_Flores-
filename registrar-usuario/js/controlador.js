@@ -99,7 +99,12 @@ function formularioNuevo(){
     <input type="text" id="cvv" class="fadeIn second" name="login" placeholder="CVV">
     <div class="advice">Sube una imagen de Perfil</div></br>
     <input type="file" name="profileImage" id="profileImage">
+    <button type="button" class="btn-save-changes" onclick="subirImagen()">Subir Imagen</button></br>
+    <div class="small-image-profile" id="smallImage">
+
+    </div>
     <button id="btn-register" type="button" onclick="registrarUsuario2()" class="fadeIn fourth" value="Registrar"">REGISTRAR</button>
+
     `;
 }
 function registrarUsuario2(){
@@ -140,5 +145,37 @@ function verificarTodos2(){
         $("#btn-register").addClass("Wrong");
         return false;
     }
+}
+
+function subirImagen(){  
+    if(document.getElementById("profileImage").value!=""){
+        var formData = new FormData();
+        var files = $('#profileImage')[0].files[0];
+        formData.append('file',files);
+        $.ajax({
+            url: 'php/uploader.php',
+            method: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success:function(res){
+                console.log(res);
+                console.log("La imagen subida tiene el URL:"+res);
+                verImagen(res);
+            },
+            error:function(error){
+                console.error(error);
+            }
+        });
+
+    }
+   
+}
+
+function verImagen(url){
+    document.getElementById("smallImage").innerHTML=`
+        <img src="${url}">
+    `;
+
 }
 

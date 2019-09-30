@@ -1,7 +1,7 @@
 
 function subirImagen(){  
     var formData = new FormData();
-    var files = $('#urlimagen')[0].files[0];
+    var files = $('#uploadImageBranch')[0].files[0];
     formData.append('file',files);
     $.ajax({
         url: 'php/uploader.php',
@@ -20,6 +20,8 @@ function subirImagen(){
 }
 function imageVisible(res){
     document.getElementById("Imagen").innerHTML=`
-        <img class="box-profile-image" src="${res}" alt="profile-image" title="Cambiar Imagen">
+        <img class="branch-office-image" src="${res}" alt="profile-image" title="Cambiar Imagen"></br>
+        <input type="file" id="uploadImageBranch"><br>
+        <button type="button" id="buttonUpload" onclick="subirImagen()">Subir Imagen</button>
     `;
 }
