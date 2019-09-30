@@ -1,0 +1,13 @@
+{
+    "name": "kevin-flores/fly-database",
+    "description": "Esta es la base de datos de mi pagina web fly.com cuyo fin es el almacenaje dinamico y en tiempo real de mi pagina web.",
+    "authors": [
+        {
+            "name": "kevinoskar",
+            "email": "kevin.oskar7@gmail.com"
+        }
+    ],
+    "require": {
+        "kreait/firebase-php": "^1.2"
+    }
+}
