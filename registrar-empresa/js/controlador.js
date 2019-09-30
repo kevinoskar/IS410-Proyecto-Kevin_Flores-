@@ -9,9 +9,9 @@ let campos=[
 ];
 let campos2=[
     {id:'address',campoValido:false},
-    {id:'latLong',campoValido:false},
+    {id:'latitute',campoValido:false},
+    {id:'longitude',campoValido:false},
     {id:'country',campoValido:false},
-    {id:'name',campoValido:false}
 ];
 //Modelo usuario
 
@@ -137,12 +137,11 @@ function Form2(){
     document.getElementById("form-content").innerHTML+=`
     <input type="text" id="address" class="fadeIn second" name="login" placeholder="Dirección">
     <div class="advice2">Latitud y Longitud (Seguir la forma)</div> 
-    <input type="text" id="latLong" class="fadeIn second" placeholder="[±0-90.000],[±0-180.000]">
+    <input type="text" id="latitute" class="fadeIn second" placeholder="[±0-90.000]">
+    <input type="text" id="longitude" class="fadeIn second" placeholder="[±0-180.000]">
     <select name="" id="country">
         <option value="">Seleccione su pais</option>
     </select>
-    <div class="advice2">Subir Logotipo de la empresa</div>
-    <input type="file" name="locotype" id="logotype">
     <div id="formFooter">
         <button id="btn-register" type="button" onclick="registrarUsuario2()" class="fadeIn fourth" value="Registrar"">REGISTRAR</button>
     </div>
@@ -155,19 +154,31 @@ function Form2(){
 function registrarUsuario2(){
     let empresa2={
         address:document.getElementById("address").value,
-        latLong:document.getElementById("latLong").value,
+        latitute:document.getElementById("latitute").value,
+        longitude:document.getElementById("longitude").value,
         country:document.getElementById("country").value,
-        logotype:document.getElementById("logotype").value
     };
 
     console.log(empresa2);
-    Marcar("latLong",validarlatitud(document.getElementById("latLong").value));
-    console.log("Access Total redirecting..")
-    window.location.replace("../login/index.html");
+    campos2[0].campoValido=validarCampoVacio(campos2[0].id);   
+    Marcar(campos2[1].id,campos2[1].campoValido=validarlatitud(document.getElementById("latitute").value));
+    Marcar(campos2[2].id,campos2[2].campoValido=validarlongitud(document.getElementById("longitude").value));
+    console.log(campos2[1].campoValido=validarlatitud(document.getElementById("latitute").value));
+    console.log(campos2[2].campoValido=validarlongitud(document.getElementById("longitude").value));
+    console.log("Los Valores del campo 1"+campos2[1].campoValido+"Y son"+campos2[2].campoValido)
+    
+
+    /*console.log("Access Total redirecting..")
+    window.location.replace("../login/index.html");*/
 }
 
 
-function validarlatitud(latLong){
-    let lalo= /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
-    return lalo.test(latLong);
+function validarlatitud(latitute){
+    let lalo= /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
+    return lalo.test(latitute);
+}
+
+function validarlongitud(longitude){
+    let lalo= /^[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
+    return lalo.test(longitude);
 }
