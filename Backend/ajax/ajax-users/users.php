@@ -28,32 +28,40 @@
 
     }
 
-    /*
     if ($_SERVER['REQUEST_METHOD']=='GET' && !isset($_GET['id'])){
-        
+        User::obtainUsers($database->getDB());
     }
     if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['id'])){
-        
+        User::obtainUser($database->getDB(),$_GET['id']);
     }
     
     if ($_SERVER['REQUEST_METHOD']=='DELETE' && isset($_GET['id'])){
-        
+        User::deleteUser($database->getDB(),$_GET['id']);
     }
-    /*
+    
     if ($_SERVER['REQUEST_METHOD'] =='PUT' && isset($_GET['id'])){
         $_PUT=array();
         if ($_SERVER['REQUEST_METHOD'] == 'PUT')
             parse_str(file_get_contents("php://input"), $_PUT);
     
-        $u = new Usuario(
-            $_PUT['firstName'],
+        $u = new User(
+            $_PUT['name'],
             $_PUT['lastName'],
+            $_PUT['birthday'],
+            $_PUT['gender'],
+            $_PUT['postal'],
+            $_PUT['country'],
+            $_PUT['state'],
+            $_PUT['address'],
             $_PUT['email'],
             $_PUT['password'],
-            $_PUT['gender'],
-            $_PUT['birthdate']
+            $_PUT['clientCode'],
+            $_PUT['nameOwner'],
+            $_PUT['creditNumber'],
+            $_PUT['expirationDate'],
+            $_PUT['cvv']
+
         );
-        $u->actualizarUsuario(,$_GET['id']);
+        echo $u->updateUser($database->getDB(),$_GET['id']);
     }
-    */
 ?>

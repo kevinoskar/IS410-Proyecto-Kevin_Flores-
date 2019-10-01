@@ -41,21 +41,21 @@ protected $sessionState;
         $cvv
 
     ){
-        $this->$name=$name;
-        $this->$lastName=$lastName;
-        $this->$birthday=$birthday;
-        $this->$gender=$gender;
-        $this->$postal=$postal;
-        $this->$country=$country;
-        $this->$state=$state;
-        $this->$address=$address;
-        $this->$email=$email;
-        $this->$password=$password;
-        $this->$clientCode=$clientCode;
-        $this->$nameOwner=$nameOwner;
-        $this->$creditNumber=$creditNumber;
-        $this->$expirationDate=$expirationDate;
-        $this->$cvv=$cvv;
+        $this->name=$name;
+        $this->lastName=$lastName;
+        $this->birthday=$birthday;
+        $this->gender=$gender;
+        $this->postal=$postal;
+        $this->country=$country;
+        $this->state=$state;
+        $this->address=$address;
+        $this->email=$email;
+        $this->password=$password;
+        $this->clientCode=$clientCode;
+        $this->nameOwner=$nameOwner;
+        $this->creditNumber=$creditNumber;
+        $this->expirationDate=$expirationDate;
+        $this->cvv=$cvv;
 	}
     //Methods
 
@@ -76,10 +76,10 @@ protected $sessionState;
         $arrayUser['expirationDate']=$this->expirationDate;
         $arrayUser['cvv']=$this->cvv;
         $arrayUser['urlProfileImage']=$this->urlProfileImage;
-        /*$arrayUser['productsPurchased']=$this->productsPurchased;
+        $arrayUser['productsPurchased']=$this->productsPurchased;
         $arrayUser['wishList']=$this->wishList;
 		$arrayUser['companysFollowing']=$this->companysFollowing;
-		$arrayUser['sessionState']=$this->sessionState;*/
+		$arrayUser['sessionState']=$this->sessionState;
         return $arrayUser;
 
     }
@@ -90,24 +90,45 @@ protected $sessionState;
 		   ->push($users);
 		   
 		if ($result->getKey() != null)
-			return '{"mensaje":"Registro almacenado","key":"'.$result->getKey().'"}';
+			return '{"mensaje":"Usuario Guardado con exito","key":"'.$result->getKey().'"}';
 		else 
 			return '{"mensaje":"Error al guardar el registro"}';
 	}
 
-	public static function deleteUser(){
+	public static function deleteUser($db,$keyfirebase){
+		$result=$db->getReference('users')
+			->getChild($keyfirebase)
+			->remove();
+		echo '{"mensaje":"Se eliminó el usuario con id '.$keyfirebase.'"}';
 	}
 
-	public static function obtainUser(){
+	public static function obtainUser($db,$keyfirebase){
+		$result=$db->getReference('users')
+			->getChild($keyfirebase)
+			->getValue();
+		echo json_encode($result);
 	}
 
-	public static function obtainUsers(){
-
+	public static function obtainUsers($db){
+		$result=$db->getReference('users')
+			->getSnapshot()
+			->getValue();
+		echo json_encode($result);
 	}
-	public function updateUser(){
-
+	public function updateUser($db,$keyfirebase){
+		$result = $db->getReference('users')
+		->getChild($keyfirebase)
+		->set($this->getData());
+	
+		if ($result->getKey() != null)
+			return '{"mensaje":"Usuario actualizado","key":"'.$result->getKey().'"}';
+		else 
+			return '{"mensaje":"Error al actualizar el registro"}';
 	}
+	/*public static loginUser($db,$keyfirebase){
 
+
+	}*/
 
 
     //Getters & Setters
