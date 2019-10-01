@@ -23,7 +23,6 @@
             $_POST['expirationDate'],
             $_POST['cvv']
 
-            
             );
         echo $u->createUser($database->getDB());
 
