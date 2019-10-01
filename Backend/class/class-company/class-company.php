@@ -15,19 +15,19 @@ class Company{
 	protected $productos;
 
 	public function __construct(
-		$nameCompany = null,
-		$descriptionCompany = null,
-		$oriented = null,
-		$fundationDate = null,
-		$emailCompany = null,
-		$passwordCompany = null,
-		$postalCode = null,
-		$country = null,
-		$state = null,
-		$addressCompany = null,
-		$phoneNumberCompany = null,
-		$latituteLongitud = null,
-		$productos = null
+		$nameCompany,
+		$descriptionCompany,
+		$oriented,
+		$fundationDate,
+		$emailCompany,
+		$passwordCompany,
+		$postalCode,
+		$country,
+		$state,
+		$addressCompany,
+		$phoneNumberCompany,
+		$latituteLongitud,
+		$productos
 	){
 		$this->nameCompany = $nameCompany;
 		$this->descriptionCompany = $descriptionCompany;
@@ -43,6 +43,70 @@ class Company{
 		$this->latituteLongitud = $latituteLongitud;
 		$this->productos = $productos;
 	}
+
+	public function getData(){
+		$arrayCompanys['nameCompany']=$this->nameCompany;
+		$arrayCompanys['descriptionCompany']=$this->descriptionCompany;
+		$arrayCompanys['oriented']=$this->oriented;
+		$arrayCompanys['fundationDate']=$this->fundationDate;
+		$arrayCompanys['emailCompany']=$this->emailCompany;
+		$arrayCompanys['passwordCompany']=$this->passwordCompany;
+		$arrayCompanys['postalCode']=$this->postalCode;
+		$arrayCompanys['country']=$this->country;
+		$arrayCompanys['state']=$this->state;
+		$arrayCompanys['addressCompany']=$this->addressCompany;
+		$arrayCompanys['phoneNumberCompany']=$this->phoneNumberCompany;
+		$arrayCompanys['latituteLongitud']=$this->latituteLongitud;
+		$arrayCompanys['productos']=$this->productos;
+		return $arrayCompanys;
+
+
+	}
+
+	public function createCompany($db){
+		$company = $this->getData();
+		$result = $db->getReference('companys')
+		   ->push($company);
+		   
+		if ($result->getKey() != null)
+			return '{"mensaje":"Empresa Guardada con exito","key":"'.$result->getKey().'"}';
+		else 
+			return '{"mensaje":"Error al guardar el registro"}';
+	}
+
+
+	public static function obtainCompany($db,$keyfirebase){
+		$result=$db->getReference('companys')
+			->getChild($keyfirebase)
+			->getValue();
+		echo json_encode($result);
+
+	}
+	public static function obtainCompanys($db){
+		$result=$db->getReference('companys')
+			->getSnapshot()
+			->getValue();
+		echo json_encode($result);
+
+	}
+	public static function deleteCompany($db,$keyfirebase){
+		$result=$db->getReference('companys')
+			->getChild($keyfirebase)
+			->remove();
+		echo '{"mensaje":"Se eliminó la empresa con id '.$keyfirebase.'"}';
+	}
+	public function updateCompany($db,$keyfirebase){
+		$result = $db->getReference('companys')
+		->getChild($keyfirebase)
+		->set($this->getData());
+	
+		if ($result->getKey() != null)
+			return '{"mensaje":"Empresa actualizada","key":"'.$result->getKey().'"}';
+		else 
+			return '{"mensaje":"Error al actualizar la empresa"}';
+	}
+
+
 
 	public function getNameCompany(){
 		return $this->nameCompany;
@@ -142,19 +206,5 @@ class Company{
 	public function setsessionState($sessionState){
 		$this->sessionState = $sessionState;
 	}
-
-
-
-	public function createCompany(){
-	}
-	public function obtainCompany(){
-	}
-	public function obtainCompanys(){
-	}
-	public function deleteCompany(){
-	}
-	public function updateCompany(){
-	}
-
 }
 ?>
