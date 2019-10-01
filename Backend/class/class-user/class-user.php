@@ -93,6 +93,29 @@ protected $sessionState;
 
     }
     
+	public function createUser($db){
+		$users = $this->getData();
+		$result = $db->getReference('users')
+		   ->push($users);
+		   
+		if ($result->getKey() != null)
+			return '{"mensaje":"Registro almacenado","key":"'.$result->getKey().'"}';
+		else 
+			return '{"mensaje":"Error al guardar el registro"}';
+	}
+
+	public static function deleteUser(){
+	}
+
+	public static function obtainUser(){
+	}
+
+	public static function obtainUsers(){
+
+	}
+	public function updateUser(){
+
+	}
 
 
 
@@ -231,6 +254,7 @@ protected $sessionState;
 		$this->sessionState = $sessionState;
 	}
 	
+
 
 }
 

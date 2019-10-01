@@ -1,6 +1,6 @@
 {
-    "name": "kevin-flores/fly-database",
-    "description": "Esta es la base de datos de mi pagina web fly.com cuyo fin es el almacenaje dinamico y en tiempo real de mi pagina web.",
+    "name": "kevin-flores/database-fly.com",
+    "description": "Esta es la base de datos con firebase de mi empresa fly.com.",
     "authors": [
         {
             "name": "kevinoskar",
@@ -8,6 +8,6 @@
         }
     ],
     "require": {
-        "kreait/firebase-php": "^1.2"
+        "kreait/firebase-php": "4.32"
     }
 }
