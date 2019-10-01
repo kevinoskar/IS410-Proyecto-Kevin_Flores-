@@ -12,7 +12,7 @@ class Company{
 	protected $addressCompany;
 	protected $phoneNumberCompany;
 	protected $latituteLongitud;
-	protected $productos;
+	protected $products=NULL;
 
 	public function __construct(
 		$nameCompany,
@@ -27,7 +27,7 @@ class Company{
 		$addressCompany,
 		$phoneNumberCompany,
 		$latituteLongitud,
-		$productos
+		$products
 	){
 		$this->nameCompany = $nameCompany;
 		$this->descriptionCompany = $descriptionCompany;
@@ -41,7 +41,7 @@ class Company{
 		$this->addressCompany = $addressCompany;
 		$this->phoneNumberCompany = $phoneNumberCompany;
 		$this->latituteLongitud = $latituteLongitud;
-		$this->productos = $productos;
+		$this->products = $products;
 	}
 
 	public function getData(){
@@ -57,9 +57,8 @@ class Company{
 		$arrayCompanys['addressCompany']=$this->addressCompany;
 		$arrayCompanys['phoneNumberCompany']=$this->phoneNumberCompany;
 		$arrayCompanys['latituteLongitud']=$this->latituteLongitud;
-		$arrayCompanys['productos']=$this->productos;
+		$arrayCompanys['products']=$this->products;
 		return $arrayCompanys;
-
 
 	}
 
@@ -192,12 +191,12 @@ class Company{
 	public function setLatituteLongitud($latituteLongitud){
 		$this->latituteLongitud = $latituteLongitud;
 	}
-	public function getProductos(){
-		return $this->productos;
+	public function getProducts(){
+		return $this->products;
 	}
 
-	public function setProductos($productos){
-		$this->sessionState = $sessionState;
+	public function setProducts($products){
+		$this->products = $products;
 	}
 	public function getsessionState(){
 		return $this->sessionState;

@@ -2,6 +2,7 @@
     header('Content-Type: application/json'); 
     require_once('../../class/class-company/class-company.php');
     require_once('../../class/class-database/database.php');
+    require_once('../../class/class-company/class-product.php');
     
     $database = new Database();
 
@@ -19,8 +20,9 @@
             $_POST['addressCompany'],
             $_POST['phoneNumberCompany'],
             $_POST['latituteLongitud'],
-            $_POST['productos']
-            );
+            $_POST['products']
+        );
+
         echo $com->createCompany($database->getDB());
 
     }
