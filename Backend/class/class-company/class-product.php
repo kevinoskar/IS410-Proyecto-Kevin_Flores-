@@ -10,18 +10,19 @@ class Product{
 	protected $productDiscountPorcentage;
 	protected $productTotalPrice;
 	protected $productImages;
+	protected $key;
 
 	public function __construct(
-		$productName = null,
-		$productCode = null,
-		$productModel = null,
-		$productbrand = null,
-		$productDescription = null,
-		$productQuantity = null,
-		$productPrice = null,
-		$productDiscountPorcentage = null,
-		$productTotalPrice = null,
-		$productImages = null
+		$productName,
+		$productCode,
+		$productModel,
+		$productbrand,
+		$productDescription,
+		$productQuantity,
+		$productPrice,
+		$productDiscountPorcentage,
+		$productTotalPrice,
+		$productImages
 	){
 		$this->productName = $productName;
 		$this->productCode = $productCode;
@@ -34,6 +35,55 @@ class Product{
 		$this->productTotalPrice = $productTotalPrice;
 		$this->productImages = $productImages;
 	}
+	public function getData(){
+			$productA['productName']=$this->productName;
+			$productA['productCode']=$this->productCode;
+			$productA['productModel']=$this->productModel;
+			$productA['productbrand']=$this->productbrand;
+			$productA['productDescription']=$this->productDescription;
+			$productA['productQuantity']=$this->productQuantity;
+			$productA['productPrice']=$this->productPrice;
+			$productA['productDiscountPorcentage']=$this->productDiscountPorcentage;
+			$productA['productTotalPrice']=$this->productTotalPrice;
+			$productA['productImages']=$this->productImages;
+			return $productA;
+	}
+
+
+	public function createProduct($db){
+		$product = $this->getData();
+		$result = $db->getReference('companys')
+			->getChild($this->getKey()) 
+			->getChild('products') 
+			->push($product);
+		   
+		if ($result->getKey() != null)
+			return '{"mensaje":"Producto Anexado con exito","key":"'.$result->getKey().'"}';
+		else 
+			return '{"mensaje":"Error al guardar el registro"}';
+	}
+
+	public static function obtainProduct(){
+
+	}
+	public static function obtainProducts(){
+
+	}
+	public static function deleteProduct(){
+		$result=$db->getReference('companys')
+			->getChild($keyfirebase)
+			->getChild('products')
+			->remove();
+		echo '{"mensaje":"Se eliminó la empresa con id '.$keyfirebase.'"}';
+	}
+
+	public function updateProduct(){
+
+	}
+
+
+
+
 
 	public function getProductName(){
 		return $this->productName;
@@ -106,16 +156,11 @@ class Product{
 		$this->productImages = $productImages;
 	}
 
-	public function createProduct(){
+	public function setKey($key){
+		$this->key=$key;
 	}
-	public function obtainProduct(){
+	public function getKey(){
+		return $this->key;
 	}
-	public function obtainProducts(){
-	}
-	public function deleteProduct(){
-	}
-	public function updateProduct(){
-	}
-
 }
 ?>
