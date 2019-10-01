@@ -38,33 +38,24 @@ protected $sessionState;
         $nameOwner,
         $creditNumber,
         $expirationDate,
-        $cvv,
-        $urlProfileImage,
-        $productsPurchased,
-        $wishList,
-		$companysFollowing,
-		$sessionState
+        $cvv
 
     ){
-        $this->$name=name;
-        $this->$lastName=lastName;
-        $this->$birthday=birthday;
-        $this->$gender=gender;
-        $this->$postal=postal;
-        $this->$country=country;
-        $this->$state=state;
-        $this->$address=address;
-        $this->$email=email;
-        $this->$password=password;
-        $this->$clientCode=clientCode;
-        $this->$nameOwner=nameOwner;
-        $this->$creditNumber=creditNumber;
-        $this->$expirationDate=expirationDate;
-        $this->$cvv=cvv;
-        $this->$urlProfileImage=urlProfileImage;
-        $this->$productsPurchased = productsPurchased;
-		$this->$wishList = wishList;
-		$this->$sessionState = sessionState;
+        $this->$name=$name;
+        $this->$lastName=$lastName;
+        $this->$birthday=$birthday;
+        $this->$gender=$gender;
+        $this->$postal=$postal;
+        $this->$country=$country;
+        $this->$state=$state;
+        $this->$address=$address;
+        $this->$email=$email;
+        $this->$password=$password;
+        $this->$clientCode=$clientCode;
+        $this->$nameOwner=$nameOwner;
+        $this->$creditNumber=$creditNumber;
+        $this->$expirationDate=$expirationDate;
+        $this->$cvv=$cvv;
 	}
     //Methods
 
@@ -85,10 +76,10 @@ protected $sessionState;
         $arrayUser['expirationDate']=$this->expirationDate;
         $arrayUser['cvv']=$this->cvv;
         $arrayUser['urlProfileImage']=$this->urlProfileImage;
-        $arrayUser['productsPurchased']=$this->productsPurchased;
+        /*$arrayUser['productsPurchased']=$this->productsPurchased;
         $arrayUser['wishList']=$this->wishList;
 		$arrayUser['companysFollowing']=$this->companysFollowing;
-		$arrayUser['sessionState']=$this->sessionState;
+		$arrayUser['sessionState']=$this->sessionState;*/
         return $arrayUser;
 
     }

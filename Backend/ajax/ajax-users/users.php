@@ -15,13 +15,21 @@
             $_POST['country'],
             $_POST['state'],
             $_POST['address'],
-            $_POST['email']
+            $_POST['email'],
+            $_POST['password'],
+            $_POST['clientCode'],
+            $_POST['nameOwner'],
+            $_POST['creditNumber'],
+            $_POST['expirationDate'],
+            $_POST['cvv']
+
+            
             );
-        $u->createUser($database->getDB());
+        echo $u->createUser($database->getDB());
 
     }
 
-
+    /*
     if ($_SERVER['REQUEST_METHOD']=='GET' && !isset($_GET['id'])){
         
     }
