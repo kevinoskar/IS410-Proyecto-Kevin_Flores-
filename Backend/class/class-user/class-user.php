@@ -21,6 +21,7 @@ protected $urlProfileImage;
 protected $productsPurchased;
 protected $wishList;
 protected $companysFollowing;
+protected $sessionState;
     
     public function __construct(
         $name,
@@ -41,7 +42,8 @@ protected $companysFollowing;
         $urlProfileImage,
         $productsPurchased,
         $wishList,
-        $companysFollowing
+		$companysFollowing,
+		$sessionState
 
     ){
         $this->$name=name;
@@ -62,9 +64,8 @@ protected $companysFollowing;
         $this->$urlProfileImage=urlProfileImage;
         $this->$productsPurchased = productsPurchased;
 		$this->$wishList = wishList;
-		$this->$companysFollowing = companysFollowing;
-    }
-   
+		$this->$sessionState = sessionState;
+	}
     //Methods
 
     public function getData(){
@@ -86,7 +87,8 @@ protected $companysFollowing;
         $arrayUser['urlProfileImage']=$this->urlProfileImage;
         $arrayUser['productsPurchased']=$this->productsPurchased;
         $arrayUser['wishList']=$this->wishList;
-        $arrayUser['companysFollowing']=$this->companysFollowing;
+		$arrayUser['companysFollowing']=$this->companysFollowing;
+		$arrayUser['sessionState']=$this->sessionState;
         return $arrayUser;
 
     }
@@ -221,6 +223,14 @@ protected $companysFollowing;
 	public function setCompanysFollowing($companysFollowing){
 		$this->companysFollowing = $companysFollowing;
 	}
+	public function getsessionState(){
+		return $this->sessionState;
+	}
+
+	public function setsessionState($sessionState){
+		$this->sessionState = $sessionState;
+	}
+	
 
 }
 
