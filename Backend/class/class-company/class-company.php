@@ -14,6 +14,9 @@ class Company{
 	protected $latituteLongitud;
 	protected $products=NULL;
 	protected $keyCompany;
+	protected $branchOffice=NULL;
+
+	
 
 	public function __construct(
 		$nameCompany,
@@ -28,7 +31,9 @@ class Company{
 		$addressCompany,
 		$phoneNumberCompany,
 		$latituteLongitud,
-		$products
+		$products,
+		$branchOffice
+
 	){
 		$this->nameCompany = $nameCompany;
 		$this->descriptionCompany = $descriptionCompany;
@@ -43,6 +48,7 @@ class Company{
 		$this->phoneNumberCompany = $phoneNumberCompany;
 		$this->latituteLongitud = $latituteLongitud;
 		$this->products = $products;
+		$this->branchOffice = $branchOffice;
 	}
 
 	public function getData(){
@@ -59,6 +65,7 @@ class Company{
 		$arrayCompanys['phoneNumberCompany']=$this->phoneNumberCompany;
 		$arrayCompanys['latituteLongitud']=$this->latituteLongitud;
 		$arrayCompanys['products']=$this->products;
+		$arrayCompanys['branchOffice']=$this->branchOffice;
 		return $arrayCompanys;
 
 	}
@@ -215,6 +222,13 @@ class Company{
 
 	public function setKeyCompany($keyCompany){
 		$this->keyCompany = $keyCompany;
+	}
+	public function getBranchOffice(){
+		return $this->branchOffice;
+	}
+
+	public function setBranchOffice($branchOffice){
+		$this->branchOffice = $branchOffice;
 	}
 	
 }

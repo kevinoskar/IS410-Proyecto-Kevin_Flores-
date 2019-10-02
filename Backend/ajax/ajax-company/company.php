@@ -20,7 +20,8 @@
             $_POST['addressCompany'],
             $_POST['phoneNumberCompany'],
             $_POST['latituteLongitud'],
-            $_POST['products']
+            $_POST['products'],
+            $_POST['branchOffice']
         );
 
         echo $com->createCompany($database->getDB());
@@ -56,8 +57,8 @@
             $_PUT['addressCompany'],
             $_PUT['phoneNumberCompany'],
             $_PUT['latituteLongitud'],
-            $_PUT['products']
-
+            $_PUT['products'],
+            $_PUT['branchOffice']
         );
         echo $com->updateCompany($database->getDB(),$_GET['id']);
     }
