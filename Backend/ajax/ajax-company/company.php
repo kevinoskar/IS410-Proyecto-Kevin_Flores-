@@ -56,7 +56,7 @@
             $_PUT['addressCompany'],
             $_PUT['phoneNumberCompany'],
             $_PUT['latituteLongitud'],
-            $_PUT['productos']
+            $_PUT['products']
 
         );
         echo $com->updateCompany($database->getDB(),$_GET['id']);

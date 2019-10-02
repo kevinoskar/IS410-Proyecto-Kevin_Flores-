@@ -13,6 +13,7 @@ class Company{
 	protected $phoneNumberCompany;
 	protected $latituteLongitud;
 	protected $products=NULL;
+	protected $keyCompany;
 
 	public function __construct(
 		$nameCompany,
@@ -71,6 +72,9 @@ class Company{
 			return '{"mensaje":"Empresa Guardada con exito","key":"'.$result->getKey().'"}';
 		else 
 			return '{"mensaje":"Error al guardar el registro"}';
+		
+		
+		$this->setKeyCompany($result->getKey());	
 	}
 
 
@@ -205,5 +209,13 @@ class Company{
 	public function setsessionState($sessionState){
 		$this->sessionState = $sessionState;
 	}
+	public function getKeyCompany(){
+		return $this->keyCompany;
+	}
+
+	public function setKeyCompany($keyCompany){
+		$this->keyCompany = $keyCompany;
+	}
+	
 }
 ?>
