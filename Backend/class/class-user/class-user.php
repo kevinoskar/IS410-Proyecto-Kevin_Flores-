@@ -38,7 +38,8 @@ protected $sessionState;
         $nameOwner,
         $creditNumber,
         $expirationDate,
-        $cvv
+		$cvv,
+		$productsPurchased
 
     ){
         $this->name=$name;
@@ -55,7 +56,8 @@ protected $sessionState;
         $this->nameOwner=$nameOwner;
         $this->creditNumber=$creditNumber;
         $this->expirationDate=$expirationDate;
-        $this->cvv=$cvv;
+		$this->cvv=$cvv;
+		$this->productsPurchased=$productsPurchased;
 	}
     //Methods
 

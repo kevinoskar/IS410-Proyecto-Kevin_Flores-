@@ -21,7 +21,8 @@
             $_POST['nameOwner'],
             $_POST['creditNumber'],
             $_POST['expirationDate'],
-            $_POST['cvv']
+            $_POST['cvv'],
+            $_POST['productsPurchased']
 
             );
         echo $u->createUser($database->getDB());
