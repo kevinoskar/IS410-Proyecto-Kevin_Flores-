@@ -1,5 +1,7 @@
 <?php
-class Product{
+require_once('class-company.php');
+
+class Product {
 	protected $productName;
 	protected $productCode;
 	protected $productModel;
@@ -10,6 +12,7 @@ class Product{
 	protected $productDiscountPorcentage;
 	protected $productTotalPrice;
 	protected $productImages;
+	protected $productType;
 	protected $key;
 
 	public function __construct(
@@ -23,7 +26,8 @@ class Product{
 		$productDiscountPorcentage,
 		$productTotalPrice,
 		$productImages
-	){
+	)
+	{
 		$this->productName = $productName;
 		$this->productCode = $productCode;
 		$this->productModel = $productModel;
@@ -50,10 +54,10 @@ class Product{
 	}
 
 
-	public function createProduct($db){
+	public function createProduct($db,$keyCompany){
 		$product = $this->getData();
 		$result = $db->getReference('companys')
-			->getChild($this->getKey()) 
+			->getChild($keyCompany) 
 			->getChild('products') 
 			->push($product);
 		   
@@ -63,26 +67,46 @@ class Product{
 			return '{"mensaje":"Error al guardar el registro"}';
 	}
 
-	public static function obtainProduct(){
-
-	}
-	public static function obtainProducts(){
-
-	}
-	public static function deleteProduct(){
+	public static function obtainProduct($db,$keyfirebaseCompany,$keyProduct){
 		$result=$db->getReference('companys')
-			->getChild($keyfirebase)
+			->getChild($keyfirebaseCompany)
 			->getChild('products')
+			->getChild($keyProduct)
+			->getValue();
+
+		echo json_encode($result);
+	}
+	public static function obtainProducts($db,$firebaseCompany){
+		$result=$db->getReference('companys')
+		->getChild($firebaseCompany)
+		->getChild('products')
+		->getValue();
+
+		echo json_encode($result);
+	}
+	public static function deleteProduct($db,$keyfirebaseCompany,$keyProduct){
+		$result=$db->getReference('companys')
+			->getChild($keyfirebaseCompany)
+			->getChild('products')
+			->getChild($keyProduct)
 			->remove();
-		echo '{"mensaje":"Se eliminó la empresa con id '.$keyfirebase.'"}';
+
+		echo '{"mensaje":"Se eliminó el producto con id '.$keyProduct.' de la empresa con id '.$keyfirebaseCompany.'"}';
+	
 	}
-
-	public function updateProduct(){
-
+	public function updateProduct($db,$keyfirebaseCompany,$keyProduct){
+		$prod=$this->getData();
+		$result = $db->getReference('companys')
+		->getChild($keyfirebaseCompany)
+		->getChild('products')
+		->getChild($keyProduct)
+		->set($prod);
+	
+		if ($result->getKey() != null)
+			return '{"mensaje":"Producto actualizado","key":"'.$result->getKey().'"}';
+		else 
+			return '{"mensaje":"Error al actualizar el producto"}';
 	}
-
-
-
 
 
 	public function getProductName(){
@@ -156,11 +180,18 @@ class Product{
 		$this->productImages = $productImages;
 	}
 
-	public function setKey($key){
+	public function setKeyCompany($key){
 		$this->key=$key;
 	}
-	public function getKey(){
+	public function getKeyCompany(){
 		return $this->key;
+	}
+	public function getProductType(){
+		return $this->productType;
+	}
+	public function setProductType($productType){
+		$this->productType=$productType;
+
 	}
 }
 ?>

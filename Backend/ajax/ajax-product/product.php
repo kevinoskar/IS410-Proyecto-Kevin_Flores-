@@ -5,8 +5,8 @@
     require_once('../../class/class-company/class-product.php');
     
     $database = new Database();
-
-    if ($_SERVER['REQUEST_METHOD'] =='POST'){
+    
+    if ($_SERVER['REQUEST_METHOD'] =='POST' && isset($_POST['key'])){
         $product=new Product(
             $_POST['productName'],
             $_POST['productCode'],
@@ -19,43 +19,40 @@
             $_POST['productTotalPrice'],
             $_POST['productImages']
             );
-        $product->setKey($_POST['key']);
-        echo $product->createProduct($database->getDB());
+        echo $product->createProduct($database->getDB(),$_POST['key']);
 
     }
     
-    if ($_SERVER['REQUEST_METHOD']=='GET' && !isset($_GET['id'])){
-        Company::obtainCompanys($database->getDB());
+    if ($_SERVER['REQUEST_METHOD']=='GET' && !isset($_GET['id'])  && isset($_GET['key'])){
+        Product::obtainProducts($database->getDB(),$_GET['key']);
     }
-    if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['id'])){
-        Company::obtainCompany($database->getDB(),$_GET['id']);
-    }
-    
-    if ($_SERVER['REQUEST_METHOD']=='DELETE' && isset($_GET['id'])){
-        Company::deleteCompany($database->getDB(),$_GET['id']);
+    if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['key'])  && isset($_GET['id'])){
+        Product::obtainProduct($database->getDB(),$_GET['key'],$_GET['id']);
     }
     
-    if ($_SERVER['REQUEST_METHOD'] =='PUT' && isset($_GET['id'])){
+    if ($_SERVER['REQUEST_METHOD']=='DELETE' &&  isset($_GET['key'])  && isset($_GET['id'])){
+        Product::deleteProduct($database->getDB(),$_GET['key'],$_GET['id']);
+    }
+    
+    if ($_SERVER['REQUEST_METHOD'] =='PUT' && isset($_GET['key']) && isset($_GET['id'])){
         $_PUT=array();
         if ($_SERVER['REQUEST_METHOD'] == 'PUT')
             parse_str(file_get_contents("php://input"), $_PUT);
-    
-        $com = new Company(
-            $_PUT['nameCompany'],
-            $_PUT['descriptionCompany'],
-            $_PUT['oriented'],
-            $_PUT['fundationDate'],
-            $_PUT['emailCompany'],
-            $_PUT['passwordCompany'],
-            $_PUT['postalCode'],
-            $_PUT['country'],
-            $_PUT['state'],
-            $_PUT['addressCompany'],
-            $_PUT['phoneNumberCompany'],
-            $_PUT['latituteLongitud'],
-            $_PUT['productos']
-
-        );
-        echo $com->updateCompany($database->getDB(),$_GET['id']);
+        
+            $product=new Product(
+                $_PUT['productName'],
+                $_PUT['productCode'],
+                $_PUT['productModel'],
+                $_PUT['productbrand'],
+                $_PUT['productDescription'],
+                $_PUT['productQuantity'],
+                $_PUT['productPrice'],
+                $_PUT['productDiscountPorcentage'],
+                $_PUT['productTotalPrice'],
+                $_PUT['productImages']
+                );
+        echo $product->updateProduct($database->getDB(),$_GET['key'],$_GET['id']);
     }
+
+
 ?>
