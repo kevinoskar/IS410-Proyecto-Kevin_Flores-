@@ -2,7 +2,7 @@
 
 require_once('class-company.php');
 
-class BranchOffice extends Company{
+class BranchOffice{
 	protected $branchOfficeName;
 	protected $branchOfficeAddress;
 	protected $branchOfficeLatLon;
@@ -12,13 +12,13 @@ class BranchOffice extends Company{
 	protected $branchOfficeImage;
 
 	public function __construct(
-		$branchOfficeName = null,
-		$branchOfficeAddress = null,
-		$branchOfficeLatLon = null,
-		$branchOfficeWorkers = null,
-		$branchOfficePhone = null,
-		$branchOfficeEmail = null,
-		$branchOfficeImage = null
+		$branchOfficeName,
+		$branchOfficeAddress,
+		$branchOfficeLatLon,
+		$branchOfficeWorkers,
+		$branchOfficePhone,
+		$branchOfficeEmail,
+		$branchOfficeImage
 	){
 		$this->branchOfficeName = $branchOfficeName;
 		$this->branchOfficeAddress = $branchOfficeAddress;
@@ -28,6 +28,76 @@ class BranchOffice extends Company{
 		$this->branchOfficeEmail = $branchOfficeEmail;
 		$this->branchOfficeImage = $branchOfficeImage;
 	}
+
+	public function getData(){
+		$brancoff['branchOfficeName']=$this->branchOfficeName;
+		$brancoff['branchOfficeAddress']=$this->branchOfficeAddress;
+		$brancoff['branchOfficeLatLon']=$this->branchOfficeLatLon;
+		$brancoff['branchOfficeWorkers']=$this->branchOfficeWorkers;
+		$brancoff['branchOfficePhone']=$this->branchOfficePhone;
+		$brancoff['branchOfficeEmail']=$this->branchOfficeEmail;
+		$brancoff['branchOfficeImage']=$this->branchOfficeImage;
+		return $brancoff;
+	}
+	
+	public function createBranchOffice($db,$keyCompany){
+		$branch=$this->getData();
+		$result = $db->getReference('companys')
+			->getChild($keyCompany) 
+			->getChild('branchOffice') 
+			->push($branch);
+		   
+		if ($result->getKey() != null)
+			return '{"mensaje":"Sucursal Anexada con exito","key":"'.$result->getKey().'"}';
+		else 
+			return '{"mensaje":"Error al guardar la sucursal"}';
+	}
+
+	public static function obtainBranchOffice($db,$keyfirebaseCompany,$keyProduct){
+		$result=$db->getReference('companys')
+			->getChild($keyfirebaseCompany)
+			->getChild('branchOffice')
+			->getChild($keyProduct)
+			->getValue();
+
+		echo json_encode($result);
+	}
+	public static function obtainBranchOffices($db,$firebaseCompany){
+		$result=$db->getReference('companys')
+		->getChild($firebaseCompany)
+		->getChild('branchOffice')
+		->getValue();
+
+		echo json_encode($result);
+	}
+	public static function deleteBranchOffice($db,$keyfirebaseCompany,$keyProduct){
+		$result=$db->getReference('companys')
+			->getChild($keyfirebaseCompany)
+			->getChild('branchOffice')
+			->getChild($keyProduct)
+			->remove();
+
+		echo '{"mensaje":"Se eliminó la sucursal con id '.$keyProduct.' de la empresa con id '.$keyfirebaseCompany.'"}';
+	
+	}
+	public function updateBranchOffice($db,$keyfirebaseCompany,$keyProduct){
+		$prod=$this->getData();
+		$result = $db->getReference('companys')
+		->getChild($keyfirebaseCompany)
+		->getChild('branchOffice')
+		->getChild($keyProduct)
+		->set($prod);
+	
+		if ($result->getKey() != null)
+			return '{"mensaje":"Sucursal actualizada","key":"'.$result->getKey().'"}';
+		else 
+			return '{"mensaje":"Error al actualizar la sucursal"}';
+	}
+
+
+
+
+
 
 	public function getBranchOfficeName(){
 		return $this->branchOfficeName;
@@ -79,16 +149,6 @@ class BranchOffice extends Company{
 		$this->branchOfficeImage = $branchOfficeImage;
 	}
 
-	public function createBranchOffice(){
-	}
-	public function deleteBranchOffice(){
-	}
-	public function obtainBranchOffice(){
-	}
-	public function obtainsBranchOffices(){
-	}
-	public function updateBranchOffice(){
-	}
-
+	
 }
 ?>
