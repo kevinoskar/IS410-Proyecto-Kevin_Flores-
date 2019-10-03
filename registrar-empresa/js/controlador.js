@@ -1,4 +1,19 @@
 
+(function(){
+    document.getElementById('bussines').innerHTML=`
+    <option value="">Seleccione un rubro</option>
+    <option value="tecnology">Tecnología</option>
+    <option value="fashion">Moda</option>
+    <option value="sports">Deportes</option>
+    <option value="electrodomestic">Electrodomésticos</option>
+    <option value="home">Hogar</option>
+    <option value="accesories">Accesorios</option>
+    
+    `;
+
+}());
+
+
 let campos=[
     {id:'name',campoValido:false},
     {id:'bussines',campoValido:false},
@@ -79,7 +94,8 @@ let empresa={
 
     console.log(empresa);
     validarCampo();
-    verificarPassword(document.getElementById('emailCompany'));
+    campos[4].campoValido=validarPassword(document.getElementById('password').value);
+    console.log(campos[4].campoValido);
     if(verificarTodos()==true){
         registros.push(empresa);
         console.log("Access Granted ");
