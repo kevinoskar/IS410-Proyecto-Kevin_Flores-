@@ -135,7 +135,7 @@ a {
     transform: scale(0.95);
   }
   
-  input[type=text], input[type=date],select,input[type=password],select,input[type=date]:focus{
+  input[type=text], input[type=date],select,input[type=password],input[type=date]{
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
