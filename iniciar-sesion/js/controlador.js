@@ -1,16 +1,20 @@
 let campos=[
-    {id:'login',campoValido:false},
+    {id:'email',campoValido:false},
     {id:'password',campoValido:false}
 ];
 
 function iniciarSesion(){
-    console.log(`Validar Campos: Usuario: `+ document.getElementById("login").value +` Password: `+ document.getElementById("password").value);
+    console.log(`Validar Campos: Usuario: `+ document.getElementById("email").value +` Password: `+ document.getElementById("password").value);
     for(var i=0;i<campos.length;i++){
         validarCampoVacio(campos[i].id,i);
     }
-    console.log(campos[1].campoValido);
-    guardarUsuario(validarEmail(document.getElementById("login").value));
-    window.location="../Pagina Central/index.html";
+    if(campos[0].campoValido==true && campos[1].campoValido==true){
+        if(validarEmail(document.getElementById("email").value))
+            window.location="../Pagina-Central/index.html";
+    }
+
+
+   
 }
 
 function validarCampoVacio(id,i){
@@ -39,6 +43,6 @@ function validarEmail(email){
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let resultado =  re.test(email);
     console.log(`El email es correcto? `+resultado);
-    validarCampoEmail('login',resultado);
+    validarCampoEmail('email',resultado);
     return resultado;
 }
