@@ -41,6 +41,8 @@ let usuario={
 
     console.log(usuario);
     validarCampo();
+    validarEmail(document.getElementById('email').value);
+    validarPassword(document.getElementById('password').value);
     if(verificarTodos()==true){
         console.log(campos);
         formularioNuevo();
@@ -177,5 +179,19 @@ function verImagen(url){
         <img src="${url}">
     `;
 
+}
+function validarPassword(password){
+    let re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    let resultado =  re.test(password);
+    Marcar('password',resultado)
+    return resultado;
+
+}
+
+function validarEmail(email){
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let resultado =  re.test(email);
+    Marcar('email',resultado);
+    return resultado;
 }
 
