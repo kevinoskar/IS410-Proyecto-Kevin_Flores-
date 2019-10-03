@@ -3,9 +3,9 @@ let campos=[
     {id:'name',campoValido:false},
     {id:'bussines',campoValido:false},
     {id:'fundation',campoValido:false},
-    {id:'email-company',campoValido:false},
+    {id:'emailCompany',campoValido:false},
     {id:'password',campoValido:false},
-    {id:'checkbox1',campoValido:false}
+    {id:'companyPolitics',campoValido:false}
 ];
 let campos2=[
     {id:'address',campoValido:false},
@@ -72,13 +72,14 @@ let empresa={
     name:document.getElementById("name").value,
     lastname:document.getElementById("bussines").value,
     birthday:document.getElementById("fundation").value,
-    email:document.getElementById("email-company").value,
+    email:document.getElementById("emailCompany").value,
     password:document.getElementById("password").value,
-    checkbox:$("#checkbox1").is(":checked")
+    checkbox:$("#companyPolitics").is(":checked")
     };
 
     console.log(empresa);
     validarCampo();
+    verificarPassword(document.getElementById('emailCompany'));
     if(verificarTodos()==true){
         registros.push(empresa);
         console.log("Access Granted ");
@@ -88,11 +89,11 @@ let empresa={
 }
 
 function validarCampo(){
-    campos[5].campoValido=$("#checkbox1").is(':checked');
+    campos[5].campoValido=$("#companyPolitics").is(':checked');
     for(var i=0;i<campos.length-1;i++)
         campos[i].campoValido=validarCampoVacio(campos[i].id);   
 
-    let emailValid=validarEmail(document.getElementById("email-company").value);
+    let emailValid=validarEmail(document.getElementById("emailCompany").value);
     console.log(emailValid);
     campos[3].campoValido=emailValid;
     Marcar(campos[3].id,emailValid)
@@ -172,6 +173,13 @@ function registrarUsuario2(){
     window.location.replace("../login/index.html");*/
 }
 
+function validarPassword(password){
+    let re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    let resultado =  re.test(password);
+    Marcar('password',resultado)
+    return resultado;
+
+}
 
 function validarlatitud(latitute){
     let lalo= /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
