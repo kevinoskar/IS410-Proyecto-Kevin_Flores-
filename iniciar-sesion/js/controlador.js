@@ -9,14 +9,14 @@ function iniciarSesion(){
         validarCampoVacio(campos[i].id,i);
     }
     if(campos[0].campoValido==true && campos[1].campoValido==true){
-        if(validarEmail(document.getElementById("email").value))
-            window.location="../Pagina-Central/index.html";
+        if(validarEmail(document.getElementById("email").value)==true){
+            let parametros=$('#login').serialize();
+            console.log(parametros);
+            
+    
+        }   
     }
-
-
-   
 }
-
 function validarCampoVacio(id,i){
     if(document.getElementById(id).value==''){
         campos[i].campoValido=false;

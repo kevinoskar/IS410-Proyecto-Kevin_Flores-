@@ -65,4 +65,6 @@
         );
         echo $u->updateUser($database->getDB(),$_GET['id']);
     }
+    
+
 ?>

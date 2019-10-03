@@ -127,10 +127,10 @@ protected $sessionState;
 		else 
 			return '{"mensaje":"Error al actualizar el registro"}';
 	}
-	/*public static loginUser($db,$keyfirebase){
+	public static  function loginUser($db,$keyfirebase){
+		
 
-
-	}*/
+	}
 
 
     //Getters & Setters
