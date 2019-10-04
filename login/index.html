@@ -198,23 +198,17 @@
                                         <button type="button" class="btn4 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                           SuperUsuario
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <form class="px-4 py-3 form-1">
+                                        <div class="dropdown-menu dropdown-menu-right" id="ModalSuperuser">
+                                            <form class="px-4 py-3 form-1" id="formSuperuser">
                                                 <div class="form-group">
-                                                <label for="exampleDropdownFormEmail1">Correo Electrónico</label>
-                                                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="example@flysu.com">
+                                                    <label for="exampleDropdownFormEmail1">Correo Electrónico</label>
+                                                    <input type="email" class="form-control" id="emailSuperuser" name="emailSuperuser" placeholder="example@flysu.com">
                                                 </div>
                                                 <div class="form-group">
-                                                <label for="exampleDropdownFormPassword1">Contraseña</label>
-                                                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña">
+                                                    <label for="exampleDropdownFormPassword1">Contraseña</label>
+                                                    <input type="password" class="form-control" id="passwordSuperuser" name="passwordSuperuser" placeholder="Contraseña">
                                                 </div>
-                                                <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                                <label class="form-check-label" for="dropdownCheck">
-                                                    Recordarme
-                                                </label>
-                                                </div>
-                                                <button type="submit" class="btn-main-register">Iniciar Sesión</button>
+                                                <button type="button" onclick="iniciarSesionSU()" class="btn-main-register"><i class="fas fa-circle-notch fa-spin" id="spinner"></i>Iniciar Sesión</button>
                                             </form>
                                             <div class="dropdown-divider"></div>
                                         </div>
