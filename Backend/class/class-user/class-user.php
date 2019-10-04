@@ -71,7 +71,7 @@ protected $sessionState;
         $arrayUser['state']=$this->state;
         $arrayUser['address']=$this->address;
         $arrayUser['email']=$this->email;
-        $arrayUser['password']=$this->password;
+        $arrayUser['password']=password_hash($this->password,PASSWORD_DEFAULT);
         $arrayUser['clientCode']=$this->clientCode;
         $arrayUser['nameOwner']=$this->nameOwner;
         $arrayUser['creditNumber']=$this->creditNumber;
@@ -127,8 +127,27 @@ protected $sessionState;
 		else 
 			return '{"mensaje":"Error al actualizar el registro"}';
 	}
-	public static  function loginUser($db,$keyfirebase){
+	public static function loginUser($db,$email,$password){
+		$result=$db->getReference('users')
+			->orderByChild('email')
+			->equalTo($email)
+			->getSnapshot()
+			->getValue();
+
+		$key=array_key_first($result);
+		$valid=password_verify($password,$result['$key']['password']);
 		
+		$answer['valid']=$valid==1?true:false;
+		if($answer['valid']){
+			$answer['key']=$key;
+			$answer['email']=$result[$key]['email'];
+			$answer['token']=bin2hex(openssl_random_pseudo_bytes(16));
+			setcookie('key',$answer['key'],time()+(86400*30),"/");
+			setcookie('email',$answer['email'],time()+(86400*30),"/");
+			setcookie('token',$answer['token'],time()+(86400*30),"/");
+
+		}
+		echo json_encode($answer);
 
 	}
 

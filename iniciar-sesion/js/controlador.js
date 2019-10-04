@@ -1,9 +1,12 @@
+$('#spinner').hide();
 let campos=[
     {id:'email',campoValido:false},
     {id:'password',campoValido:false}
 ];
 
+
 function iniciarSesion(){
+    $('#spinner').show();
     console.log(`Validar Campos: Usuario: `+ document.getElementById("email").value +` Password: `+ document.getElementById("password").value);
     for(var i=0;i<campos.length;i++){
         validarCampoVacio(campos[i].id,i);
@@ -12,7 +15,19 @@ function iniciarSesion(){
         if(validarEmail(document.getElementById("email").value)==true){
             let parametros=$('#login').serialize();
             console.log(parametros);
-            
+            $.ajax({
+                url:'../Backend/ajax/ajax-users/users.php?action=login',
+                method:'POST',
+                dataType:'json',
+                data:parametros,
+                success:(res)=>{
+                    console.log(res);
+                    $('#spinner').hide();
+                },
+                error:(error)=>{
+                    console.log(error);
+                }
+            });
     
         }   
     }

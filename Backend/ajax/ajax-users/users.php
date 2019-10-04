@@ -5,6 +5,11 @@
     
     $database = new Database();
 
+    if($_SERVER['REQUEST_METHOD'] =='POST' && isset($_GET['action']) && $_GET['action']=='login'){
+        User::loginUser($database->getDB(),$_POST['email'],$_POST['password']);
+        exit();
+    }
+
     if ($_SERVER['REQUEST_METHOD'] =='POST'){
         $u = new User(
             $_POST['name'],
@@ -26,18 +31,21 @@
 
             );
         echo $u->createUser($database->getDB());
-
+        exit();
     }
 
     if ($_SERVER['REQUEST_METHOD']=='GET' && !isset($_GET['id'])){
         User::obtainUsers($database->getDB());
+        exit();
     }
     if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['id'])){
         User::obtainUser($database->getDB(),$_GET['id']);
+        exit();
     }
     
     if ($_SERVER['REQUEST_METHOD']=='DELETE' && isset($_GET['id'])){
         User::deleteUser($database->getDB(),$_GET['id']);
+        exit();
     }
     
     if ($_SERVER['REQUEST_METHOD'] =='PUT' && isset($_GET['id'])){
@@ -64,7 +72,8 @@
 
         );
         echo $u->updateUser($database->getDB(),$_GET['id']);
+        exit();
     }
-    
+
 
 ?>
