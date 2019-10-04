@@ -1,15 +1,37 @@
+$('#spinner').hide();
 let campos=[
-    {id:'login',campoValido:false},
-    {id:'password',campoValido:false}
+    {id:'emailCompany',campoValido:false},
+    {id:'passwordCompany',campoValido:false}
 ];
 
 function iniciarSesion(){
-    console.log(`Validar Campos: Usuario: `+ document.getElementById("login").value +` Password: `+ document.getElementById("password").value);
+    $('#spinner').show();
+    console.log(`Validar Campos: Usuario: `+ document.getElementById("emailCompany").value +` Password: `+ document.getElementById("passwordCompany").value);
     for(var i=0;i<campos.length;i++){
         validarCampoVacio(campos[i].id,i);
     }
     console.log(campos[1].campoValido);
-    guardarUsuario(validarEmail(document.getElementById("login").value));
+    validarEmail(document.getElementById("emailCompany").value);
+    if(campos[0].campoValido==true && campos[1].campoValido==true){
+        let parametros=$('#formCompany').serialize();
+            console.log(parametros);
+            $.ajax({
+                url:'../Backend/ajax/ajax-company/company.php?action=login',
+                method:'POST',
+                dataType:'json',
+                data:parametros,
+                success:(res)=>{
+                    console.log(res);
+                    $('#spinner').hide();
+                    /*if(res.valid)
+                    window.location.href="../../Proyecto-IIPAC/Pagina-Central/index.php";*/
+                },
+                error:(error)=>{
+                    console.log(error);
+                }
+            });
+
+    }
 }
 
 function validarCampoVacio(id,i){
@@ -37,22 +59,7 @@ function validarCampoEmail(id,valido){
 function validarEmail(email){
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let resultado =  re.test(email);
-    console.log(`El email es correcto? `+resultado);
-    validarCampoEmail('login',resultado);
+    console.log(`El email es correcto:  `+resultado);
+    validarCampoEmail('emailCompany',resultado);
     return resultado;
-}
-function guardarUsuario(valido){
-    if(campos[0].campoValido==valido){
-        if(campos[1].campoValido==valido){
-            let usuario={
-                correo:document.getElementById("login").value,
-                contraseña:document.getElementById("password").value
-                };
-            console.log(usuario);
-        }else{
-            return;
-        }
-    }else{
-        return;
-    }
 }

@@ -21,13 +21,13 @@
                 <h1>Inicio Sesión Empresarial</h1>
                 <label for="">Comienza a vender YA!. </label>
             </div>
-            <form>
-                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Correo Electrónico Empresarial"> 
+            <form id="formCompany">
+                <input type="text" id="emailCompany" class="fadeIn second" name="emailCompany" placeholder="Correo Electrónico Empresarial"> 
                 <div id="email-invalid-feedback">
                     
                 </div>
-                <input type="text" id="password" class="fadeIn third " name="login" placeholder="Contraseña">
-                <input type="button" onclick="iniciarSesion()" class="fadeIn fourth" value="Iniciar Sesión"></button>
+                <input type="password" id="passwordCompany" class="fadeIn third " name="passwordCompany" placeholder="Contraseña">
+                <button type="button" onclick="iniciarSesion()" class="fourth"><i class="fas fa-circle-notch fa-spin" id="spinner"></i>Iniciar Sesión</button>
             </form>
             <div id="formFooter">
                 <a class="underlineHover" href="#">¿No tienes cuenta? Regístrate ahora</a>
