@@ -6,6 +6,12 @@
     
     $database = new Database();
 
+    if($_SERVER['REQUEST_METHOD'] =='POST' && isset($_GET['action']) && $_GET['action']=='login'){
+        Company::loginCompany($database->getDB(),$_POST['emailCompany'],$_POST['passwordCompany']);
+        exit();
+    }
+
+
     if ($_SERVER['REQUEST_METHOD'] =='POST'){
         $com = new Company(
             $_POST['nameCompany'],

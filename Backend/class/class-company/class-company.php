@@ -57,7 +57,7 @@ class Company{
 		$arrayCompanys['oriented']=$this->oriented;
 		$arrayCompanys['fundationDate']=$this->fundationDate;
 		$arrayCompanys['emailCompany']=$this->emailCompany;
-		$arrayCompanys['passwordCompany']=$this->passwordCompany;
+		$arrayCompanys['passwordCompany']=password_hash($this->passwordCompany,PASSWORD_DEFAULT);
 		$arrayCompanys['postalCode']=$this->postalCode;
 		$arrayCompanys['country']=$this->country;
 		$arrayCompanys['state']=$this->state;
@@ -115,6 +115,34 @@ class Company{
 		else 
 			return '{"mensaje":"Error al actualizar la empresa"}';
 	}
+	public static function loginCompany($db,$emailCompany,$passwordCompany){
+		$result=$db->getReference('companys')
+			->orderByChild('emailCompany')
+			->equalTo($emailCompany)
+			->getSnapshot()
+			->getValue();
+		
+		$key=array_key_first($result);
+		$valid=password_verify($passwordCompany,$result[$key]['passwordCompany']);
+		
+		$answer['valid']=$valid==1?true:false;
+		if($answer['valid']){
+			$answer['keyCompany']=$key;
+			$answer['emailCompany']=$result[$key]['emailCompany'];
+			$answer['tokenCompany']=bin2hex(openssl_random_pseudo_bytes(16));
+			setcookie('keyCompany',$answer['keyCompany'],time()+(86400*30),"/");
+			setcookie('emailCompany',$answer['emailCompany'],time()+(86400*30),"/");
+			setcookie('tokenCompany',$answer['tokenCompany'],time()+(86400*30),"/");
+
+
+			$db->getReference('companys/'.$key.'/tokenCompany')
+				->set($answer['tokenCompany']);
+		}
+		echo json_encode($answer);
+	}
+
+
+
 
 
 
