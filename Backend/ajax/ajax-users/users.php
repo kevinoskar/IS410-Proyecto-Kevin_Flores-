@@ -9,6 +9,10 @@
         User::loginUser($database->getDB(),$_POST['email'],$_POST['password']);
         exit();
     }
+    if($_SERVER['REQUEST_METHOD'] =='GET' && isset($_GET['action']) && $_GET['action']=='logout'){
+        User::logoutUser();
+        exit();
+    }
 
     if ($_SERVER['REQUEST_METHOD'] =='POST'){
         $u = new User(
@@ -35,20 +39,36 @@
     }
 
     if ($_SERVER['REQUEST_METHOD']=='GET' && !isset($_GET['id'])){
+        if(!isset($_COOKIE['key'])){
+            echo '{"mensaje":"Access Denied"}';
+            exit();
+        }
         User::obtainUsers($database->getDB());
         exit();
     }
     if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['id'])){
+        if(!isset($_COOKIE['key'])){
+            echo '{"mensaje":"Access Denied"}';
+            exit();
+        }
         User::obtainUser($database->getDB(),$_GET['id']);
         exit();
     }
     
     if ($_SERVER['REQUEST_METHOD']=='DELETE' && isset($_GET['id'])){
+        if(!isset($_COOKIE['key'])){
+            echo '{"mensaje":"Access Denied"}';
+            exit();
+        }
         User::deleteUser($database->getDB(),$_GET['id']);
         exit();
     }
     
     if ($_SERVER['REQUEST_METHOD'] =='PUT' && isset($_GET['id'])){
+        if(!isset($_COOKIE['key'])){
+            echo '{"mensaje":"Access Denied"}';
+            exit();
+        }
         $_PUT=array();
         if ($_SERVER['REQUEST_METHOD'] == 'PUT')
             parse_str(file_get_contents("php://input"), $_PUT);

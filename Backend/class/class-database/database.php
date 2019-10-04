@@ -1,10 +1,10 @@
 <?php
-    require('../../vendor/autoload.php');
+    require_once(__DIR__.'/../../vendor/autoload.php');
 
     use Kreait\Firebase\Factory;
 
     class Database{
-        private $keyFile = '../../secret/fly-database-93a13-9fb6fdab50f1.json';
+        private $keyFile = __DIR__.'/../../secret/fly-database-93a13-9fb6fdab50f1.json';
         private $URI = 'https://fly-database-93a13.firebaseio.com/';
         private $db;
         public function __construct(){

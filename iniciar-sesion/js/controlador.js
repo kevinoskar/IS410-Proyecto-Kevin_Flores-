@@ -23,6 +23,8 @@ function iniciarSesion(){
                 success:(res)=>{
                     console.log(res);
                     $('#spinner').hide();
+                    if(res.valid)
+                    window.location.href="../../Proyecto-IIPAC/Pagina-Central/index.php";
                 },
                 error:(error)=>{
                     console.log(error);

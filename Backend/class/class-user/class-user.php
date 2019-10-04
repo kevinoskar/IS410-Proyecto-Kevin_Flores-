@@ -133,9 +133,9 @@ protected $sessionState;
 			->equalTo($email)
 			->getSnapshot()
 			->getValue();
-
+	
 		$key=array_key_first($result);
-		$valid=password_verify($password,$result['$key']['password']);
+		$valid=password_verify($password,$result[$key]['password']);
 		
 		$answer['valid']=$valid==1?true:false;
 		if($answer['valid']){
@@ -146,9 +146,32 @@ protected $sessionState;
 			setcookie('email',$answer['email'],time()+(86400*30),"/");
 			setcookie('token',$answer['token'],time()+(86400*30),"/");
 
+
+			$db->getReference('users/'.$key.'/token')
+				->set($answer['token']);
 		}
 		echo json_encode($answer);
+	}
+	public static function logoutUser(){
+		setcookie('key','',time()-3600,"/");
+		setcookie('email','',time()-3600,"/");
+		setcookie('token','',time()-3600,"/");
+		header("Location: ../../../Iniciar-sesion/index.html");
 
+	}
+
+	public static function verifyAuthenticity($db){
+		if(!isset($_COOKIE['key']))
+			return false;
+		$result=$db->getReference('users')
+				->getChild($_COOKIE['key'])
+				->getValue();
+
+			if($result['token']==$_COOKIE['token'])
+				return true;
+			else
+				return false;
+			
 	}
 
 

@@ -1,3 +1,14 @@
+<?php
+	require_once('../Backend/class/class-user/class-user.php');
+	require_once('../Backend/class/class-database/database.php');
+ 
+	$database = new Database();
+	if(!isset($_COOKIE['key']))
+		header("Location: error.html")
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -36,6 +47,7 @@
 									</select>
 									<input class="input" placeholder="Busca aquí">
 									<button class="search-btn">Buscar</button>
+									<a href="../Backend/ajax/ajax-users/users.php?action=logout">Cerrar Sesion</a>
 								</form>
 							</div>
 						</div>
