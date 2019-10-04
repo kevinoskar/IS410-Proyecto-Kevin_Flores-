@@ -45,7 +45,7 @@ function iniciarSesionSU(){
         success:(res)=>{
             console.log(res);
             $('#spinner').hide();
-            window.location.href="../../Proyecto-IIPAC/superusuario/superusuario.html"
+            window.location.href="../../Proyecto-IIPAC/superusuario/superusuario.php"
         },
         error:(error)=>{
             console.log(error);

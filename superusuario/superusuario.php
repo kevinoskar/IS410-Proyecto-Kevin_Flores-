@@ -1,3 +1,19 @@
+
+<?php
+	require_once('../Backend/class/class-superuser/class-superuser.php');
+	require_once('../Backend/class/class-database/database.php');
+ 
+	$database = new Database();
+	if(!isset($_COOKIE['keySuperuser']))
+		header("Location: error.html");
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,8 +49,8 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                    <a class="dropdown-item" href="#"><i class="fas fa-chart-bar icon-profile-dropdown"></i>Dashboard Administrativo SuperUsuario</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-chart-bar icon-profile-dropdown"></i>Dashboard Administrativo</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
                                   </div>
                             </div>
                             <div class="menu-toggle">

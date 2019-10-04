@@ -4,7 +4,7 @@
  
 	$database = new Database();
 	if(!isset($_COOKIE['key']))
-		header("Location: error.html")
+		header("Location: error.html");
 ?>
 
 

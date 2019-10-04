@@ -9,6 +9,10 @@
         SuperUser::loginSuperuser($database->getDB(),$_POST['emailSuperuser'],$_POST['passwordSuperuser']);
         exit();
     }
+    if($_SERVER['REQUEST_METHOD'] =='GET' && isset($_GET['action']) && $_GET['action']=='logout'){
+        SuperUser::logoutSuperuser();
+        exit();
+    }
     if($_SERVER['REQUEST_METHOD'] =='POST'){
         
         $su=new SuperUser(

@@ -70,6 +70,26 @@ class SuperUser{
             echo json_encode($answer);
     
     }
+    public static function logoutSuperuser(){
+		setcookie('key','',Superusertime()-3600,"/");
+		setcookie('emailSuperuser','',time()-3600,"/");
+		setcookie('tokenSuperuser','',time()-3600,"/");
+		header("Location: ../../../Login/index.html");
+
+    }
+    public static function verifyAuthenticity($db){
+		if(!isset($_COOKIE['keySuperuser']))
+			return false;
+		$result=$db->getReference('superuser')
+				->getChild($_COOKIE['keySuperuser'])
+				->getValue();
+
+			if($result['tokenSuperuser']==$_COOKIE['tokenSuperuser'])
+				return true;
+			else
+				return false;
+			
+	}
 
 }
 ?>
