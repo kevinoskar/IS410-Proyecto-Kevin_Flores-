@@ -71,7 +71,7 @@ class SuperUser{
     
     }
     public static function logoutSuperuser(){
-		setcookie('key','',Superusertime()-3600,"/");
+		setcookie('key','',time()-3600,"/");
 		setcookie('emailSuperuser','',time()-3600,"/");
 		setcookie('tokenSuperuser','',time()-3600,"/");
 		header("Location: ../../../Login/index.html");

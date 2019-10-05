@@ -19,6 +19,9 @@ class Product {
     protected $width;
     protected $depth;
 	protected $key;
+	protected $comments;
+	
+
 
 	public function __construct(
 		$productName,
@@ -244,6 +247,14 @@ class Product {
 
     public function setDepth($depth){
         $this->depth = $depth;
-    }
+	}
+	
+	public function getComments(){
+		return $this->comments;
+	}
+
+	public function setComments($comments){
+		$this->comments = $comments;
+	}
 }
 ?>

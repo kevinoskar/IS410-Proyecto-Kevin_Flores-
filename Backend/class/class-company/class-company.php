@@ -71,15 +71,27 @@ class Company{
 		$result = $db->getReference('companys')
 		   ->push($company);
 		   
-		if ($result->getKey() != null)
-			return '{"mensaje":"Empresa Guardada con exito","key":"'.$result->getKey().'"}';
-		else 
-			return '{"mensaje":"Error al guardar el registro"}';
-		
-		
-		$this->setKeyCompany($result->getKey());	
-	}
+		if ($result->getKey() != null){
+				$answer['valid']=true;
+				$answer['keyCompany']=$result->getKey();
+				$answer['emailCompany']=$company['emailCompany'];
+				$answer['tokenCompany']=bin2hex(openssl_random_pseudo_bytes(16));
+				setcookie('keyCompany',$answer['keyCompany'],time()+(86400*30),"/");
+				setcookie('emailCompany',$answer['emailCompany'],time()+(86400*30),"/");
+				setcookie('tokenCompany',$answer['tokenCompany'],time()+(86400*30),"/");
 
+
+				$db->getReference('companys/'.$result->getKey().'/tokenCompany')
+					->set($answer['tokenCompany']);
+
+			return '{"mensaje":"Empresa Guardada con exito","key":"'.$result->getKey().'",
+					"valid":"true"}';
+		
+			}else {
+				return '{"mensaje":"Error al guardar el registro"}';
+		
+		}
+	}
 
 	public static function obtainCompany($db,$keyfirebase){
 		$result=$db->getReference('companys')
@@ -136,8 +148,29 @@ class Company{
 		}
 		echo json_encode($answer);
 	}
+	public static function logoutCompany(){
+		setcookie('keyCompany','',time()-3600,"/");
+		setcookie('emailCompany','',time()-3600,"/");
+		setcookie('tokenCompany','',time()-3600,"/");
+		header("Location: ../../../Login/index.html");
 
+	}
 
+	public static function verifyAuthenticity($db){
+		if(!isset($_COOKIE['keyCompany']))
+			return false;
+		
+
+		$result=$db->getReference('Company')
+				->getChild($_COOKIE['keyCompany'])
+				->getValue();
+
+			if($result['tokenCompany']==$_COOKIE['tokenCompany'])
+				return true;
+			else
+				return false;
+			
+	}
 
 
 

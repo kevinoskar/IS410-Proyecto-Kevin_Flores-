@@ -1,4 +1,5 @@
 $("#spinner").hide();
+$(".advice3").hide();
 
 let campos=[
     {id:'name',campoValido:false},
@@ -67,12 +68,19 @@ function registrarUsuario(){
             success:function(res){
                 console.log(res);
                 $("#spinner").hide();
+                if(res.valid){
+                    window.location.href="../../Proyecto-IIPAC/Pagina-Central/index.php";
+                }else{
+                    $(".advice3").show();
+                }
             },
             error:function(error){
                 console.error(error);
             }
         });
 
+    }else{
+        $("#spinner").hide();
     }
     
 }

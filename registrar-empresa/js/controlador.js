@@ -1,4 +1,5 @@
 $("#spinner").hide();
+$(".advice3").hide();
 (function(){
     document.getElementById('oriented').innerHTML=`
     <option value="">Seleccione un rubro</option>
@@ -53,6 +54,14 @@ function registrarUsuario(){
             success:function(res){
                 console.log(res);
                 $("#spinner").hide();
+                if(res.valid){
+                    window.location.href="../../Proyecto-IIPAC/Pagina-Central/index.php";
+                    
+                }else{
+                    $("#btn-register").removeClass("Ready");
+                    $(".advice3").show();
+                }
+                    
             },
             error:function(error){
                 console.error(error);

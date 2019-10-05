@@ -84,10 +84,26 @@ protected $companysFollowing;
 		$result = $db->getReference('users')
 		   ->push($users);
 		   
-		if ($result->getKey() != null)
-			return '{"mensaje":"Usuario Guardado con exito","key":"'.$result->getKey().'"}';
-		else 
-			return '{"mensaje":"Error al guardar el registro"}';
+		if ($result->getKey() != null){
+			if ($result->getKey() != null){
+				$answer['valid']=true;
+				$answer['key']=$result->getKey();
+				$answer['email']=$users['email'];
+				$answer['token']=bin2hex(openssl_random_pseudo_bytes(16));
+				setcookie('key',$answer['key'],time()+(86400*30),"/");
+				setcookie('email',$answer['email'],time()+(86400*30),"/");
+				setcookie('token',$answer['token'],time()+(86400*30),"/");
+
+
+				$db->getReference('users/'.$result->getKey().'/token')
+					->set($answer['token']);
+		
+				return '{"mensaje":"Usuario Guardado con exito","key":"'.$result->getKey().'","valid":"true"}';
+			}else{
+				return '{"mensaje":"Error al guardar el registro"}';
+			}
+	
+		}
 	}
 
 	public static function deleteUser($db,$keyfirebase){

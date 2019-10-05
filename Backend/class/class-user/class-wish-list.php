@@ -4,20 +4,18 @@ class WishList{
 	protected $keyProduct;
 	protected $keyUser;
 
-	public function __construct(
-		$keyCompany,
-		$keyProduct,
-		$keyUser
-	){
-		$this->keyCompany = $keyCompany;
-		$this->keyProduct = $keyProduct;
-		$this->keyUser = $keyUser;
-	}
 	public function getData(){
 		$a['keyCompany']=$this->keyCompany;
 		$a['keyProduct']=$this->keyProduct;
 		$a['keyUser']=$this->keyUser;
 		return $a;
+	}
+
+	public static function addWish(){
+
+	}
+	public static function deleteWish(){
+		
 	}
 
 
