@@ -85,14 +85,6 @@ protected $companysFollowing;
 		   ->push($users);
 		   
 		if ($result->getKey() != null){
-			$answer['valid']=true;
-			$answer['key']=$result->getKey();
-			$answer['email']=$users['email'];
-			$answer['token']=bin2hex(openssl_random_pseudo_bytes(16));
-			setcookie('key',$answer['key'],time()+(86400*30),"/");
-			setcookie('email',$answer['email'],time()+(86400*30),"/");
-			setcookie('token',$answer['token'],time()+(86400*30),"/");
-	
 			return '{"mensaje":"Usuario Guardado con exito","key":"'.$result->getKey().'","valid":"true"}';
 		}else{
 			return '{"mensaje":"Error al guardar el registro"}';
@@ -139,6 +131,7 @@ protected $companysFollowing;
 		$key=array_key_first($result);
 		$valid=password_verify($password,$result[$key]['password']);
 		
+
 		$answer['valid']=$valid==1?true:false;
 		if($answer['valid']){
 			$answer['key']=$key;
@@ -169,6 +162,7 @@ protected $companysFollowing;
 	public static function verifyAuthenticity($db){
 		if(!isset($_COOKIE['key']))
 			return false;
+
 		$result=$db->getReference('users')
 				->getChild($_COOKIE['key'])
 				->getValue();
@@ -177,9 +171,18 @@ protected $companysFollowing;
 				return true;
 			else
 				return false;
-			
+	
+				
 	}
+	public static function tokenAndKey(){
+		if(isset($_COOKIE['key'])){
+			$result['key']=$_COOKIE['key'];
+			$result['token']=$_COOKIE['token'];
+			echo json_encode($result);	 
 
+		}
+		exit();
+	}
 
     //Getters & Setters
 	public function getName(){

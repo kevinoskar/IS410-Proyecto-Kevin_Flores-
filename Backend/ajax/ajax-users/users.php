@@ -13,6 +13,10 @@
         User::logoutUser();
         exit();
     }
+    if($_SERVER['REQUEST_METHOD'] =='GET' && isset($_GET['action']) && $_GET['action']=='userAccessKey'){
+        User::tokenAndKey();
+        exit();
+    }
 
     if ($_SERVER['REQUEST_METHOD'] =='POST'){
         $u = new User(

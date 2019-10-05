@@ -3,7 +3,7 @@
 	require_once('../Backend/class/class-database/database.php');
  
 	$database = new Database();
-	if(!isset($_COOKIE['key']))
+	if(!User::verifyAuthenticity($database->getDB()))
 		header("Location: error.html");
 ?>
 
@@ -37,27 +37,13 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-md-5">
-							<div class="header-search">
-								<form>
-									<select id="categories" class="input-select">
-										<option value="0">Categorias</option>
-										<option value="1">Empresa A 01</option>
-										<option value="1">Empresa A 02</option>
-									</select>
-									<input class="input" placeholder="Busca aquí">
-									<button class="search-btn">Buscar</button>
-								</form>
-							</div>
-						</div>
-						<!-- /SEARCH BAR -->
 
 						<!-- ACCOUNT -->
 						<div class="clearfix">
 							<div class="header-ctn">
 								<!-- Wishlist -->
 								<div>
-									<a class="hearder-icons"href="#">
+									<a class="hearder-icons"href="../opciones-usuario/lista-deseos-usuario/lista-deseos-usuario.html">
 										<i class="fa fa-heart-o"></i>
 										<span>Deseos</span>
 										<div class="qty">2</div>
@@ -66,54 +52,20 @@
 								<!-- /Wishlist -->
 
 								<!-- Cart -->
-								<div class="dropdown">
+								<div>
 									<a class="dropdown-toggl hearder-icons" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Carito</span>
 										<div class="qty">3</div>
-									</a>
-									<div class="cart-dropdown">
-										<div class="cart-list">
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/product01.png" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">product name goes here</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/product02.png" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">Nombre del Producto</a></h3>
-													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-										</div>
-										<div class="cart-summary">
-											<small>3 Item(s) seleccionados</small>
-											<h5>SUBTOTAL: $2940.00</h5>
-										</div>
-										<div class="cart-btns">
-											<a href="#">Ver Carrito</a>
-											<a href="#">Comprar <i class="fa fa-arrow-circle-right"></i></a>
-										</div>
-									</div>
+									</a>	
 								</div>
 								
 								<div class="dropdown">
                                 <button class="hearder-icons btn-profile dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span>Kevin González</span>
-                                    <img class="profile-image" src="img/profile-image-anounimous.jpg">
+
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="../opciones-usuario/configuracion-usuario/perfil-usuario.html"><i class="fa fa-cog icon-profile-dropdown"></i>Configuración</a>
+                                    <a class="dropdown-item" href="../opciones-usuario/configuracion-usuario/perfil-usuario.php"><i class="fa fa-cog icon-profile-dropdown"></i>Configuración</a>
                                     <a class="dropdown-item" href="../opciones-usuario/historial-usuario/historial-usuario.html"><i class="fas fa-shopping-bag icon-profile-dropdown"></i>Historial de compras</a>
                                     <a class="dropdown-item" href="../opciones-usuario/lista-deseos-usuario/lista-deseos-usuario.html"><i class="fas fa-heart icon-profile-dropdown"></i></i>Lista de Deseos</a>
                                     <a class="dropdown-item" href="../opciones-usuario/empresas-siguiendo-usuario/empresas-siguiendo.html"><i class="fas fa-building icon-profile-dropdown"></i>Empresas Siguiendo</a>
@@ -935,10 +887,9 @@
 							<div class="footer">
 								<h3 class="footer-title">Servicio</h3>
 								<ul class="footer-links">
-									<li><a href="#">Mi cuenta</a></li>
-									<li><a href="#">Ver Carrito</a></li>
-									<li><a href="#">Lista de Deseos</a></li>
-									<li><a href="#">Ayuda</a></li>
+									<li><a href="../opciones-usuario/configuracion-usuario/perfil-usuario.html">Mi cuenta</a></li>
+									<li><a href="../opciones-usuario/historial-usuario/historial-usuario.html">Comprado</a></li>
+									<li><a href="../opciones-usuario/lista-deseos-usuario/lista-deseos-usuario.html">Lista de Deseos</a></li>
 								</ul>
 							</div>
 						</div>
@@ -975,6 +926,7 @@
 		<script src="js/nouislider.min.js"></script>
 		<script src="js/jquery.zoom.min.js"></script>
 		<script src="js/main.js"></script>
+		<script src="js/controlador.js"></script>
 
 	</body>
 </html>

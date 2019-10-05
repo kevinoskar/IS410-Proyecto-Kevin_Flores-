@@ -69,7 +69,7 @@ function registrarUsuario(){
                 console.log(res);
                 $("#spinner").hide();
                 if(res.valid){
-                    window.location.href="../../Proyecto-IIPAC/Pagina-Central/index.php";
+                    window.location.href="../../Proyecto-IIPAC/Iniciar-sesion/index.html";
                 }else{
                     $(".advice3").show();
                 }

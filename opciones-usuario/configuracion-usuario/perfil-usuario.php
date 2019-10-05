@@ -1,3 +1,14 @@
+<?php
+	require_once('../../Backend/class/class-user/class-user.php');
+	require_once('../../Backend/class/class-database/database.php');
+ 
+	$database = new Database();
+	if(!User::verifyAuthenticity($database->getDB()))
+		header("Location: error.html");
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,88 +79,8 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <div class="col-md-3 col-xs-12 col-lg-12">
-                    <form enctype="multipart/form-data" method="POST">
-                            <div id="Imagen" class="form-control image-profile">
-                                <img class="box-profile-image" src="img/profile-image-anounimous.jpg" alt="profile-image" title="Cambiar Imagen">
-                            </div>
-                            <input id="urlimagen" name="uploadedfile" type="file">
-                            <button id="buttonUpload" type="button" value="" onclick="subirImagen()">Subir Imagen</button>
-                            <hr class="hr1">
-                        <h2>Listos para modificar tus campos Kevin.</h2>
-                        <h1>Datos Personales</h1>
-                        <table>
-                            <tbody class="col-md-12 col-xs-12 col-lg-12">
-                                <tr>
-                                    <td><label for="">Nombre Completo</label><br></td>
-                                    <td><input type="text" value="Pedro Luis"><br></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Apellidos</label><br></td>
-                                    <td><input type="text" value="Alvarez Estrada"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Fecha de Nacimiento</label><br></td>
-                                    <td><input type="date" name="" value="2019-09-05" id="date"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Sexo</label><br></td>
-                                    <td><input type="text" value="Masculino"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Código Postal</label><br></td>
-                                    <td><input type="text" value="+220"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Pais</label><br></td>
-                                    <td><input type="text" value="Estados Unidos"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Estado o Departamento</label><br></td>
-                                    <td><input type="text" value="New York"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Dirección</label><br></td>
-                                    <td><input type="text" value="1420 Bronx south"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Teléfono</label><br></td>
-                                    <td><input type="text" value="892-257-26"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Correo Electroníco</label><br></td>
-                                    <td><input type="text" value="Pedro@gmail.com"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Contraseña Actual</label><br></td>
-                                    <td><input type="text" value="Pepitos14"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h1>Crédito/Débito</h1>
-                        <table>
-                            <tbody class="col-md-12 col-xs-12 col-lg-12">
-                                <tr>
-                                    <td><label for="">Titular de la tarjeta</label></td>
-                                    <td><input type="text" value="Pedro Alvarez"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Número de tarjeta de crédito/débito</label><br></td>
-                                    <td><input type="text" value="1542-2152-1558-1283"><br>
-                                    <i class="card-1 fab fa-cc-visa"></i>
-                                    <i class="card-1 fab fa-cc-mastercard"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Fecha de Vencimiento</label><br></td>
-                                    <td><input type="datetime" name="" value="12/05/19" id=""></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">CVV</label><br></td>
-                                    <td><input type="text" value="Masculino"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button class="btn-save-changes form-control" type="button">Guardar Cambios</button>
+                    <form id="formProfile" enctype="multipart/form-data" method="POST">
+                            
                     </form>
                 </div>
             </div>
