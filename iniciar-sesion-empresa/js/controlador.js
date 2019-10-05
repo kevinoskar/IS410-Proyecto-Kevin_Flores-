@@ -1,10 +1,12 @@
 $('#spinner').hide();
+$('.advice').hide();
 let campos=[
     {id:'emailCompany',campoValido:false},
     {id:'passwordCompany',campoValido:false}
 ];
 
 function iniciarSesion(){
+    $('#advice').hide();
     $('#spinner').show();
     console.log(`Validar Campos: Usuario: `+ document.getElementById("emailCompany").value +` Password: `+ document.getElementById("passwordCompany").value);
     for(var i=0;i<campos.length;i++){
@@ -23,11 +25,14 @@ function iniciarSesion(){
                 success:(res)=>{
                     console.log(res);
                     $('#spinner').hide();
-                    /*if(res.valid)
-                    window.location.href="../../Proyecto-IIPAC/Pagina-Central/index.php";*/
+                    if(res.valid)
+                        window.location.href="../../Proyecto-IIPAC/Pagina-Central/index.php";
+                    
                 },
                 error:(error)=>{
                     console.log(error);
+                    $('.advice').show();
+                    $('#spinner').hide();
                 }
             });
 

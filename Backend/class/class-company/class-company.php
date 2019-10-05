@@ -145,8 +145,11 @@ class Company{
 
 			$db->getReference('companys/'.$key.'/tokenCompany')
 				->set($answer['tokenCompany']);
+				echo json_encode($answer);
+		}else{
+			echo '{"valid":"false"}';
+			exit();
 		}
-		echo json_encode($answer);
 	}
 	public static function logoutCompany(){
 		setcookie('keyCompany','',time()-3600,"/");
