@@ -26,13 +26,11 @@
             $_POST['address'],
             $_POST['email'],
             $_POST['password'],
-            $_POST['clientCode'],
             $_POST['nameOwner'],
             $_POST['creditNumber'],
             $_POST['expirationDate'],
             $_POST['cvv'],
-            $_POST['productsPurchased']
-
+            $_POST['urlProfileImage']
             );
         echo $u->createUser($database->getDB());
         exit();
@@ -84,7 +82,6 @@
             $_PUT['address'],
             $_PUT['email'],
             $_PUT['password'],
-            $_PUT['clientCode'],
             $_PUT['nameOwner'],
             $_PUT['creditNumber'],
             $_PUT['expirationDate'],

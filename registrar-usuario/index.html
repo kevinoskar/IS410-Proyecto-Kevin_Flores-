@@ -24,19 +24,20 @@
                 </div>
             </div>
             <hr class="hr">
-            <form id="form">
-                <input type="text" id="name" class="fadeIn second" name="login" placeholder="Nombre"> 
-                <input type="text" id="lastName" class="fadeIn second" name="login" placeholder="Apellido"><br>
+            <form id="formUser">
+                <input type="text" id="name" class="fadeIn second" name="name" placeholder="Nombre"> 
+                <input type="text" id="lastName" class="fadeIn second" name="lastName" placeholder="Apellido"><br>
                 <div class="advice">Fecha de Nacimiento</div>
-                <input type="date" id="birthday" class="fadeIn second" placeholder="Fecha de Nacimiento">
-                <select id="gender" class="select-gender second">
+                <input type="date" id="birthday" name="birthday" class="fadeIn second" placeholder="Fecha de Nacimiento">
+                <select id="gender" name="gender" class="select-gender second">
                     <option value="">Sexo</option>
                     <option value="Femenino">Femenino</option>
                     <option value="Masculino">Masculino</option>
                     <option value="NoBinario">No binario</option>
                 </select>
-                <input type="text" id="postal" class="fadeIn second" name="login" placeholder="Código Postal">
-                <select name="Pais" id="country">
+                <div class="advice">Código Postal.Ingrese ni más ni menos 3 digitos.</div>
+                <input type="text" id="postal" class="fadeIn second" name="postal" placeholder="Código Postal">
+                <select name="country" id="country">
                     <option value="">Seleccionar Pais</option>
                     <option value="Argentina">Argentina</option>
                     <option value="Brasil">Brasil</option>
@@ -72,18 +73,33 @@
                     <option value="Uruguay">Uruguay</option>
                     <option value="Venezuela">Venezuela</option>
                 </select>
-                <input type="text" id="state" class="fadeIn second" name="login" placeholder="Estado o Departamento">
-                <input type="text" id="address" class="fadeIn second" name="login" placeholder="Dirección">
-                <input type="text" id="phone" class="fadeIn second" name="login" placeholder="Teléfono">
+                <input type="text" id="state" class="fadeIn second" name="state" placeholder="Estado o Departamento">
+                <input type="text" id="address" class="fadeIn second" name="address" placeholder="Dirección">
+                <div class="advice">Teléfono. *Ni más ni menos de 8 digitos.</div>
+                <input type="text" id="phone" class="fadeIn second" name="phone" placeholder="XXXX-XXXX">
                 <div class="advice">Correo Actual</div>
-                <input type="text" id="email" class="fadeIn third " name="login" placeholder="Correo Electrónico">
+                <input type="text" id="email" class="fadeIn third " name="email" placeholder="Correo Electrónico">
                 <div class="advice">*Debe contener más de 8 caracteres,al menos 1 digito y al menos una letra mayúscula.</div>
-                <input type="text" id="password" class="fadeIn third " name="login" placeholder="Contraseña">
-            <div id="formFooter">
-                <input type="checkbox" id="politcs">
-                Acepto las <a href="../Politicas/Terminos-condiciones/terminos.html" class="link-politics">Condiciones y Políticas</a> y la<a href="../Politicas/Politica-Privacidad/politicas.html"class="link-politics">Política de Envío.</a><br>
-                <button id="btn-register" type="button" onclick="registrarUsuario()" class="fadeIn fourth" value="Registrar"">Continuar</button>
-            </div>
+                <input type="password" id="password" class="fadeIn third " name="password" placeholder="Contraseña"></br>
+                <h1>Tarjeta de Crédito/Débito</h1>
+                <input type="text" id="nameOwner" class="fadeIn second" name="nameOwner" placeholder="Titular de la Tarjeta">
+                <div class="advice">Número de tarjeta de crédito/débito Visa MasterCard</div>
+                <input type="text" id="creditNumber" class="fadeIn second" name="creditNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+                <div class="advice">Fecha de Vencimiento</div>
+                <input type="date" id="expirationDate" class="fadeIn second" name="expirationDate" placeholder="Fecha de Vencimiento">
+                <div class="advice">CVV, entre 3 y 4 digitos.</div>
+                <input type="text" id="cvv" class="fadeIn second" name="cvv" placeholder="CVV">
+                <div class="advice">Sube una imagen de Perfil</div></br>
+                <input type="file" name="urlProfileImage" id="urlProfileImage"></br>
+                <button type="button" class="btn-save-changes" onclick="subirImagen()">Subir Imagen</button></br>
+                <div class="small-image-profile" id="smallImage">
+
+                </div>
+                <div id="formFooter">
+                    <input type="checkbox" id="politcs">
+                    Acepto las <a href="../Politicas/Terminos-condiciones/terminos.html" class="link-politics">Condiciones y Políticas</a> y la<a href="../Politicas/Politica-Privacidad/politicas.html"class="link-politics">Política de Envío.</a><br>
+                    <button id="btn-register" type="button" onclick="registrarUsuario()" class="fourth" value="Registrar""><i class="fas fa-circle-notch fa-spin" id="spinner"></i>Registrar</button>
+                </div>
             </form>
         </div>
     </div>

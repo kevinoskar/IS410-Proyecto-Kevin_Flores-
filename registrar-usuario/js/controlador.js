@@ -1,4 +1,4 @@
-
+$("#spinner").hide();
 
 let campos=[
     {id:'name',campoValido:false},
@@ -12,19 +12,18 @@ let campos=[
     {id:'phone',campoValido:false},
     {id:'email',campoValido:false},
     {id:'password',campoValido:false},
-    {id:'politcs',campoValido:false}
-];
-//Modelo usuario
-
-let campos2=[
     {id:'nameOwner',campoValido:false},
     {id:'creditNumber',campoValido:false},
     {id:'expirationDate',campoValido:false},
-    {id:'cvv',campoValido:false}
+    {id:'cvv',campoValido:false},
+    {id:'urlProfileImage',campoValido:false}
 ];
+//Modelo usuario
+
 
 function registrarUsuario(){
-let usuario={
+    $("#spinner").show();
+    let usuario={
     name:document.getElementById("name").value,
     lastname:document.getElementById("lastName").value,
     birthday:document.getElementById("birthday").value,
@@ -36,23 +35,53 @@ let usuario={
     phone:document.getElementById("phone").value,
     email:document.getElementById("email").value,
     password:document.getElementById("password").value,
-    checkbox:$("#politcs").is(":checked")
+    checkbox:$("#politcs").is(":checked"),
+    nameOwner:document.getElementById("nameOwner").value,
+    creditNumber:document.getElementById("creditNumber").value,
+    expirationDate:document.getElementById("expirationDate").value,
+    cvv:document.getElementById("cvv").value
     };
 
-    console.log(usuario);
+    
     validarCampo();
-    validarEmail(document.getElementById('email').value);
-    validarPassword(document.getElementById('password').value);
+    campos[9].campoValido=validarEmail(document.getElementById('email').value);
+    campos[10].campoValido=validarPassword(document.getElementById('password').value);
+    campos[4].campoValido=validarPostal(document.getElementById('postal').value);
+    campos[8].campoValido=validarPhone(document.getElementById('phone').value);
+    console.log(campos);
+    if(validarCreditVisa(document.getElementById('creditNumber').value==true)){
+        campos[12].campoValido=true;
+    }else{
+        campos[12].campoValido=validarCreditMastercard(document.getElementById('creditNumber').value);
+    }
+    campos[13].campoValido=validarCvv(document.getElementById('cvv').value);
     if(verificarTodos()==true){
-        console.log(campos);
-        formularioNuevo();
+        console.log("Acceso Granted");
+        var parametros=$("#formUser").serialize()+"&urlProfileImage="+"../Backend/images/users-image/users-image-profile/"+document.getElementById("urlProfileImage").files[0].name;
+        console.log(parametros);
+
+        $.ajax({
+            url: '../Backend/ajax/ajax-users/users.php',
+            method: 'POST',
+            data: parametros,
+            success:function(res){
+                console.log(res);
+                $("#spinner").hide();
+            },
+            error:function(error){
+                console.error(error);
+            }
+        });
+
     }
     
 }
+function enviarPath(path){
+    return path;
+}
 
 function validarCampo(){
-    campos[11].campoValido=$("#politcs").is(':checked');
-    for(var i=0;i<campos.length-1;i++)
+    for(var i=0;i<campos.length;i++)
         campos[i].campoValido=validarCampoVacio(campos[i].id);
         
 }
@@ -88,71 +117,10 @@ function Marcar(id,valido){
         document.getElementById(id).classList.add('is-invalid');
    }
 }
-
-function formularioNuevo(){
-    document.getElementById("form").innerHTML="";
-    document.getElementById("form").innerHTML+=`
-    <h1>Tarjeta de Crédito/Débito</h1>
-    <input type="text" id="nameOwner" class="fadeIn second" name="login" placeholder="Titular de la Tarjeta">
-    <div class="advice">Número de tarjeta de crédito/débito</div>
-    <input type="text" id="creditNumber" class="fadeIn second" name="login" placeholder="XXXX-XXXX-XXXX-XXXX" required>
-    <div class="advice">Fecha de Vencimiento</div>
-    <input type="date" id="expirationDate" class="fadeIn second" name="login" placeholder="Fecha de Vencimiento">
-    <input type="text" id="cvv" class="fadeIn second" name="login" placeholder="CVV">
-    <div class="advice">Sube una imagen de Perfil</div></br>
-    <input type="file" name="profileImage" id="profileImage">
-    <button type="button" class="btn-save-changes" onclick="subirImagen()">Subir Imagen</button></br>
-    <div class="small-image-profile" id="smallImage">
-
-    </div>
-    <button id="btn-register" type="button" onclick="registrarUsuario2()" class="fadeIn fourth" value="Registrar"">REGISTRAR</button>
-
-    `;
-}
-function registrarUsuario2(){
-    let usuariosCredito={
-        nameOwner:document.getElementById("nameOwner").value,
-        creditNumber:document.getElementById("creditNumber").value,
-        expirationDate:document.getElementById("expirationDate").value,
-        cvv:document.getElementById("cvv").value
-        };
-
-    console.log(usuariosCredito);
-    validarCampo2();
-    if(verificarTodos2()==true){
-        console.log(campos2);
-        window.location="../Pagina-Central/index.html";
-    }
-    
-}
-
-function validarCampo2(){
-    for(var i=0;i<campos2.length;i++)
-        campos2[i].campoValido=validarCampoVacio(campos2[i].id);
-}
-
-function verificarTodos2(){
-    var contador=0;
-    for(let i=0;i<campos2.length;i++){
-        if(campos2[i].campoValido==true){
-           contador++; 
-        }
-    }
-    if(contador==campos2.length){
-        $("#btn-register").removeClass("Wrong");
-        $("#btn-register").addClass("Ready");
-        return true;
-    }else{
-        $("#btn-register").removeClass("Ready");
-        $("#btn-register").addClass("Wrong");
-        return false;
-    }
-}
-
 function subirImagen(){  
-    if(document.getElementById("profileImage").value!=""){
+    if(document.getElementById("urlProfileImage").value!=""){
         var formData = new FormData();
-        var files = $('#profileImage')[0].files[0];
+        var files = $('#urlProfileImage')[0].files[0];
         formData.append('file',files);
         $.ajax({
             url: 'php/uploader.php',
@@ -192,6 +160,37 @@ function validarEmail(email){
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let resultado =  re.test(email);
     Marcar('email',resultado);
+    return resultado;
+}
+
+function validarPostal(postal){
+    let re =/^[0-9]{3}$/;
+    let resultado =  re.test(postal);
+    Marcar('postal',resultado);
+    return resultado;
+}
+function validarPhone(phone){
+    let re =/^[1-9][0-9]{7}$/;
+    let resultado =  re.test(phone);
+    Marcar('phone',resultado);
+    return resultado;
+}
+function validarCreditVisa(credit){
+    let re =/^4\d{3}-?\d{4}-?\d{4}-?\d{4}$/;
+    let resultado =  re.test(credit);
+    Marcar('creditNumber',resultado);
+    return resultado;
+}
+function validarCreditMastercard(credit){
+    let re =/^5[1-5]\d{2}-?\d{4}-?\d{4}-?\d{4}$/;
+    let resultado =  re.test(credit);
+    Marcar('creditNumber',resultado);
+    return resultado;
+}
+function validarCvv(cvv){
+    let re =/^[0-9]{3,4}$/;
+    let resultado =  re.test(cvv);
+    Marcar('cvv',resultado);
     return resultado;
 }
 

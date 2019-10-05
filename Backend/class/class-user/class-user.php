@@ -12,7 +12,6 @@ protected $state;
 protected $address;
 protected $email;
 protected $password;
-protected $clientCode;
 protected $nameOwner;
 protected $creditNumber;
 protected $expirationDate;
@@ -21,7 +20,6 @@ protected $urlProfileImage;
 protected $productsPurchased;
 protected $wishList;
 protected $companysFollowing;
-protected $sessionState;
     
     public function __construct(
         $name,
@@ -34,13 +32,11 @@ protected $sessionState;
         $address,
         $email,
         $password,
-        $clientCode,
         $nameOwner,
         $creditNumber,
         $expirationDate,
 		$cvv,
-		$productsPurchased
-
+		$urlProfileImage
     ){
         $this->name=$name;
         $this->lastName=$lastName;
@@ -52,12 +48,11 @@ protected $sessionState;
         $this->address=$address;
         $this->email=$email;
         $this->password=$password;
-        $this->clientCode=$clientCode;
         $this->nameOwner=$nameOwner;
         $this->creditNumber=$creditNumber;
         $this->expirationDate=$expirationDate;
 		$this->cvv=$cvv;
-		$this->productsPurchased=$productsPurchased;
+		$this->urlProfileImage=$urlProfileImage;
 	}
     //Methods
 
@@ -72,7 +67,6 @@ protected $sessionState;
         $arrayUser['address']=$this->address;
         $arrayUser['email']=$this->email;
         $arrayUser['password']=password_hash($this->password,PASSWORD_DEFAULT);
-        $arrayUser['clientCode']=$this->clientCode;
         $arrayUser['nameOwner']=$this->nameOwner;
         $arrayUser['creditNumber']=$this->creditNumber;
         $arrayUser['expirationDate']=$this->expirationDate;
@@ -81,7 +75,6 @@ protected $sessionState;
         $arrayUser['productsPurchased']=$this->productsPurchased;
         $arrayUser['wishList']=$this->wishList;
 		$arrayUser['companysFollowing']=$this->companysFollowing;
-		$arrayUser['sessionState']=$this->sessionState;
         return $arrayUser;
 
     }
@@ -302,15 +295,6 @@ protected $sessionState;
 	public function setCompanysFollowing($companysFollowing){
 		$this->companysFollowing = $companysFollowing;
 	}
-	public function getsessionState(){
-		return $this->sessionState;
-	}
-
-	public function setsessionState($sessionState){
-		$this->sessionState = $sessionState;
-	}
-	
-
 
 }
 
