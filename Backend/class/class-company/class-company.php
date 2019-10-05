@@ -11,9 +11,9 @@ class Company{
 	protected $state;
 	protected $addressCompany;
 	protected $phoneNumberCompany;
-	protected $latituteLongitud;
+	protected $latitute;
+	protected $longitude;
 	protected $products=NULL;
-	protected $keyCompany;
 	protected $branchOffice=NULL;
 
 	
@@ -30,10 +30,8 @@ class Company{
 		$state,
 		$addressCompany,
 		$phoneNumberCompany,
-		$latituteLongitud,
-		$products,
-		$branchOffice
-
+		$latitute,
+		$longitude
 	){
 		$this->nameCompany = $nameCompany;
 		$this->descriptionCompany = $descriptionCompany;
@@ -46,9 +44,8 @@ class Company{
 		$this->state = $state;
 		$this->addressCompany = $addressCompany;
 		$this->phoneNumberCompany = $phoneNumberCompany;
-		$this->latituteLongitud = $latituteLongitud;
-		$this->products = $products;
-		$this->branchOffice = $branchOffice;
+		$this->latitute = $latitute;
+		$this->longitude=$longitude;
 	}
 
 	public function getData(){
@@ -63,9 +60,8 @@ class Company{
 		$arrayCompanys['state']=$this->state;
 		$arrayCompanys['addressCompany']=$this->addressCompany;
 		$arrayCompanys['phoneNumberCompany']=$this->phoneNumberCompany;
-		$arrayCompanys['latituteLongitud']=$this->latituteLongitud;
-		$arrayCompanys['products']=$this->products;
-		$arrayCompanys['branchOffice']=$this->branchOffice;
+		$arrayCompanys['latitute']=$this->latitute;
+		$arrayCompanys['longitude']=$this->longitude;
 		return $arrayCompanys;
 
 	}
@@ -223,12 +219,19 @@ class Company{
 	public function setPhoneNumberCompany($phoneNumberCompany){
 		$this->phoneNumberCompany = $phoneNumberCompany;
 	}
-	public function getLatituteLongitud(){
-		return $this->latituteLongitud;
+	public function getLatitute(){
+		return $this->latitute;
 	}
 
-	public function setLatituteLongitud($latituteLongitud){
-		$this->latituteLongitud = $latituteLongitud;
+	public function setLatitute($latitute){
+		$this->latitute = $latitute;
+	}
+	public function getLongitude(){
+		return $this->longitude;
+	}
+
+	public function setLongitude($longitude){
+		$this->longitude = $longitude;
 	}
 	public function getProducts(){
 		return $this->products;
@@ -236,13 +239,6 @@ class Company{
 
 	public function setProducts($products){
 		$this->products = $products;
-	}
-	public function getsessionState(){
-		return $this->sessionState;
-	}
-
-	public function setsessionState($sessionState){
-		$this->sessionState = $sessionState;
 	}
 	public function getKeyCompany(){
 		return $this->keyCompany;

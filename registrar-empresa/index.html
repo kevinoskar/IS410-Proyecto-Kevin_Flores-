@@ -24,21 +24,79 @@
                 </div>
             </div>
             <hr class="hr">
-            <form id="form-content">
-                    <input type="text" id="name" class="fadeIn second" name="login" placeholder="Nombre de la Empresa"> 
-                    <select id="bussines" class="second">
-                        
-                    </select>
-                    <div class="advice">Fecha de Fundación</div>
-                    <input type="date" id="fundation" class="fadeIn second" placeholder="Fecha de Fundación">
-                    <div class="advice">Correo Empresarial</div>
-                    <input type="text" id="emailCompany" class="fadeIn third " name="login" placeholder="name-company@company.com">
-                    <div class="advice">*Debe contener más de 8 caracteres,al menos 1 digito y al menos una letra mayúscula.</div>
-                    <input type="text" id="password" class="fadeIn third " name="login" placeholder="Contraseña">
+            <form id="formCompany">
+                <input type="text" id="nameCompany" class="fadeIn second" name="nameCompany" placeholder="Nombre de la Empresa"> 
+                <div class="advice">Descripción</div>
+                <textarea name="descriptionCompany" class="second" id="descriptionCompany" cols="30" rows="5"></textarea>
+                <select id="oriented" name="oriented" class="second">
+                    
+                </select>
+                <div class="advice">Fecha de Fundación</div>
+                <input type="date" id="fundationDate" name="fundationDate" class="fadeIn second" placeholder="Fecha de Fundación">
+                <div class="advice">Correo Empresarial</div>
+                <input type="text" id="emailCompany" class="fadeIn third " name="emailCompany" placeholder="name-company@company.com">
+                <div class="advice">*Debe contener más de 8 caracteres,al menos 1 digito y al menos una letra mayúscula.</div>
+                <input type="text" id="passwordCompany" class="fadeIn third " name="passwordCompany" placeholder="Contraseña">
+                <div class="advice2">Código postal. No más ni menos de 3 digitos</div>
+                <input type="text" id="postalCode" class="fadeIn second" name="postalCode" placeholder="Código Postal">
+                <select name="country" class="second" id="country">
+                        <option value="">Seleccione su pais</option>
+                        <option value="Alemania">Alemania</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Bahamas">Bahamas</option>
+                        <option value="Bélgica">Bélgica</option>
+                        <option value="Belice">Belice</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Canadá">Canadá</option>
+                        <option value="Chile">Chile</option>
+                        <option value="China">China</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Corea">Corea</option>
+                        <option value="Corea">Corea del Norte</option>
+                        <option value="Costa">Costa Rica</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="El">El Salvador</option>
+                        <option value="España">España</option>
+                        <option value="Estados">Estados Unidos</option>
+                        <option value="Francia">Francia</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Holanda">Holanda</option>
+                        <option selected value="Honduras">Honduras</option>
+                        <option value="Hong">Hong Kong</option>
+                        <option value="Israel">Israel</option>
+                        <option value="Italia">Italia</option>
+                        <option value="Jamaica">Jamaica</option>
+                        <option value="Japón">Japón</option>
+                        <option value="Jordania">Jordania</option>
+                        <option value="México">México</option>
+                        <option value="Nicaragua">Nicaragua</option>
+                        <option value="Nueva">Nueva Zelanda</option>
+                        <option value="Panamá">Panamá</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Perú">Perú</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="Puerto">Puerto Rico</option>
+                        <option value="Reino">Reino Unido</option>
+                        <option value="Rusia">Rusia</option>
+                        <option value="Suecia">Suecia</option>
+                        <option value="Suiza">Suiza</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Venezuela">Venezuela</option>
+                </select>
+                <input type="text" id="state" class="fadeIn second" name="state" placeholder="Estado o Departamento">
+                <input type="text" id="addressCompany" class="fadeIn second" name="addressCompany" placeholder="Dirección">
+                <div class="advice2">Teléfono. No más ni menos de 8 digitos</div>
+                <input type="text" id="phoneNumberCompany" class="fadeIn second" name="phoneNumberCompany" placeholder="Teléfono">
+                <div class="advice2">Latitud y Longitud (Seguir la forma)</div> 
+                <input type="text" name="latitute" id="latitute" class="fadeIn second" placeholder="[±0-90.000]">
+                <input type="text" name="longitude" id="longitude" class="fadeIn second" placeholder="[±0-180.000]">
                 <div id="formFooter">
                     <input type="checkbox" id="companyPolitics">
-                    Acepto las <a href="#" class="link-politics">Condiciones y Políticas</a> y la<a href="#"class="link-politics">Política de Venta.</a><br>
-                    <button id="btn-register" type="button" onclick="registrarUsuario()" class="fadeIn fourth" value="Registrar"">REGISTRAR</button>
+                    Acepto las <a href="../Politicas/Terminos-condiciones/terminos.html" class="link-politics">Condiciones y Políticas</a> y la<a href="../Politicas/Politica-Privacidad/politicas.html"class="link-politics">Política de Venta.</a><br>
+                    <button id="btn-register" type="button" onclick="registrarUsuario()" class="fadeIn fourth"><i class="fas fa-circle-notch fa-spin" id="spinner"></i>Registrar</button>
                 </div>
             </form>
         </div>

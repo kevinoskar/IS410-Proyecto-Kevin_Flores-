@@ -76,10 +76,6 @@ function registrarUsuario(){
     }
     
 }
-function enviarPath(path){
-    return path;
-}
-
 function validarCampo(){
     for(var i=0;i<campos.length;i++)
         campos[i].campoValido=validarCampoVacio(campos[i].id);
