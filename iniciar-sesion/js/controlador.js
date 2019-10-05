@@ -1,4 +1,5 @@
 $('#spinner').hide();
+$('.advice').hide();
 let campos=[
     {id:'email',campoValido:false},
     {id:'password',campoValido:false}
@@ -7,6 +8,7 @@ let campos=[
 
 function iniciarSesion(){
     $('#spinner').show();
+    $('.advice').hide();
     console.log(`Validar Campos: Usuario: `+ document.getElementById("email").value +` Password: `+ document.getElementById("password").value);
     for(var i=0;i<campos.length;i++){
         validarCampoVacio(campos[i].id,i);
@@ -23,11 +25,16 @@ function iniciarSesion(){
                 success:(res)=>{
                     console.log(res);
                     $('#spinner').hide();
-                    if(res.valid)
-                    window.location.href="../../Proyecto-IIPAC/Pagina-Central/index.php";
+                    if(res.valid==true){
+                        window.location.href="../../Proyecto-IIPAC/Pagina-Central/index.php";
+                    }else{
+                        
+                    }
+                    
                 },
                 error:(error)=>{
                     console.log(error);
+                    $('.advice').show();
                 }
             });
     
