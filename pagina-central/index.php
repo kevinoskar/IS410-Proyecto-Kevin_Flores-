@@ -47,7 +47,6 @@
 									</select>
 									<input class="input" placeholder="Busca aquí">
 									<button class="search-btn">Buscar</button>
-									<a href="../Backend/ajax/ajax-users/users.php?action=logout">Cerrar Sesion</a>
 								</form>
 							</div>
 						</div>
@@ -108,11 +107,25 @@
 									</div>
 								</div>
 								
-								<div>
-									<a class="hearder-icons"href="#">
-										<i class="fa fa-user"></i>
-										<span>Cuenta</span>
-									</a>
+								<div class="dropdown">
+                                <button class="hearder-icons btn-profile dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span>Kevin González</span>
+                                    <img class="profile-image" src="img/profile-image-anounimous.jpg">
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="../opciones-usuario/configuracion-usuario/perfil-usuario.html"><i class="fa fa-cog icon-profile-dropdown"></i>Configuración</a>
+                                    <a class="dropdown-item" href="../opciones-usuario/historial-usuario/historial-usuario.html"><i class="fas fa-shopping-bag icon-profile-dropdown"></i>Historial de compras</a>
+                                    <a class="dropdown-item" href="../opciones-usuario/lista-deseos-usuario/lista-deseos-usuario.html"><i class="fas fa-heart icon-profile-dropdown"></i></i>Lista de Deseos</a>
+                                    <a class="dropdown-item" href="../opciones-usuario/empresas-siguiendo-usuario/empresas-siguiendo.html"><i class="fas fa-building icon-profile-dropdown"></i>Empresas Siguiendo</a>
+                                    <a class="dropdown-item" href="../Backend/ajax/ajax-users/users.php?action=logout"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
+                                  </div>
+                            </div>
+                            <div class="menu-toggle">
+                                <a href="#">
+                                    <i class="fa fa-bars"></i>
+                                    <span>Menu</span>
+                                </a>
+                            </div>
 
 								</div>
 								<!-- Menu Toogle -->
