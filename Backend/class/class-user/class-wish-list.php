@@ -11,10 +11,10 @@ class WishList{
 		return $a;
 	}
 
-	public static function addWish(){
+	public static function addWish($db){
 
 	}
-	public static function deleteWish(){
+	public static function deleteWish($db,$keyproduct){
 		
 	}
 
