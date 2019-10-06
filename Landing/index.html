@@ -15,9 +15,7 @@
     <nav class="navbar">
         <img class="logo" src="img/Fly-black.png">
         <form class="form-inline my-2 my-lg-0">
-            <input  class="form-control mr-sm-2" type="email" name="email" id="email" placeholder="Correo Electrónico">
-            <input  class="form-control mr-sm-2" type="password" name="password" id="password" placeholder="Contraseña">
-            <button class="btn my-2 my-sm-0" type="button">Inicia Sesión</button>
+            <button class="btn my-2 my-sm-0" onclick="direct()" type="button">Inicia Sesión</button>
         </form>
     </nav>
     <div class="row" id="contenedor">
@@ -71,84 +69,8 @@
                 <h1 id="regis">Regístrate</h1>
                 <form class="form">
                     <div class="row">
-                        <div class="col">
-                            <label class="label1">Nombre</label>
-                            <input type="text" class="form-input" placeholder="Nombres">
-                        </div>
-                        <div class="col">
-                            <label class="label1">Apellidos</label>
-                            <input type="text" class="form-input" placeholder="Apellidos">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label class="label1">Correo Electrónico</label>
-                            <input type="email" id="correo-registrarse" class="form-input" placeholder="Correo Electrónico">
-                            <small id="emailHelp" class="form-text text-muted">Nunca mostraremos este correo a nadie.</small>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label class="label1"nputPassword4">Password</label>
-                            <input type="password" class="form-input" id="inputPassword4" placeholder="Contraseña">
-                            <small id="emailHelp" class="form-text text-muted">Debe contener al menos 8 caracteres alfanuméricos.</small>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label class="label1">Seleccione un Pais</label>
-                            <select name="Pais" id="select">
-                                    <option value="Argentina">Argentina</option>
-                                    <option value="Brasil">Brasil</option>
-                                    <option value="Chile">Chile</option>
-                                    <option value="China">China</option>
-                                    <option value="Colombia">Colombia</option>
-                                    <option value="Corea del Sur">Corea del Sur</option>
-                                    <option value="Costa Rica">Costa Rica</option>
-                                    <option value="Dominica">Dominica</option>
-                                    <option value="EUA">EUA</option>>
-                                    <option value="El Salvador">El Salvador</option>
-                                    <option value="Ecuador">Ecuador</option>
-                                    <option value="España">España</option>
-                                    <option value="Francia">Francia</option>
-                                    <option value="Guatemala">Guatemala</option>>
-                                    <option value="Holanda">Holanda</option>
-                                    <option value="Honduras" selected>Honduras</option>
-                                    <option value="Hong Kong">Hong Kong</option>>
-                                    <option value="Inglaterra">Inglaterra</option>
-                                    <option value="Italia">Italia</option>
-                                    <option value="Japón">Japón</option>
-                                    <option value="Luxenburgo">Luxenburgo</option>
-                                    <option value="México">México</option>
-                                    <option value="Nicaragua">Nicaragua</option>
-                                    <option value="Panamá">Panamá</option>
-                                    <option value="Perú">Peru</option>
-                                    <option value="Puerto Rico">Puerto Rico</option>
-                                    <option value="Portugal">Portugal</option>
-                                    <option value="Rep. Dominicana">Rep. Dominicana</option>
-                                    <option value="Rusia">Rusia</option>
-                                    <option value="Singapur">Singapur</option>
-                                    <option value="Taiwan">Taiwan</option>
-                                    <option value="Uruguay">Uruguay</option>
-                                    <option value="Venezuela">Venezuela</option></select>
-                            <small id="emailHelp" class="form-text text-muted">*Solo están permitidos ciertos paises.</small>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                                <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                        <label class="form-text text-muted">He leído y acepto los 
-                                            <a href="#" class="ancord">términos
-                                                <label class="form-text2 text-muted">y</label>
-                                            condiciones de uso.</a>
-                                        </label>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                            <button type="button" class="btn2 mx-auto">Registrar</button>
+                      <button type="button" onclick="direct2()"  class="btn2 mx-auto">Registrar</button>
+
                     </div>
                 </form>
             </div>
@@ -171,5 +93,6 @@
     </footer>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/controlador.js"></script>
 </body>
 </html>
