@@ -89,7 +89,8 @@
             $_PUT['nameOwner'],
             $_PUT['creditNumber'],
             $_PUT['expirationDate'],
-            $_PUT['cvv']
+            $_PUT['cvv'],
+            $_PUT['urlProfileImage'],
 
         );
         echo $u->updateUser($database->getDB(),$_GET['id']);

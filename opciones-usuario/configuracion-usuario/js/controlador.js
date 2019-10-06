@@ -1,7 +1,19 @@
 
+function cargar(usuario){
+    $("#dropdownMenuButton").append(`
+    <span>${usuario.name}</span>
+    <img class="profile-image" src="../${usuario.urlProfileImage}".jpg"></img>
+    `);
+    
+
+}
+
+
+
+
 function subirImagen(){  
     var formData = new FormData();
-    var files = $('#urlimagen')[0].files[0];
+    var files = $('#urlProfileImage')[0].files[0];
     formData.append('file',files);
     $.ajax({
         url: 'php/uploader.php',
@@ -32,6 +44,7 @@ function imageVisible(res){
         success:function(res){
             console.log(res); 
             userData(res);
+
                            
         },
         error:function(error){
@@ -50,6 +63,7 @@ function userData(usuariojson){
         success:function(res){
             console.log(res);
             imprimirInformacion(res);
+            cargar(res);
         },
         error:function(error){
             console.error(error);
@@ -60,7 +74,7 @@ function userData(usuariojson){
 function imprimirInformacion(usuario){
     $("#formProfile").append(`
         <div id="Imagen" class="form-control image-profile">
-            <img class="box-profile-image" name="urlProfileImage" id="urlProfileImage" src="../${usuario.urlProfileImage}" alt="profile-image" title="Cambiar Imagen">
+            <img class="box-profile-image" src="../${usuario.urlProfileImage}" alt="profile-image" title="Cambiar Imagen">
         </div>
         <input id="urlProfileImage" name="urlProfileImage" type="file">
         <button id="buttonUpload" type="button" onclick="subirImagen()">Subir Imagen</button>
@@ -75,7 +89,7 @@ function imprimirInformacion(usuario){
                 </tr>
                 <tr>
                     <td><label for="">Apellidos</label><br></td>
-                    <td><input type="text" id="lastName" id="lastName" value="${usuario.lastName}"></td>
+                    <td><input type="text" name="lastName" id="lastName" value="${usuario.lastName}"></td>
                 </tr>
                 <tr>
                     <td><label for="">Fecha de Nacimiento</label><br></td>
@@ -150,7 +164,7 @@ function imprimirInformacion(usuario){
                 </tr>
                 <tr>
                     <td><label for="">Contraseña Actual</label><br></td>
-                    <td><input type="password" name="password" id="password" value="${usuario.password}"></td>
+                    <td><input type="password" name="password" id="password" ></td>
                 </tr>
             </tbody>
         </table>
@@ -204,7 +218,6 @@ function obtener(){
 function guardarCambios(llave){
     let datos=$("#formProfile").serialize()+"&urlProfileImage="+"../../Backend/images/users-image/users-image-profile/"+document.getElementById("urlProfileImage").files[0].name;
     console.log(datos);
-    /*
     $.ajax({
         url:'../../Backend/ajax/ajax-users/users.php?id='+llave.key,
         method:'PUT',
@@ -212,11 +225,12 @@ function guardarCambios(llave){
         data:datos,
         success:function(res){
             console.log(res); 
-                           
+                       
+
         },
         error:function(error){
             console.error(error);
         }
-    });*/
+    });
 
 }

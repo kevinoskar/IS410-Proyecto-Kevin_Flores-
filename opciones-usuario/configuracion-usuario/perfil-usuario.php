@@ -39,8 +39,7 @@
                         <div class="header-ctn"> 
                             <div class="dropdown">
                                 <button class="hearder-icons btn-profile dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span>Kevin González</span>
-                                    <img class="profile-image" src="img/profile-image-anounimous.jpg">
+                                
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#"><i class="fa fa-cog icon-profile-dropdown selected-sidebar"></i>Configuración</a>
@@ -69,9 +68,9 @@
             <div class="border-right" id="sidebar-wrapper">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action selected-sidebar">Configuración</a>
-                <a href="../historial-usuario/historial-usuario.html" class="list-group-item list-group-item-action">Historial de compras</a>
-                <a href="../lista-deseos-usuario/lista-deseos-usuario.html" class="list-group-item list-group-item-action">Lista de Deseos</a>
-                <a href="../empresas-siguiendo-usuario/empresas-siguiendo.html" class="list-group-item list-group-item-action">Empresas que sigues</a>
+                <a href="../../opciones-usuario/historial-usuario/historial-usuario.html" class="list-group-item list-group-item-action">Historial de compras</a>
+                <a href="../../opciones-usuario/lista-deseos-usuario/lista-deseos-usuario.html" class="list-group-item list-group-item-action">Lista de Deseos</a>
+                <a href="../../opciones-usuario/empresas-siguiendo-usuario/empresas-siguiendo.html" class="list-group-item list-group-item-action">Empresas que sigues</a>
               </div>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -155,7 +154,7 @@
                                 <h3 class="footer-title">Servicio</h3>
                                 <ul class="footer-links">
                                     <li><a href="#">Mi cuenta</a></li>
-                                    <li><a href="#">Ver Carrito</a></li>
+                                    <li><a href="../historial-usuario/historial-usuario.html">Ver Carrito</a></li>
                                     <li><a href="../lista-deseos-usuario/lista-deseos-usuario.html">Lista de Deseos</a></li>
 
                                 </ul>
