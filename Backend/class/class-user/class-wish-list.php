@@ -1,17 +1,8 @@
 <?php
 class WishList{
-	protected $keyCompany;
-	protected $keyProduct;
-	protected $keyUser;
-
-	public function getData(){
-		$a['keyCompany']=$this->keyCompany;
-		$a['keyProduct']=$this->keyProduct;
-		$a['keyUser']=$this->keyUser;
-		return $a;
-	}
 
 	public static function addWish($db){
+
 
 	}
 	public static function deleteWish($db,$keyproduct){
@@ -32,13 +23,6 @@ class WishList{
 
 	public function setKeyProduct($keyProduct){
 		$this->keyProduct = $keyProduct;
-	}
-	public function getKeyUser(){
-		return $this->keyUser;
-	}
-
-	public function setKeyUser($keyUser){
-		$this->keyUser = $keyUser;
 	}
 
 	public function addProduct($db){

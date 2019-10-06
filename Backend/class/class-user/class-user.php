@@ -183,6 +183,7 @@ protected $companysFollowing;
 		}
 		exit();
 	}
+	
 
     //Getters & Setters
 	public function getName(){

@@ -5,6 +5,7 @@
 	$database = new Database();
 	if(!User::verifyAuthenticity($database->getDB()))
 		header("Location: error.html");
+
 ?>
 
 
