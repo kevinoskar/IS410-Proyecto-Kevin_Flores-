@@ -1,4 +1,49 @@
 llenarPaises();
+(function(){
+    $.ajax({
+        url:'../../Backend/ajax/ajax-company/company.php?action=userAccessKey',
+        method:'GET',
+        dataType:'json',
+        success:function(res){
+            console.log(res); 
+            userData(res);
+                           
+        },
+        error:function(error){
+            console.error(error);
+        }
+    })
+
+})();
+
+function userData(companyjson){
+    var parametro=companyjson.keyCompany;
+    console.log(parametro);
+    $.ajax({
+        url:'../../Backend/ajax/ajax-company/company.php?id='+parametro,
+        method:'GET',
+        dataType:'json',
+        success:function(res){
+            console.log(res);
+            //imprimirInformacion(res);
+        },
+        error:function(error){
+            console.error(error);
+        }
+    });
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 function subirImagen(){  

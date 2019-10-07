@@ -26,7 +26,7 @@ function iniciarSesion(){
                     console.log(res);
                     $('#spinner').hide();
                     if(res.valid)
-                        window.location.href="../../Proyecto-IIPAC/Pagina-Central/index.php";
+                        window.location.href="../../Proyecto-IIPAC/opciones-empresa/configuracion-empresa/perfil-empresa.php";
                     
                 },
                 error:(error)=>{

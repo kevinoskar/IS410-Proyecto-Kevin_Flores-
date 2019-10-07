@@ -10,6 +10,11 @@
         Company::loginCompany($database->getDB(),$_POST['emailCompany'],$_POST['passwordCompany']);
         exit();
     }
+    if($_SERVER['REQUEST_METHOD'] =='GET' && isset($_GET['action']) && $_GET['action']=='userAccessKey'){
+        Company::tokenAndKey();
+        exit();
+    }
+
 
 
     if ($_SERVER['REQUEST_METHOD'] =='POST'){

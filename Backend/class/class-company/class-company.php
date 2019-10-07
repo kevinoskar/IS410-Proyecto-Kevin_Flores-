@@ -164,7 +164,7 @@ class Company{
 			return false;
 		
 
-		$result=$db->getReference('Company')
+		$result=$db->getReference('companys')
 				->getChild($_COOKIE['keyCompany'])
 				->getValue();
 
@@ -174,6 +174,17 @@ class Company{
 				return false;
 			
 	}
+	public static function tokenAndKey(){
+		if(isset($_COOKIE['keyCompany'])){
+			$result['keyCompany']=$_COOKIE['key'];
+			$result['tokenCompany']=$_COOKIE['tokenCompany'];
+			echo json_encode($result);	 
+
+		}
+		exit();
+	}
+	
+
 
 
 

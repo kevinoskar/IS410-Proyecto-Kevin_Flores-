@@ -1,3 +1,18 @@
+
+<?php
+require_once('../../Backend/class/class-company/class-company.php');
+require_once('../../Backend/class/class-database/database.php');
+
+$database = new Database();
+if(!Company::verifyAuthenticity($database->getDB()))
+    header("Location: error.html");
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
