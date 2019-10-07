@@ -6,7 +6,7 @@
     
     $database = new Database();
     
-    if ($_SERVER['REQUEST_METHOD'] =='POST' && isset($_POST['key'])){
+    if ($_SERVER['REQUEST_METHOD'] =='POST' && isset($_GET['id'])){
         $product=new Product(
             $_POST['productName'],
             $_POST['productCode'],
@@ -17,9 +17,16 @@
             $_POST['productPrice'],
             $_POST['productDiscountPorcentage'],
             $_POST['productTotalPrice'],
-            $_POST['productImages']
+            $_POST['productImages'],
+            $_POST['sizes'],
+            $_POST['color'],
+            $_POST['sex'],
+            $_POST['height'],
+            $_POST['width'],
+            $_POST['depth']
+
             );
-        echo $product->createProduct($database->getDB(),$_POST['key']);
+        echo $product->createProduct($database->getDB(),$_GET['id']);
 
     }
     
@@ -49,7 +56,14 @@
                 $_PUT['productPrice'],
                 $_PUT['productDiscountPorcentage'],
                 $_PUT['productTotalPrice'],
-                $_PUT['productImages']
+                $_PUT['productImages'],
+                $_POST['size'],
+                $_POST['color'],
+                $_POST['sex'],
+                $_POST['height'],
+                $_POST['width'],
+                $_POST['depth']
+
                 );
         echo $product->updateProduct($database->getDB(),$_GET['key'],$_GET['id']);
     }

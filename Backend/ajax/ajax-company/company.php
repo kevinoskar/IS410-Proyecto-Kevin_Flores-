@@ -32,6 +32,7 @@
         echo $com->createCompany($database->getDB());
 
     }
+    
 
     if ($_SERVER['REQUEST_METHOD']=='GET' && !isset($_GET['id'])){
         Company::obtainCompanys($database->getDB());

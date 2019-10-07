@@ -8,6 +8,7 @@ class Product {
 	protected $productbrand;
 	protected $productDescription;
 	protected $productQuantity;
+	protected $productType;
 	protected $productPrice;
 	protected $productDiscountPorcentage;
 	protected $productTotalPrice;
@@ -30,6 +31,7 @@ class Product {
 		$productbrand,
 		$productDescription,
 		$productQuantity,
+		$productType,
 		$productPrice,
 		$productDiscountPorcentage,
 		$productTotalPrice,
@@ -48,6 +50,7 @@ class Product {
 		$this->productbrand = $productbrand;
 		$this->productDescription = $productDescription;
 		$this->productQuantity = $productQuantity;
+		$this->productType = $productType;
 		$this->productPrice = $productPrice;
 		$this->productDiscountPorcentage = $productDiscountPorcentage;
 		$this->productTotalPrice = $productTotalPrice;
@@ -70,14 +73,20 @@ class Product {
 			$productA['productDiscountPorcentage']=$this->productDiscountPorcentage;
 			$productA['productTotalPrice']=$this->productTotalPrice;
 			$productA['productImages']=$this->productImages;
+			$productA['size']=$this->size;
+        	$productA['color']=$this->color;
+        	$productA['sex']=$this->sex;
+        	$productA['height']=$this->height;
+        	$productA['width']=$this->width;
+        	$productA['depth']=$this->depth;
 			return $productA;
 	}
 
 
-	public function createProduct($db,$keyCompany){
+	public function createProduct($db,$key){
 		$product = $this->getData();
 		$result = $db->getReference('companys')
-			->getChild($keyCompany) 
+			->getChild($key)
 			->getChild('products') 
 			->push($product);
 		   
@@ -255,6 +264,13 @@ class Product {
 
 	public function setComments($comments){
 		$this->comments = $comments;
+	}
+	public function getProductType(){
+		return $this->productType;
+	}
+
+	public function setProductType($productType){
+		$this->productType = $productType;
 	}
 }
 ?>

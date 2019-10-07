@@ -78,38 +78,75 @@
                             <div class="content-new-product">
                                 <label class="title-new-product">Nuevo Producto</label>
                                 <div class="description">
-                                    <form>
+                                    <form id="formproduct">
                                         <h1>Descripción del producto</h1></br>
-                                        <input type="text" placeholder="Nombre del Producto">
-                                        <input type="text" placeholder="Código">
-                                        <input type="text" placeholder="Modelo">
-                                        <input type="text" placeholder="Marca">
-                                        <textarea name="" id="" cols="20" rows="6" placeholder="Descripción"></textarea>
-                                        <input type="number" placeholder="Cantidad en existencia">
+                                        <input type="text" name="productName" id="productName" placeholder="Nombre del Producto">
+                                        <input type="text"name="productCode" id="productCode" placeholder="Código">
+                                        <input type="text" name="productModel" id="productModel" placeholder="Modelo">
+                                        <input type="text" name="productbrand" id="productbrand" placeholder="Marca">
+                                        <textarea name="productDescription" id="productDescription" cols="20" rows="6" placeholder="Descripción"></textarea>
+                                        <input type="number" name="productQuantity" id="productQuantity" placeholder="Cantidad en existencia">
                                         <select name="typeProduct" id="typeProduct">
                                     
                                         </select></br>
                                         <div class="price-box" id="prices">
                                             <h1>Precio Lempiras</h1></br>
                                             <label >Precio Original L.</label>
-                                            <input type="text" id="salePrice" placeholder=" L.00.00">
+                                            <input type="text" id="productPrice" name="productPrice"  placeholder=" L.00.00">
                                             <label >Porcentaje de Descuento</label>
-                                            <input id="saleDiscountPercentage" type="text" placeholder="%00.00" onkeyup="calcularPorcentaje()" >
+                                            <input id="productDiscountPorcentage" name="productDiscountPorcentage" type="text" placeholder="%00.00" onkeyup="calcularPorcentaje()" >
                                             <label >Precio Total L.</label>
-                                            <input type="text" id="saleDiscount">
+                                            <input type="text" name="productTotalPrice" id="productTotalPrice">
                                         </div> 
                                         <div id="especification">
-                                        
+                                            <h1>Características específicas</h1>
+                                            <h1>Talla-Size</h1>
+                                            <select id="sizes" name="sizes">
+                                                <option value="S">Small (Corta)</option>
+                                                <option value="M">Medium (Mediana)</option>
+                                                <option value="L">Large (Larga)</option>
+                                                <option value="XL"> Extra Large (Extra Larga)</option>
+                                            </select>
+                                        </div>
+                                            <h1>Color</h1>
+                                            <div id="color">
+                                                <select name="color" id="color">
+                                                    <option value="black">Negro</option>>
+                                                    <option value="white">Blanco</option>>
+                                                    <option value="blue">Azul</option>>
+                                                    <option value="red">Rojo</option>>
+                                                    <option value="yellow">Amarillo</option>>
+                                                    <option value="orange">Naranja</option>>
+                                                    <option value="silver">Plateado</option>>
+                                                    <option value="gold">Dorado</option>
+                                                </select>
+                                            </div>
+                                            <h1>Sexo</h1>
+                                                <select name="sex" id="sex">
+                                                    <option value="F" id="F">Femenino</option>
+                                                    <option value="M" id="M">Masculino</option>
+                                                    <option value="Bi" id="Bi">Ambos sexos</option>
+                                                </select>
+                                            <h1>Tamaño</h1>
+                                                <div>
+                                                        <input id="height" name="height" type="number" placeholder="Altura">Altura en metros
+                                                        <input id="width" name="width" type="number" placeholder="Anchura">Anchura en metros
+                                                        <input id="depth" name="depth" type="number" placeholder="Profundidad">Profundad metros
+                                                </div>
                                         </div>
                                         <div id="imageProduct"class="image-product">
-                                            
+                                            <h1>Subir Imagen(obligatorio)</h1>
                                         </div>
                                         <div id="imagenFileUpload">
-
+                                            <input type="file" id="productImages" name="productImages">
+                                            <div class="see-picture" id="pictureProduct">
+                                                <img src="img/background-banner-example.jpg" alt="">
+                                            </div>
+                                        <button type="button" class="btn-save-changes" onclick="subirImagen()">Subir Imagen</button></br>
+                                        
                                         </div>
 
-                                        <button class="btn-save-all" type="button">
-                                                <i class="fas fa-plus"></i>Guardar Producto</button>
+                                        <button class="btn-save-all" onclick="registrarProducto()" type="button"><i class="fas fa-plus"></i>Guardar Producto</button>
                                     </form>
                                 </div>
                             </div>
