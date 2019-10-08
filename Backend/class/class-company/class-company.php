@@ -34,9 +34,7 @@ class Company{
 		$addressCompany,
 		$phoneNumberCompany,
 		$latitute,
-		$longitude,
-		$urlbanner,
-		$urlimagenCompany
+		$longitude
 
 	){
 		$this->nameCompany = $nameCompany;
@@ -52,8 +50,6 @@ class Company{
 		$this->phoneNumberCompany = $phoneNumberCompany;
 		$this->latitute = $latitute;
 		$this->longitude=$longitude;
-		$this->urlbanner = $urlbanner;
-		$this->urlimagenCompany = $urlimagenCompany;
 	}
 
 	public function getData(){
@@ -70,8 +66,6 @@ class Company{
 		$arrayCompanys['phoneNumberCompany']=$this->phoneNumberCompany;
 		$arrayCompanys['latitute']=$this->latitute;
 		$arrayCompanys['longitude']=$this->longitude;
-		$arrayCompanys['urlbanner']=$this->urlbanner;
-		$arrayCompanys['urlimagenCompany']=$this->urlimagenCompany;
 		return $arrayCompanys;
 
 	}
@@ -82,18 +76,6 @@ class Company{
 		   ->push($company);
 		   
 		if ($result->getKey() != null){
-				$answer['valid']=true;
-				$answer['keyCompany']=$result->getKey();
-				$answer['emailCompany']=$company['emailCompany'];
-				$answer['tokenCompany']=bin2hex(openssl_random_pseudo_bytes(16));
-				setcookie('keyCompany',$answer['keyCompany'],time()+(86400*30),"/");
-				setcookie('emailCompany',$answer['emailCompany'],time()+(86400*30),"/");
-				setcookie('tokenCompany',$answer['tokenCompany'],time()+(86400*30),"/");
-
-
-				$db->getReference('companys/'.$result->getKey().'/tokenCompany')
-					->set($answer['tokenCompany']);
-
 			return '{"mensaje":"Empresa Guardada con exito","key":"'.$result->getKey().'",
 					"valid":"true"}';
 		

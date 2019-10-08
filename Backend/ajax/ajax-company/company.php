@@ -31,9 +31,7 @@
             $_POST['addressCompany'],
             $_POST['phoneNumberCompany'],
             $_POST['latitute'],
-            $_POST['longitude'],
-            $_POST['urlbanner'],
-            $_POST['urlimagenCompany']
+            $_POST['longitude']
 
         );
 

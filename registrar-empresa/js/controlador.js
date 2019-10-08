@@ -55,7 +55,7 @@ function registrarUsuario(){
                 console.log(res);
                 $("#spinner").hide();
                 if(res.valid){
-                    window.location.href="../../Proyecto-IIPAC/opciones-empresa/configuracion-empresa/perfil-empresa.php";
+                    window.location.href="../../Proyecto-IIPAC/Iniciar-sesion-empresa/index.html";
                     
                 }else{
                     $("#btn-register").removeClass("Ready");
