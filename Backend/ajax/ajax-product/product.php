@@ -30,16 +30,16 @@
 
     }
     
-    if ($_SERVER['REQUEST_METHOD']=='GET' && !isset($_GET['id'])  && isset($_GET['key'])){
-        Product::obtainProducts($database->getDB(),$_GET['key']);
+    if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['keyCompany'])){
+        Product::obtainProducts($database->getDB(),$_GET['keyCompany']);
     }
-    if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['key'])  && isset($_GET['id'])){
-        Product::obtainProduct($database->getDB(),$_GET['key'],$_GET['id']);
+    if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['keyCompany'])  && isset($_GET['idProduct'])){
+        Product::obtainProduct($database->getDB(),$_GET['keyCompany'],$_GET['idProduct']);
     }
     
-    if ($_SERVER['REQUEST_METHOD']=='DELETE' &&  isset($_GET['key'])  && isset($_GET['id'])){
+    /*if ($_SERVER['REQUEST_METHOD']=='DELETE' &&  isset($_GET['key'])  && isset($_GET['id'])){
         Product::deleteProduct($database->getDB(),$_GET['key'],$_GET['id']);
-    }
+    }*/
     
     if ($_SERVER['REQUEST_METHOD'] =='PUT' && isset($_GET['key']) && isset($_GET['id'])){
         $_PUT=array();

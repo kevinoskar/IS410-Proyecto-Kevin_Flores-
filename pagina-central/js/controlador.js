@@ -11,7 +11,20 @@
         error:function(error){
             console.error(error);
         }
+    }),
+    $.ajax({
+        url:'../Backend/ajax/ajax-company/company.php',
+        method:'GET',
+        dataType:'json',
+        success:function(res){
+            console.log(res);  
+            imprimirInformacionCompañia(res);              
+        },
+        error:function(error){
+            console.error(error);
+        }
     })
+
 
 })();
 
@@ -32,6 +45,23 @@ function userData(usuariojson){
     });
 
 }
+function imprimirInformacionCompañia(companyskeys){
+    for(let indice in companyskeys){
+        console.log("indice "+ indice);
+        $.ajax({
+            url:'../Backend/ajax/ajax-product/product.php?keyCompany='+indice,
+            method:'GET',
+            dataType:'json',
+            success:function(res){
+                console.log(res);
+            },
+            error:function(error){
+                console.error(error);
+            }
+        }); 
+    }
+
+}
 
 
 function imprimirInformacion(usuariojson){
@@ -40,4 +70,7 @@ function imprimirInformacion(usuariojson){
     <img class="profile-image" src="${usuariojson.urlProfileImage}">
 
     `);
-};
+
+}
+
+

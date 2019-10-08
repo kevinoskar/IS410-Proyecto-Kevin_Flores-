@@ -15,6 +15,9 @@ class Company{
 	protected $longitude;
 	protected $products=NULL;
 	protected $branchOffice=NULL;
+	protected $urlbanner;
+	protected $urlimagenCompany;
+
 
 	
 
@@ -31,7 +34,10 @@ class Company{
 		$addressCompany,
 		$phoneNumberCompany,
 		$latitute,
-		$longitude
+		$longitude,
+		$urlbanner,
+		$urlimagenCompany
+
 	){
 		$this->nameCompany = $nameCompany;
 		$this->descriptionCompany = $descriptionCompany;
@@ -46,6 +52,8 @@ class Company{
 		$this->phoneNumberCompany = $phoneNumberCompany;
 		$this->latitute = $latitute;
 		$this->longitude=$longitude;
+		$this->urlbanner = $urlbanner;
+		$this->urlimagenCompany = $urlimagenCompany;
 	}
 
 	public function getData(){
@@ -62,6 +70,8 @@ class Company{
 		$arrayCompanys['phoneNumberCompany']=$this->phoneNumberCompany;
 		$arrayCompanys['latitute']=$this->latitute;
 		$arrayCompanys['longitude']=$this->longitude;
+		$arrayCompanys['urlbanner']=$this->urlbanner;
+		$arrayCompanys['urlimagenCompany']=$this->urlimagenCompany;
 		return $arrayCompanys;
 
 	}

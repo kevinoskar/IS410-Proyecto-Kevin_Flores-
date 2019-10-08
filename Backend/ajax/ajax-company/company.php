@@ -31,7 +31,10 @@
             $_POST['addressCompany'],
             $_POST['phoneNumberCompany'],
             $_POST['latitute'],
-            $_POST['longitude']
+            $_POST['longitude'],
+            $_POST['urlbanner'],
+            $_POST['urlimagenCompany']
+
         );
 
         echo $com->createCompany($database->getDB());
@@ -68,8 +71,11 @@
             $_PUT['addressCompany'],
             $_PUT['phoneNumberCompany'],
             $_PUT['latitute'],
-            $_POST['longitude']
+            $_PUT['longitude'],
+            $_PUT['urlbanner'],
+            $_PUT['urlimagenCompany']
         );
         echo $com->updateCompany($database->getDB(),$_GET['id']);
+        
     }
 ?>

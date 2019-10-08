@@ -95,10 +95,10 @@ if(!Company::verifyAuthenticity($database->getDB()))
                                 <img src="img/background-banner-example.jpg" class="box-profile-banner" alt="" title="Cambiar Banner">
                             </div>
                         </div>
-                        <input id="urlimagen" name="uploadedfile" type="file">
+                        <input id="urlimagenCompany" name="urlimagenCompany" type="file">
                         <button id="buttonUpload" type="button" value="" onclick="subirImagen()">Subir Imagen</button>
-                        <input type="file" id="urlbanner" name="uploadfile">
-                        <button id="buttonUploadBanner" type="button" value="" onclick="subirImagenBanner()">Subir Banner</button>
+                        <input type="file" id="urlbanner" name="urlbanner">
+                        <button id="buttonUploadBanner" type="button" value="" onclick="subirImagenBanner2()">Subir Banner</button>
                         <hr class="hr1">   
                         <h2>Listos para modificar tus campos.</h2>
                         <h1>Datos Principales</h1>
