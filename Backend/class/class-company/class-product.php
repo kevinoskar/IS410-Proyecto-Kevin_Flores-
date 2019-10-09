@@ -35,13 +35,13 @@ class Product {
 		$productPrice,
 		$productDiscountPorcentage,
 		$productTotalPrice,
-		$productImages,
-		$size = null,
-        $color = null,
-        $sex = null,
-        $height = null,
-        $width = null,
-        $depth = null
+		$size,
+        $color,
+        $sex,
+        $height,
+        $width,
+		$depth,
+		$productImages
 	)
 	{
 		$this->productName = $productName;
@@ -54,13 +54,13 @@ class Product {
 		$this->productPrice = $productPrice;
 		$this->productDiscountPorcentage = $productDiscountPorcentage;
 		$this->productTotalPrice = $productTotalPrice;
-		$this->productImages = $productImages;
 		$this->size = $size;
         $this->color = $color;
         $this->sex = $sex;
         $this->height = $height;
         $this->width = $width;
-        $this->depth = $depth;
+		$this->depth = $depth;
+		$this->productImages = $productImages;
 	}
 	public function getData(){
 			$productA['productName']=$this->productName;
@@ -69,38 +69,34 @@ class Product {
 			$productA['productbrand']=$this->productbrand;
 			$productA['productDescription']=$this->productDescription;
 			$productA['productQuantity']=$this->productQuantity;
+			$productA['productType']=$this->productType;
 			$productA['productPrice']=$this->productPrice;
 			$productA['productDiscountPorcentage']=$this->productDiscountPorcentage;
 			$productA['productTotalPrice']=$this->productTotalPrice;
-			$productA['productImages']=$this->productImages;
 			$productA['size']=$this->size;
         	$productA['color']=$this->color;
         	$productA['sex']=$this->sex;
         	$productA['height']=$this->height;
         	$productA['width']=$this->width;
-        	$productA['depth']=$this->depth;
+			$productA['depth']=$this->depth;
+			$productA['productImages']=$this->productImages;
 			return $productA;
 	}
 
 
 	public function createProduct($db,$key){
 		$product = $this->getData();
-		$result = $db->getReference('companys')
-			->getChild($key)
-			->getChild('products') 
+		$result = $db->getReference("companys/{$key}/products/")
 			->push($product);
 		   
 		if ($result->getKey() != null)
-			return '{"mensaje":"Producto Anexado con exito","key":"'.$result->getKey().'"}';
+			return '{"mensaje":"Producto Anexado con exito","keyCompany":"'.$key.'","keyProduct":"'.$result->getKey().'"}';
 		else 
 			return '{"mensaje":"Error al guardar el registro"}';
 	}
 
 	public static function obtainProduct($db,$keyfirebaseCompany,$keyProduct){
-		$result=$db->getReference('companys')
-			->getChild($keyfirebaseCompany)
-			->getChild('products')
-			->getChild($keyProduct)
+		$result=$db->getReference("companys/{$keyfirebaseCompany}/products/{$keyProduct}/")
 			->getValue();
 
 		echo json_encode($result);
@@ -109,8 +105,10 @@ class Product {
 		$result=$db->getReference('companys')
 		->getChild($firebaseCompany)
 		->getChild('products')
+		->getSnapshot()
 		->getValue();
 
+		
 		echo json_encode($result);
 	}
 	public static function deleteProduct($db,$keyfirebaseCompany,$keyProduct){

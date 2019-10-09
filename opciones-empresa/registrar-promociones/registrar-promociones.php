@@ -1,3 +1,21 @@
+
+<?php
+require_once('../../Backend/class/class-company/class-company.php');
+require_once('../../Backend/class/class-database/database.php');
+
+$database = new Database();
+if(!Company::verifyAuthenticity($database->getDB())){
+    header("Location: error.html");
+}
+
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +28,7 @@
     <link type="text/css" rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" >
     <script src="https://kit.fontawesome.com/b46271b076.js"></script>
+    
 </head>
 <body>
     <header>
@@ -26,20 +45,8 @@
                     <!-- ACCOUNT -->
                     <div class="clearfix">
                         <div class="header-ctn"> 
-                            <div class="dropdown">
-                                <button class="hearder-icons btn-profile dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span>Empresa</span>
-                                    <img class="profile-image" src="img/logo-example.jpg">
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="../configuracion-empresa/perfil-empresa.html"><i class="fa fa-cog icon-profile-dropdown"></i>Actualizar Perfil</a>
-                                    <a class="dropdown-item" href="../visualizar-empresa/visualizar-empresa.html"><i class="fas fa-eye icon-profile-dropdown"></i></i>Visualización Perfil</a>
-                                    <a class="dropdown-item" href="../registrar-sucursal/registrar-sucursal.html"><i class="fas fa-store icon-profile-dropdown"></i></i>Registrar Sucursal</a>
-                                    <a class="dropdown-item" href="../registrar-promociones/registrar-promociones.html"><i class="fas fa-gift icon-profile-dropdown selected-sidebar"></i>Registrar Promociones</a>
-                                    <a class="dropdown-item" href="../dashboard-admin/dashboard-admin.html"><i class="fas fa-chart-bar icon-profile-dropdown"></i>Dashboard Administrativo</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
-                                  </div>
-                            </div>
+                            <div class="dropdown" id="main">
+                               
                             <div class="menu-toggle">
                                 <a href="#">
                                     <i class="fa fa-bars"></i>
@@ -85,7 +92,8 @@
                                         <input type="text" name="productbrand" id="productbrand" placeholder="Marca">
                                         <textarea name="productDescription" id="productDescription" cols="20" rows="6" placeholder="Descripción"></textarea>
                                         <input type="number" name="productQuantity" id="productQuantity" placeholder="Cantidad en existencia">
-                                        <select name="typeProduct" id="typeProduct">
+                                        
+                                        <select name="productType" id="productType">
                                     
                                         </select></br>
                                         <div class="price-box" id="prices">
@@ -100,7 +108,7 @@
                                         <div id="especification">
                                             <h1>Características específicas</h1>
                                             <h1>Talla-Size</h1>
-                                            <select id="sizes" name="sizes">
+                                            <select id="size" name="size">
                                                 <option value="S">Small (Corta)</option>
                                                 <option value="M">Medium (Mediana)</option>
                                                 <option value="L">Large (Larga)</option>
@@ -128,9 +136,9 @@
                                                 </select>
                                             <h1>Tamaño</h1>
                                                 <div>
-                                                        <input id="height" name="height" type="number" placeholder="Altura">Altura en metros
-                                                        <input id="width" name="width" type="number" placeholder="Anchura">Anchura en metros
-                                                        <input id="depth" name="depth" type="number" placeholder="Profundidad">Profundad metros
+                                                    <input id="height" name="height" type="number" placeholder="Altura">Altura en metros
+                                                    <input id="width" name="width" type="number" placeholder="Anchura">Anchura en metros
+                                                    <input id="depth" name="depth" type="number" placeholder="Profundidad">Profundad metros
                                                 </div>
                                         </div>
                                         <div id="imageProduct"class="image-product">
@@ -139,13 +147,15 @@
                                         <div id="imagenFileUpload">
                                             <input type="file" id="productImages" name="productImages">
                                             <div class="see-picture" id="pictureProduct">
-                                                <img src="img/background-banner-example.jpg" alt="">
+                                                <img src="" alt="Aqui va la foto.">
                                             </div>
                                         <button type="button" class="btn-save-changes" onclick="subirImagen()">Subir Imagen</button></br>
                                         
                                         </div>
+                                        <div id="button">
 
-                                        <button class="btn-save-all" onclick="registrarProducto()" type="button"><i class="fas fa-plus"></i>Guardar Producto</button>
+                                        </div>
+
                                     </form>
                                 </div>
                             </div>
@@ -155,18 +165,7 @@
                             <div id="product-category" >
                                 <h1 class="head-title-product">Tecnología</h1>
                                 <div class=" row category"id="category">
-                                    <div class="card category col-md-6 col-xs-12 col-lg-4">
-                                        <img src="img/camisa-polo-unah.jpg" class="card-img-top" alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Nombre del producto</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <h1 class="card-title2">Precio: L55.00</h1>
-                                            <button type="button" class="btn-edit">
-                                                <i class="fas fa-minus"></i>Editar Producto</button>
-                                            <button type="button" class="btn-delete">
-                                                <i class="fas fa-edit"></i>Eliminar Producto</button>
-                                        </div>
-                                    </div>
+
                                     <div class="card category col-md-12 col-xs-12 col-lg-4">
                                         <img src="img/camisa-polo-unah.jpg" class="card-img-top" alt="">
                                         <div class="card-body">
@@ -293,10 +292,10 @@
                 </div>
             </div>
     </footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/controlador.js"></script>
     
 </body>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/controlador.js"></script>
 </html>

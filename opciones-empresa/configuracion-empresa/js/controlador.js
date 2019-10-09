@@ -211,6 +211,10 @@ function saveChangesUpdated(company){
     });
 
 }
+function imprimirProductos(){
+    
+
+}
 
 
 

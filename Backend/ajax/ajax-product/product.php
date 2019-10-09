@@ -6,7 +6,7 @@
     
     $database = new Database();
     
-    if ($_SERVER['REQUEST_METHOD'] =='POST' && isset($_GET['id'])){
+    if ($_SERVER['REQUEST_METHOD'] =='POST' && isset($_GET['keyCompany'])){
         $product=new Product(
             $_POST['productName'],
             $_POST['productCode'],
@@ -14,23 +14,24 @@
             $_POST['productbrand'],
             $_POST['productDescription'],
             $_POST['productQuantity'],
+            $_POST['productType'],
             $_POST['productPrice'],
             $_POST['productDiscountPorcentage'],
             $_POST['productTotalPrice'],
-            $_POST['productImages'],
-            $_POST['sizes'],
+            $_POST['size'],
             $_POST['color'],
             $_POST['sex'],
             $_POST['height'],
             $_POST['width'],
-            $_POST['depth']
+            $_POST['depth'],
+            $_POST['productImages']
 
             );
-        echo $product->createProduct($database->getDB(),$_GET['id']);
+        echo $product->createProduct($database->getDB(),$_GET['keyCompany']);
 
     }
     
-    if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['keyCompany'])){
+    if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['keyCompany']) && !isset($_GET['idProduct'])){
         Product::obtainProducts($database->getDB(),$_GET['keyCompany']);
     }
     if ($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['keyCompany'])  && isset($_GET['idProduct'])){

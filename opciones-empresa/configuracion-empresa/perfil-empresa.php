@@ -63,10 +63,10 @@ if(!Company::verifyAuthenticity($database->getDB())){
             <!-- Sidebar -->
             <div class="border-right" id="sidebar-wrapper">
               <div class="list-group list-group-flush">
-                <a href="../configuracion-empresa/perfil-empresa.html" class="list-group-item list-group-item-action selected-sidebar">Actualizar Perfil</a>
+                <a href="../configuracion-empresa/perfil-empresa.php" class="list-group-item list-group-item-action selected-sidebar">Actualizar Perfil</a>
                 <a href="../visualizar-empresa/visualizar-empresa.html" class="list-group-item list-group-item-action">Visualizar Perfil</a>
                 <a href="../registrar-sucursal/registrar-sucursal.html" class="list-group-item list-group-item-action">Registrar Sucursal</a>
-                <a href="../registrar-promociones/registrar-promociones.html" class="list-group-item list-group-item-action">Registrar Promociones</a>
+                <a href="../registrar-promociones/registrar-promociones.php" class="list-group-item list-group-item-action">Registrar Promociones</a>
                 <a href="../dashboard-admin/dashboard-admin.html" class="list-group-item list-group-item-action">Dashboard Administrativo</a>
                 <a href="#" class="list-group-item list-group-item-action">Salir</a>
               </div>
