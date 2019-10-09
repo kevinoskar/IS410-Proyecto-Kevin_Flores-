@@ -10,7 +10,13 @@
         Company::loginCompany($database->getDB(),$_POST['emailCompany'],$_POST['passwordCompany']);
         exit();
     }
-    if($_SERVER['REQUEST_METHOD'] =='GET' && isset($_GET['action']) && $_GET['action']=='userAccessKey'){
+    if($_SERVER['REQUEST_METHOD'] =='GET' && isset($_GET['action']) && $_GET['action']=='logoutCompany'){
+        Company::logoutCompany();
+        exit();
+    }
+
+
+    if($_SERVER['REQUEST_METHOD'] =='GET' && isset($_GET['action']) && $_GET['action']=='CompanyAccessKey'){
         Company::tokenAndKey();
         exit();
     }
@@ -31,7 +37,10 @@
             $_POST['addressCompany'],
             $_POST['phoneNumberCompany'],
             $_POST['latitute'],
-            $_POST['longitude']
+            $_POST['longitude'],
+            $_POST['urlbanner'],
+            $_POST['urlimageCompany']
+            
 
         );
 
@@ -62,8 +71,8 @@
             $_PUT['oriented'],
             $_PUT['fundationDate'],
             $_PUT['emailCompany'],
-            $_PUT['passwordCompany'],
             $_PUT['postalCode'],
+            $_PUT['passwordCompany'],
             $_PUT['country'],
             $_PUT['state'],
             $_PUT['addressCompany'],
@@ -71,7 +80,8 @@
             $_PUT['latitute'],
             $_PUT['longitude'],
             $_PUT['urlbanner'],
-            $_PUT['urlimagenCompany']
+            $_PUT['urlimageCompany'],
+            $_PUT['tokenCompany']
         );
         echo $com->updateCompany($database->getDB(),$_GET['id']);
         

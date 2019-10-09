@@ -16,7 +16,7 @@ class Company{
 	protected $products=NULL;
 	protected $branchOffice=NULL;
 	protected $urlbanner;
-	protected $urlimagenCompany;
+	protected $urlimageCompany;
 
 
 	
@@ -34,7 +34,10 @@ class Company{
 		$addressCompany,
 		$phoneNumberCompany,
 		$latitute,
-		$longitude
+		$longitude,
+		$urlbanner=NULL,
+		$urlimageCompany
+
 
 	){
 		$this->nameCompany = $nameCompany;
@@ -50,6 +53,9 @@ class Company{
 		$this->phoneNumberCompany = $phoneNumberCompany;
 		$this->latitute = $latitute;
 		$this->longitude=$longitude;
+		$this->urlbanner= $urlbanner;
+		$this->urlimageCompany=$urlimageCompany;
+		
 	}
 
 	public function getData(){
@@ -66,10 +72,13 @@ class Company{
 		$arrayCompanys['phoneNumberCompany']=$this->phoneNumberCompany;
 		$arrayCompanys['latitute']=$this->latitute;
 		$arrayCompanys['longitude']=$this->longitude;
+		$arrayCompanys['urlbanner']=$this->urlbanner;
+		$arrayCompanys['urlimageCompany']=$this->urlimageCompany;
 		return $arrayCompanys;
 
 	}
 
+	
 	public function createCompany($db){
 		$company = $this->getData();
 		$result = $db->getReference('companys')
@@ -106,9 +115,8 @@ class Company{
 		echo '{"mensaje":"Se eliminó la empresa con id '.$keyfirebase.'"}';
 	}
 	public function updateCompany($db,$keyfirebase){
-		$result = $db->getReference('companys')
-		->getChild($keyfirebase)
-		->set($this->getData());
+		$result = $db->getReference('companys/'.$keyfirebase)
+		->put($this->getData());
 	
 		if ($result->getKey() != null)
 			return '{"mensaje":"Empresa actualizada","key":"'.$result->getKey().'"}';
@@ -168,7 +176,7 @@ class Company{
 	}
 	public static function tokenAndKey(){
 		if(isset($_COOKIE['keyCompany'])){
-			$result['keyCompany']=$_COOKIE['key'];
+			$result['keyCompany']=$_COOKIE['keyCompany'];
 			$result['tokenCompany']=$_COOKIE['tokenCompany'];
 			echo json_encode($result);	 
 

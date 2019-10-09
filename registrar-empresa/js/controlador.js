@@ -45,7 +45,7 @@ function registrarUsuario(){
     console.log(campos)
     if(verificarTodos()==true){
         console.log("Access Granted ");
-        let parametros=$("#formCompany").serialize();
+        let parametros=$("#formCompany").serialize()+"&urlbanner=n&urlimageCompany=n";
         console.log(parametros);
         $.ajax({
             url: '../Backend/ajax/ajax-company/company.php',
