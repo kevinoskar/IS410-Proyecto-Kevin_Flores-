@@ -1,3 +1,20 @@
+
+<?php
+require_once('../../Backend/class/class-company/class-company.php');
+require_once('../../Backend/class/class-database/database.php');
+
+$database = new Database();
+if(!Company::verifyAuthenticity($database->getDB())){
+    header("Location: error.html");
+}
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,13 +49,12 @@
                                     <img class="profile-image" src="img/profile-image-anounimous.jpg">
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="../configuracion-empresa/perfil-empresa.html"><i class="fa fa-cog icon-profile-dropdown"></i>Actualizar Perfil</a>
+                                    <a class="dropdown-item" href="../configuracion-empresa/perfil-empresa.php"><i class="fa fa-cog icon-profile-dropdown"></i>Actualizar Perfil</a>
                                     <a class="dropdown-item" href="../visualizar-empresa/visualizar-empresa.html"><i class="fas fa-eye icon-profile-dropdown "></i></i>Visualización Perfil</a>
-                                    <a class="dropdown-item" href="../registrar-sucursal/registrar-sucursal.html"><i class="fas fa-store icon-profile-dropdown selected-sidebar"></i></i>Registrar Sucursal</a>
-                                    <a class="dropdown-item" href="../registrar-promociones/registrar-promociones.html"><i class="fas fa-gift icon-profile-dropdown"></i>Registrar Promociones</a>
+                                    <a class="dropdown-item" href="../registrar-sucursal/registrar-sucursal.php"><i class="fas fa-store icon-profile-dropdown selected-sidebar"></i></i>Registrar Sucursal</a>
+                                    <a class="dropdown-item" href="../registrar-promociones/registrar-promociones.phph"><i class="fas fa-gift icon-profile-dropdown"></i>Registrar Promociones</a>
                                     <a class="dropdown-item" href="../dashboard-admin/dashboard-admin.html"><i class="fas fa-chart-bar icon-profile-dropdown"></i>Dashboard Administrativo</a>
-                                    <a class="dropdown-item" href="../ficha-impresion/ficha-impresion.html"><i class="fas fa-qrcode icon-profile-dropdown"></i>Ficha de Impresión</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
+                                    <a class="dropdown-item" href="../../Backend/ajax/ajax-company/company.php?action=logoutCompany"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
                                   </div>
                             </div>
                             <div class="menu-toggle">
@@ -58,13 +74,12 @@
             <!-- Sidebar -->
             <div class="border-right" id="sidebar-wrapper">
               <div class="list-group list-group-flush">
-                <a href="../configuracion-empresa/perfil-empresa.html" class="list-group-item list-group-item-action">Actualizar Perfil</a>
+                <a href="../configuracion-empresa/perfil-empresa.php" class="list-group-item list-group-item-action">Actualizar Perfil</a>
                 <a href="../visualizar-empresa/visualizar-empresa.html" class="list-group-item list-group-item-action ">Visualizar Perfil</a>
-                <a href="../registrar-sucursal/registrar-sucursal.html" class="list-group-item list-group-item-action selected-sidebar">Registrar Sucursal</a>
-                <a href="../registrar-promociones/registrar-promociones.html" class="list-group-item list-group-item-action">Registrar Promociones</a>
+                <a href="../registrar-sucursal/registrar-sucursal.php" class="list-group-item list-group-item-action selected-sidebar">Registrar Sucursal</a>
+                <a href="../registrar-promociones/registrar-promociones.php" class="list-group-item list-group-item-action">Registrar Promociones</a>
                 <a href="../dashboard-admin/dashboard-admin.html" class="list-group-item list-group-item-action">Dashboard Administrativo</a>
-                <a href="" class="list-group-item list-group-item-action">Productos</a>
-                <a href="#" class="list-group-item list-group-item-action">Salir</a>
+                <a href="../../Backend/ajax/ajax-company/company.php?action=logoutCompany" class="list-group-item list-group-item-action">Salir</a>
               </div>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -79,23 +94,25 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <input type="text"placeholder="Nombre de la Sucursal">
-                                            <input type="text" placeholder="Ubicación">
-                                            <input type="text"placeholder="Latitud-Longitud">
-                                            <input type="number" placeholder="Cantidad Total de Personal">
-                                            <input type="tel"placeholder="Teléfono">
-                                            <input type="email"placeholder="Correo Electrónico">
+                                            <input name="branchOfficeName" id="branchOfficeName" type="text"placeholder="Nombre de la Sucursal">
+                                            <input name="branchOfficeAddress" id="branchOfficeAddress" type="text" placeholder="Ubicación">
+                                            <input name="branchOfficeLatLon" id="branchOfficeLatLon"type="text"placeholder="Latitud-Longitud">
+                                            <input name="branchOfficeWorkers" id="branchOfficeWorkers"type="number" placeholder="Cantidad Total de Personal">
+                                            <input name="branchOfficePhone" id="branchOfficePhone"type="tel"placeholder="Teléfono">
+                                            <input name="branchOfficeEmail" id="branchOfficeEmail"type="email"placeholder="Correo Electrónico">
                                         </td>
                                         <td id="Imagen">
-                                            <img class="branch-office-image" src="img/background-banner-example.jpg">
-                                            <input type="file" id="uploadImageBranch"><br>
+                                            <div id="imagenUpload">   
+                                                <img class="branch-office-image" src="img/background-banner-example.jpg">
+                                            </div>
+                                            <input type="file" id="branchOfficeImage" name="branchOfficeImage"><br>
                                             <button type="button" id="buttonUpload" onclick="subirImagen()">Subir Imagen</button>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="foot-branch">
-                                <button type="button" id="buttonSave">Agregar Sucursal</button>
+                            <div class="foot-branch" id="addBranchoffice">
+                                
                             </div>
                         </form>
                    </div> 
@@ -103,45 +120,9 @@
                 <div class="branchs-office">
                     <h1 class="title-new-branch-office">Sucursales Actuales</h1>
                     <div class="container">
-                        <div class="row">
+                        <div class="row" id="branchoffice">
                             <div class="col-md-12 col-xs-12 col-lg-12">
-                                <div class="branchs-office-item">
-                                    <h1 class="title-branch-unique">Sucursal Los Angeles</h1>
-                                    <div class="branchs-office-description">
-                                        <div class="col-md-4 col-xs-12 col-lg-12">
-                                            <img class="img-branchs-office" src="img/branch-office-example.jpg"> 
-                                        </div>
-                                        <div class="col-md-12 col-xs-12 col-lg-12">
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><label >Ubicación</label></td>
-                                                        <td>Col: 3 de Mayo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><label >Latitud-Longitud</label></td>
-                                                        <td>+18.500</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><label >Cantidad total de Personal</label></td>
-                                                        <td>10</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><label >Teléfono</label></td>
-                                                        <td>8585-9522</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><label >Correo Electrónico</label></td>
-                                                        <td>losangeles@gmail.com</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tcol-md-12 col-xs-12 col-lg-12">
-                                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15480.179707066367!2d-87.2128529!3d14.0745244!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbdb7f2ff72f90fc0!2sMetroMall!5e0!3m2!1ses-419!2shn!4v1568608983160!5m2!1ses-419!2shn" width="600" height="450" frameborder="0" class="google-maps" allowfullscreen=""></iframe>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -202,10 +183,10 @@
                             <div class="footer">
                                 <h3 class="footer-title">Servicio</h3>
                                 <ul class="footer-links">
-                                    <li><a href="../configuracion-empresa/perfil-empresa.html">Actualizar Perfil</a></li>
-                                    <li><a href="../registrar-sucursal/registrar-sucursal.html">Registrar Sucursales</a></li>
-                                    <li><a href="../registrar-promociones/registrar-promociones.html">Registrar Promociones</a></li>
-                                    <li><a href="#">Salir</a></li>
+                                    <li><a href="../configuracion-empresa/perfil-empresa.php">Actualizar Perfil</a></li>
+                                    <li><a href="../registrar-sucursal/registrar-sucursal.php">Registrar Sucursales</a></li>
+                                    <li><a href="../registrar-promociones/registrar-promociones.php">Registrar Promociones</a></li>
+                                    <li><a href="../../Backend/ajax/ajax-company/company.php?action=logoutCompany">Salir</a></li>
                                 </ul>
                             </div>
                         </div>

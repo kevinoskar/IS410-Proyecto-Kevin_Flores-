@@ -65,10 +65,10 @@ if(!Company::verifyAuthenticity($database->getDB())){
               <div class="list-group list-group-flush">
                 <a href="../configuracion-empresa/perfil-empresa.php" class="list-group-item list-group-item-action selected-sidebar">Actualizar Perfil</a>
                 <a href="../visualizar-empresa/visualizar-empresa.html" class="list-group-item list-group-item-action">Visualizar Perfil</a>
-                <a href="../registrar-sucursal/registrar-sucursal.html" class="list-group-item list-group-item-action">Registrar Sucursal</a>
+                <a href="../registrar-sucursal/registrar-sucursal.php" class="list-group-item list-group-item-action">Registrar Sucursal</a>
                 <a href="../registrar-promociones/registrar-promociones.php" class="list-group-item list-group-item-action">Registrar Promociones</a>
                 <a href="../dashboard-admin/dashboard-admin.html" class="list-group-item list-group-item-action">Dashboard Administrativo</a>
-                <a href="#" class="list-group-item list-group-item-action">Salir</a>
+                <a href="../../Backend/ajax/ajax-company/company.php?action=logoutCompany" class="list-group-item list-group-item-action">Salir</a>
               </div>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -135,10 +135,10 @@ if(!Company::verifyAuthenticity($database->getDB())){
                             <div class="footer">
                                 <h3 class="footer-title">Servicio</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">Actualizar Perfil</a></li>
-                                    <li><a href="../registrar-sucursal/registrar-sucursal.html">Registrar Sucursales</a></li>
-                                    <li><a href="../registrar-promociones/registrar-promociones.html">Registrar Promociones</a></li>
-                                    <li><a href="#">Salir</a></li>
+                                    <li><a href="">Actualizar Perfil</a></li>
+                                    <li><a href="../registrar-sucursal/registrar-sucursal.php">Registrar Sucursales</a></li>
+                                    <li><a href="../registrar-promociones/registrar-promociones.php">Registrar Promociones</a></li>
+                                    <li><a href="../..Backend/ajax/ajax-company/company.php?action=logoutCompany">Salir</a></li>
                                 </ul>
                             </div>
                         </div>
