@@ -26,7 +26,7 @@ function userData(companyjson){
         dataType:'json',
         success:function(res){
             console.log(res);
-            agregar(parametro);
+            agregar(res);
             imprimiroficinas(res.branchOffice,parametro)
         },
         error:function(error){
@@ -35,7 +35,23 @@ function userData(companyjson){
     });
 
 }
+function agregar(company){
+    $("#dropdown1").append(`
+    <button class="hearder-icons btn-profile dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span>${company.branchOfficeName}</span>
+        <img class="profile-image" src="${company.branchOfficeImage}">
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="../configuracion-empresa/perfil-empresa.php"><i class="fa fa-cog icon-profile-dropdown"></i>Actualizar Perfil</a>
+        <a class="dropdown-item" href="../visualizar-empresa/visualizar-empresa.html"><i class="fas fa-eye icon-profile-dropdown "></i></i>Visualización Perfil</a>
+        <a class="dropdown-item" href="../registrar-sucursal/registrar-sucursal.php"><i class="fas fa-store icon-profile-dropdown selected-sidebar"></i></i>Registrar Sucursal</a>
+        <a class="dropdown-item" href="../registrar-promociones/registrar-promociones.phph"><i class="fas fa-gift icon-profile-dropdown"></i>Registrar Promociones</a>
+        <a class="dropdown-item" href="../dashboard-admin/dashboard-admin.html"><i class="fas fa-chart-bar icon-profile-dropdown"></i>Dashboard Administrativo</a>
+        <a class="dropdown-item" href="../../Backend/ajax/ajax-company/company.php?action=logoutCompany"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
+    </div>
+    `);
 
+}
 
 function registrarOficina(keyCompany){
     let parametros=$("#formBranchOffice").serialize()+"&branchOfficeImage="+"../../Backend/images/company-images/company-branch-office-image/"+document.getElementById("branchOfficeImage").files[0].name;

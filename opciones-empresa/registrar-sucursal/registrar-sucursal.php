@@ -43,20 +43,8 @@ if(!Company::verifyAuthenticity($database->getDB())){
                     <!-- ACCOUNT -->
                     <div class="clearfix">
                         <div class="header-ctn"> 
-                            <div class="dropdown">
-                                <button class="hearder-icons btn-profile dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span>Empresa</span>
-                                    <img class="profile-image" src="img/profile-image-anounimous.jpg">
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="../configuracion-empresa/perfil-empresa.php"><i class="fa fa-cog icon-profile-dropdown"></i>Actualizar Perfil</a>
-                                    <a class="dropdown-item" href="../visualizar-empresa/visualizar-empresa.html"><i class="fas fa-eye icon-profile-dropdown "></i></i>Visualización Perfil</a>
-                                    <a class="dropdown-item" href="../registrar-sucursal/registrar-sucursal.php"><i class="fas fa-store icon-profile-dropdown selected-sidebar"></i></i>Registrar Sucursal</a>
-                                    <a class="dropdown-item" href="../registrar-promociones/registrar-promociones.phph"><i class="fas fa-gift icon-profile-dropdown"></i>Registrar Promociones</a>
-                                    <a class="dropdown-item" href="../dashboard-admin/dashboard-admin.html"><i class="fas fa-chart-bar icon-profile-dropdown"></i>Dashboard Administrativo</a>
-                                    <a class="dropdown-item" href="../../Backend/ajax/ajax-company/company.php?action=logoutCompany"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
-                                  </div>
-                            </div>
+                            <div class="dropdown" id="dropdown1">
+                               
                             <div class="menu-toggle">
                                 <a href="#">
                                     <i class="fa fa-bars"></i>
