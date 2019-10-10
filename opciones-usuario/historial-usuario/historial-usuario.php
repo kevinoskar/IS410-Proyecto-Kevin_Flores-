@@ -1,3 +1,16 @@
+
+<?php
+require_once('../../Backend/class/class-user/class-user.php');
+require_once('../../Backend/class/class-database/database.php');
+
+$database = new Database();
+if(!User::verifyAuthenticity($database->getDB()))
+    header("Location: error.html");
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -248,4 +261,5 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/controlador.js"></script>
 </html>

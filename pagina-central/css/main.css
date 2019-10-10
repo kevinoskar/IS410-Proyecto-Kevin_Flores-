@@ -11,6 +11,13 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 10px;
 }
 
+.product-img ,.product-img img{
+  height: 250px!important;
+}
+#spinner{
+  display: block;
+}
+
 a {
   color: #2B2D42;
   font-weight: 500;
@@ -435,6 +442,9 @@ textarea.input {
   right: 0px;
 }
 
+.product{
+  margin:45px 40px!important;
+}
 /*----------------------------*\
 	Breadcrumb
 \*----------------------------*/
@@ -923,6 +933,7 @@ textarea.input {
   background-color: #FFF;
   text-align: center;
   z-index: 20;
+  height: 170px;
 }
 
 .product .product-body .product-category {
@@ -1035,8 +1046,8 @@ textarea.input {
 
 .product .add-to-cart {
   position: absolute;
-  left: 1px;
-  right: 1px;
+  left: 21px;
+  right: 21px;
   bottom: 1px;
   padding: 15px;
   background: #1e1f29;

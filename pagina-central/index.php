@@ -54,7 +54,7 @@
 
 								<!-- Cart -->
 								<div>
-									<a class="dropdown-toggl hearder-icons" href="../opciones-usuario/historial-usuario/historial-usuario.html">
+									<a class="dropdown-toggl hearder-icons" href="../opciones-usuario/historial-usuario/historial-usuario.php">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Carrito</span>
 										<div class="qty">3</div>
@@ -67,7 +67,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="../opciones-usuario/configuracion-usuario/perfil-usuario.php"><i class="fa fa-cog icon-profile-dropdown"></i>Configuración</a>
-                                    <a class="dropdown-item" href="../opciones-usuario/historial-usuario/historial-usuario.html"><i class="fas fa-shopping-bag icon-profile-dropdown"></i>Historial de compras</a>
+                                    <a class="dropdown-item" href="../opciones-usuario/historial-usuario/historial-usuario.php"><i class="fas fa-shopping-bag icon-profile-dropdown"></i>Historial de compras</a>
                                     <a class="dropdown-item" href="../opciones-usuario/lista-deseos-usuario/lista-deseos-usuario.html"><i class="fas fa-heart icon-profile-dropdown"></i></i>Lista de Deseos</a>
                                     <a class="dropdown-item" href="../opciones-usuario/empresas-siguiendo-usuario/empresas-siguiendo.html"><i class="fas fa-building icon-profile-dropdown"></i>Empresas Siguiendo</a>
                                     <a class="dropdown-item" href="../Backend/ajax/ajax-users/users.php?action=logout"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
@@ -188,146 +188,9 @@
 						<div class="row">
 							<div class="products-tabs">
 								<div id="tab1" class="tab-pane active">
-									<div class="products-slick" data-nav="#slick-nav-1">
+									<div class="products-slick" id="productstoBuy"data-nav="#slick-nav-1">
 										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Empresa A</p>
-												<h3 class="product-name"><a href="#">Nombre del Producto</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Agregar Lista de Deseos</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Ver</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Agregar Carrito</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product02.png" alt="">
-												<div class="product-label">
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Empresa B</p>
-												<h3 class="product-name"><a href="#">Nombre del Producto</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Agregar Lista de Deseos</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Ver</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Agregar Carrito</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product03.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Empresa C</p>
-												<h3 class="product-name"><a href="#">Nombre del Producto</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Agregar Lista de Deseos</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Ver</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button onclick="redireccionar()" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Agregar Carrito</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product04.png" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Empresa D</p>
-												<h3 class="product-name"><a href="#">Nombre del Producto</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Agregar Lista de Deseos</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Ver</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Agregar Carrito</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product05.png" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Empresa E</p>
-												<h3 class="product-name"><a href="#">Nombre del Producto</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Agregar Lista de Deseos</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Ver</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Agregar Carrito</button>
-											</div>
-										</div>
-										<!-- /product -->
+									
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
 								</div>

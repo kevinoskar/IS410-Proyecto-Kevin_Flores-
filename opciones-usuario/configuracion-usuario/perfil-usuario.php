@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-md-3 col-xs-12 col-lg-6">
                         <div class="header-logo">
-                            <a href="../../Pagina-Central/index.html" class="logo">
+                            <a href="../../Pagina-Central/index.php" class="logo">
                                 <img src="img/Fly-blue2.png" alt="">
                             </a>
                         </div>
