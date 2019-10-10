@@ -39,11 +39,8 @@ if(!User::verifyAuthenticity($database->getDB()))
                     <!-- ACCOUNT -->
                     <div class="clearfix">
                         <div class="header-ctn"> 
-                            <div class="dropdown">
-                                <button class="hearder-icons btn-profile dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span>Kevin González</span>
-                                    <img class="profile-image" src="img/profile-image-anounimous.jpg">
-                                </button>
+                            <div class="dropdown" id="dropdown">
+                                
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="../configuracion-usuario/perfil-usuario.html"><i class="fa fa-cog icon-profile-dropdown"></i>Configuración</a>
                                     <a class="dropdown-item" href="../historial-usuario/historial-usuario.html"><i class="fas fa-shopping-bag icon-profile-dropdown"></i>Historial de compras</a>
@@ -83,72 +80,11 @@ if(!User::verifyAuthenticity($database->getDB()))
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 col-xs-12 col-lg-12">
-                                <h2 class="titule-buy">Compras realizadas por ti Kevin.</h2>
+                                <h2 class="titule-buy">Compras realizadas por ti</h2>
                         </div>
-                        <div class="card mb-3 ml-2">
-                            <div class="row no-gutters">
-                                <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                    <img src="img/product06.png" class="card-img" alt="...">
-                                </div>
-                                <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Laptop</h5>
-                                        <small class="text-muted">Empresa A</small>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-muted">Hace 4 Dias</small></p>
-                                        <p class="card-text">Costo:<small class="text-muted">$990.00</small></p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="buys">
+                    
                         </div>
-                        <div class="card mb-3 ml-2">
-                            <div class="row no-gutters">
-                                <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                    <img src="img/product06.png" class="card-img" alt="...">
-                                </div>
-                                <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Laptop</h5>
-                                        <small class="text-muted">Empresa A</small>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-muted">Hace 4 Dias</small></p>
-                                        <p class="card-text">Costo:<small class="text-muted">$990.00</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 ml-2">
-                                <div class="row no-gutters">
-                                    <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                        <img src="img/product06.png" class="card-img" alt="...">
-                                    </div>
-                                    <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Laptop</h5>
-                                            <small class="text-muted">Empresa A</small>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <p class="card-text"><small class="text-muted">Hace 4 Dias</small></p>
-                                            <p class="card-text">Costo:<small class="text-muted">$990.00</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-3 ml-2">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                            <img src="img/product06.png" class="card-img" alt="...">
-                                        </div>
-                                        <div class="col-md-6 col-xl-6 col-lg-6 col-xs-12">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Laptop</h5>
-                                                <small class="text-muted">Empresa A</small>
-                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                <p class="card-text"><small class="text-muted">Hace 4 Dias</small></p>
-                                                <p class="card-text">Costo:<small class="text-muted">$990.00</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                     </div>
                 </div>
             </div>
@@ -256,10 +192,11 @@ if(!User::verifyAuthenticity($database->getDB()))
                 </div>
             </div>
     </footer>
-    
-</body>
+
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/controlador.js"></script>
+    
+</body>
 </html>

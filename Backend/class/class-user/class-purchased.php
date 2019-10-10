@@ -93,6 +93,14 @@ class ProductPurchased {
 			return '{"mensaje":"Producto Anexado con exito","keyUser":"'.$key.'","keyProduct":"'.$result->getKey().'"}';
 		else 
 			return '{"mensaje":"Error al guardar el registro"}';
-    }
+	}
+	
+	public static function obtainProductPurchased($db,$keyUser,$keyProductUser){
+		$result = $db->getReference("users/{$keyUser}/productsPurchased/")
+					->getChild($keyProductUser)
+					->getValue();
+		echo json_encode($result);
+
+	}
 }
 ?>

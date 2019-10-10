@@ -31,6 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] =='POST' && isset($_GET['keyUser'])){
     echo $product->createProduct($database->getDB(),$_GET['keyUser']);
 
 }
+if ($_SERVER['REQUEST_METHOD'] =='GET' && isset($_GET['keyUser']) && isset($_GET['keyProductUser'])){
+    ProductPurchased::obtainProductPurchased($database->getDB(),$_GET['keyUser'],$_GET['keyProductUser']);
+}
 
 
 ?>
