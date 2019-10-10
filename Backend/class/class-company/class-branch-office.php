@@ -54,10 +54,7 @@ class BranchOffice{
 	}
 
 	public static function obtainBranchOffice($db,$keyfirebaseCompany,$keyProduct){
-		$result=$db->getReference('companys')
-			->getChild($keyfirebaseCompany)
-			->getChild('branchOffice')
-			->getChild($keyProduct)
+		$result=$db->getReference("companys/{$keyfirebaseCompany}/branchOffice/{$keyProduct}/")
 			->getValue();
 
 		echo json_encode($result);

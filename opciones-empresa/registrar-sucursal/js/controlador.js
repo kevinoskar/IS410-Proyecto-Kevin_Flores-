@@ -26,7 +26,8 @@ function userData(companyjson){
         dataType:'json',
         success:function(res){
             console.log(res);
-            agregar(res);
+            agregar(parametro);
+            agregar2(res);
             imprimiroficinas(res.branchOffice,parametro)
         },
         error:function(error){
@@ -35,11 +36,11 @@ function userData(companyjson){
     });
 
 }
-function agregar(company){
-    $("#dropdown1").append(`
+function agregar2(company){
+    $("#dropDown").append(`
     <button class="hearder-icons btn-profile dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span>${company.branchOfficeName}</span>
-        <img class="profile-image" src="${company.branchOfficeImage}">
+        <span>${company.nameCompany}</span>
+        <img class="profile-image" src="${company.urlimageCompany}">
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="../configuracion-empresa/perfil-empresa.php"><i class="fa fa-cog icon-profile-dropdown"></i>Actualizar Perfil</a>
@@ -50,7 +51,6 @@ function agregar(company){
         <a class="dropdown-item" href="../../Backend/ajax/ajax-company/company.php?action=logoutCompany"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
     </div>
     `);
-
 }
 
 function registrarOficina(keyCompany){
