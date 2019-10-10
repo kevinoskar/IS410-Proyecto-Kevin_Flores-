@@ -155,29 +155,22 @@ if(!Company::verifyAuthenticity($database->getDB())){
                                         <div id="button">
 
                                         </div>
+                                        <div id="qrcode">
+
+                                        </div>
+
 
                                     </form>
+
                                 </div>
                             </div>
                         </div>
                         <div class="content-all-products container">
                             <label class="title-all-products">Todos los Productos</label>
                             <div id="product-category" >
-                                <h1 class="head-title-product">Tecnología</h1>
+                                <h1 class="head-title-product">Lista</h1>
                                 <div class=" row category"id="category">
 
-                                    <div class="card category col-md-12 col-xs-12 col-lg-4">
-                                        <img src="img/camisa-polo-unah.jpg" class="card-img-top" alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Nombre del producto</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <h1 class="card-title2">Precio: L55.00</h1>
-                                            <button type="button" class="btn-edit" data-toggle="modal" data-target="#Modal1">
-                                                <i class="fas fa-minus"></i>Editar Producto</button>
-                                            <button type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete">
-                                                <i class="fas fa-edit"></i>Eliminar Producto</button>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -186,25 +179,9 @@ if(!Company::verifyAuthenticity($database->getDB())){
             </div>
             <!--Ventana Modal--><!--Cuidado con el id al hacerlo dinamico-->
             <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ModalLabel">Borrar producto</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            ¿Estás seguro que deseas borrar éste producto?</br>
-                            No se podrá recurper nunca más.
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-danger">Eliminar</button>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
+
     </main>
     <footer id="footer">
             <div class="section">
@@ -293,6 +270,7 @@ if(!Company::verifyAuthenticity($database->getDB())){
             </div>
     </footer>
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.qrcode.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/controlador.js"></script>

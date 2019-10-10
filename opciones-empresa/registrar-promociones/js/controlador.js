@@ -1,4 +1,3 @@
-
 (function(){
     $.ajax({
         url:'../../Backend/ajax/ajax-company/company.php?action=CompanyAccessKey',
@@ -37,18 +36,14 @@ function userData(companyjson){
     });
 
 }
+cargarTipos();
 
 function imprimirllaves(company){
     $("#button").append(`
-    <button class="btn-save-all" onclick="registrarProducto('${company.keyCompany}')" type="button"><i class="fas fa-plus"></i>Guardar Producto</button>
+    <button class="btn-save-all" onclick="registrarProducto('${company.keyCompany}')" type="button"><i class="fas fa-circle-notch fa-spin" id="spinner"></i>Guardar Producto</button>
     `);
 
 }
-
-
-cargarTipos();
-
-
 
 function subirImagen(){  
     if(document.getElementById("productImages").value!=""){
@@ -108,10 +103,11 @@ function calcularPorcentaje(){
 }
 
 
-
 function registrarProducto(key){
     console.log(key);
     var parametros=$("#formproduct").serialize()+"&productImages="+"../../Backend/images/company-images/company-products-image/"+document.getElementById("productImages").files[0].name;
+    $("#qrcode").qrcode(parametros);
+    $("#spinner").show();
     console.log(parametros);
     $.ajax({
         url:'../../Backend/ajax/ajax-product/product.php?keyCompany='+key,
@@ -120,6 +116,8 @@ function registrarProducto(key){
         data:parametros,
         success:function(res){
             console.log(res);
+            $("#spinner").hide();
+            location.reload();
         },
         error:function(error){
             console.error(error);
@@ -146,7 +144,9 @@ function imprimirData(company){
 
 }
 function actualizarProductos(productos,keyCompany){
-   for(let indice in productos){
+    console.log("Actualizando...")
+    for(let indice in productos){
+        console.log(indice);
         $.ajax({
             url:`../../Backend/ajax/ajax-product/product.php?keyCompany=${keyCompany}&idProduct=${indice}`,
             method:"GET",
@@ -160,11 +160,33 @@ function actualizarProductos(productos,keyCompany){
                         <h5 class="card-title">${productjson.productName}</h5>
                         <p class="card-text">${productjson.productDescription}</p>
                         <h1 class="card-title2">Precio: L. ${productjson.productTotalPrice}</h1>
-                        <button type="button" class="btn-delete" onclicl="borrarProducto('${indice}')">
+                        <button data-toggle="modal" data-target="#modalDelete" type="button" class="btn-delete" onclicl="borrarProducto('${indice}')">
                             <i class="fas fa-edit"></i>Eliminar Producto
+                        <button type="button" class="btn-edit" data-toggle="modal" data-target="#Modal1">
+                            <i class="fas fa-minus"></i>Editar Producto</button>
                         </button>
                     </div>
                 </div>`);
+                $("#modalDelete").html(`
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel">Borrar producto</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Estás seguro que deseas borrar éste producto?</br>
+                            No se podrá recurper nunca más.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" onclick="borrarProduct('${keyCompany}','${indice}')" class="btn btn-danger">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+                `);
             },
             error:function(error){
                 console.error(error);
@@ -173,3 +195,22 @@ function actualizarProductos(productos,keyCompany){
    }
     
 }
+
+function borrarProduct(keyCompany,keyProduct){
+    console.log("Se Eliminará los productos con las siguientes llaves: "+keyCompany +" de la empresa"+keyProduct);
+    $.ajax({
+        url:'../../Backend/ajax/ajax-product/product.php?keyCompany='+keyCompany+'&idProduct='+keyProduct,
+        method:'DELETE',
+        dataType:'json',
+        success:function(res){
+            console.log(res);
+            location.reload();
+        },
+        error:function(error){
+            console.error(error);
+        }
+    });
+
+}
+
+

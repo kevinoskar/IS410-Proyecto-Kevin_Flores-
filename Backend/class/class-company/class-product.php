@@ -112,10 +112,7 @@ class Product {
 		echo json_encode($result);
 	}
 	public static function deleteProduct($db,$keyfirebaseCompany,$keyProduct){
-		$result=$db->getReference('companys')
-			->getChild($keyfirebaseCompany)
-			->getChild('products')
-			->getChild($keyProduct)
+		$result=$db->getReference("companys/{$keyfirebaseCompany}/products/{$keyProduct}/")
 			->remove();
 
 		echo '{"mensaje":"Se eliminó el producto con id '.$keyProduct.' de la empresa con id '.$keyfirebaseCompany.'"}';

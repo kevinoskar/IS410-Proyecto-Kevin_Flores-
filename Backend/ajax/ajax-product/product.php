@@ -38,11 +38,11 @@
         Product::obtainProduct($database->getDB(),$_GET['keyCompany'],$_GET['idProduct']);
     }
     
-    /*if ($_SERVER['REQUEST_METHOD']=='DELETE' &&  isset($_GET['key'])  && isset($_GET['id'])){
-        Product::deleteProduct($database->getDB(),$_GET['key'],$_GET['id']);
-    }*/
+    if ($_SERVER['REQUEST_METHOD']=='DELETE' &&  isset($_GET['keyCompany'])  && isset($_GET['idProduct'])){
+        Product::deleteProduct($database->getDB(),$_GET['keyCompany'],$_GET['idProduct']);
+    }
     
-    if ($_SERVER['REQUEST_METHOD'] =='PUT' && isset($_GET['key']) && isset($_GET['id'])){
+    if ($_SERVER['REQUEST_METHOD'] =='PUT' && isset($_GET['keyCompany']) && isset($_GET['idProduct'])){
         $_PUT=array();
         if ($_SERVER['REQUEST_METHOD'] == 'PUT')
             parse_str(file_get_contents("php://input"), $_PUT);
