@@ -180,7 +180,7 @@
 					<!-- section title -->
 					<div class="col-md-12">
 						<div class="section-title">
-							<h3 class="title">(Categoria)</h3>
+							<h3 class="title">Todos los Productos</h3>
 						</div>
 					</div>
 					<!--Categorias-->

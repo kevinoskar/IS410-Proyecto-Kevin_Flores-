@@ -1,0 +1,20 @@
+Passwores Users
+
+
+Andrea Yulisa --------- PASS  =Andreayuli12  5555555555554444
+
+
+
+
+
+Companys Data
+
+Radioschack ------------"radioshackhn@hotmail.com" 	Pass=  	Radioshack1921  
+jecstereo -------------"jecstereoHondurashn@gmail.com" 	Passs=	Jesctereo1987
+diunsa----------------- "Diunsa1937@gmail.com 	 	Pass=	Diunsa1937@gmail.com
+walmart ---------------"walmart12@gmail.com      	Pass=	Walmart1214
+mendels	---------------"tiendasmendels@hotmail.com"   	Pass= 	Mendels504
+Acosa	----------------"acosaHN@gmail.com"  		Pass= 	Acosahn1991
+
+SuperUser
+adminfly@gmail.com              password: admin1234
