@@ -1,3 +1,19 @@
+
+<?php
+    require_once('../../Backend/class/class-company/class-company.php');
+    require_once('../../Backend/class/class-database/database.php');
+
+    $database = new Database();
+    if(!Company::verifyAuthenticity($database->getDB())){
+        header("Location: error.html");
+    }
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +34,7 @@
                 <div class="row">
                     <div class="col-md-3 col-xs-12 col-lg-6">
                         <div class="header-logo">
-                            <a href="../../Pagina-Central/index.html" class="logo">
+                            <a href="../../Pagina-Central/index.php" class="logo">
                                 <img src="img/Fly-blue2.png" alt="">
                             </a>
                         </div>
@@ -26,19 +42,15 @@
                     <!-- ACCOUNT -->
                     <div class="clearfix">
                         <div class="header-ctn"> 
-                            <div class="dropdown">
-                                <button class="hearder-icons btn-profile dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span>Empresa</span>
-                                    <img class="profile-image" src="img/logo-example.jpg">
-                                </button>
+                            <div class="dropdown" id="dropdown">
+                                
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="../configuracion-empresa/perfil-empresa.html"><i class="fa fa-cog icon-profile-dropdown "></i>Actualizar Perfil</a>
-                                    <a class="dropdown-item" href="../visualizar-empresa/visualizar-empresa.html"><i class="fas fa-eye icon-profile-dropdown selected-sidebar"></i></i>Visualización Perfil</a>
-                                    <a class="dropdown-item" href="../registrar-sucursal/registrar-sucursal.html"><i class="fas fa-store icon-profile-dropdown"></i></i>Registrar Sucursal</a>
-                                    <a class="dropdown-item" href="../registrar-promociones/registrar-promociones.html"><i class="fas fa-gift icon-profile-dropdown"></i>Registrar Promociones</a>
+                                    <a class="dropdown-item" href="../configuracion-empresa/perfil-empresa.php"><i class="fa fa-cog icon-profile-dropdown "></i>Actualizar Perfil</a>
+                                    <a class="dropdown-item" href="../visualizar-empresa/visualizar-empresa.php"><i class="fas fa-eye icon-profile-dropdown selected-sidebar"></i></i>Visualización Perfil</a>
+                                    <a class="dropdown-item" href="../registrar-sucursal/registrar-sucursal.php"><i class="fas fa-store icon-profile-dropdown"></i></i>Registrar Sucursal</a>
+                                    <a class="dropdown-item" href="../registrar-promociones/registrar-promociones.php"><i class="fas fa-gift icon-profile-dropdown"></i>Registrar Promociones</a>
                                     <a class="dropdown-item" href="../dashboard-admin/dashboard-admin.html"><i class="fas fa-chart-bar icon-profile-dropdown"></i>Dashboard Administrativo</a>
-                        
-                                    <a class="dropdown-item" href="#"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
+                                    <a class="dropdown-item" href="../../Backend/ajax/ajax-company/company.php?action=logoutCompany"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
                                   </div>
                             </div>
                             <div class="menu-toggle">
@@ -57,97 +69,26 @@
         <div class="d-flex" id="wrapper">
             <div class="border-right" id="sidebar-wrapper">
                 <div class="list-group list-group-flush">
-                    <a href="../configuracion-empresa/perfil-empresa.html" class="list-group-item list-group-item-action">Actualizar Perfil</a>
-                    <a href="../visualizar-empresa/visualizar-empresa.html" class="list-group-item list-group-item-action selected-sidebar ">Visualizar Perfil</a>
-                    <a href="../registrar-sucursal/registrar-sucursal.html" class="list-group-item list-group-item-action">Registrar Sucursal</a>
-                    <a href="../registrar-promociones/registrar-promociones.html" class="list-group-item list-group-item-action">Registrar Promociones</a>
+                    <a href="../configuracion-empresa/perfil-empresa.php" class="list-group-item list-group-item-action">Actualizar Perfil</a>
+                    <a href="../visualizar-empresa/visualizar-empresa.php" class="list-group-item list-group-item-action selected-sidebar ">Visualizar Perfil</a>
+                    <a href="../registrar-sucursal/registrar-sucursal.php" class="list-group-item list-group-item-action">Registrar Sucursal</a>
+                    <a href="../registrar-promociones/registrar-promociones.php" class="list-group-item list-group-item-action">Registrar Promociones</a>
                     <a href="../dashboard-admin/dashboard-admin.html" class="list-group-item list-group-item-action">Dashboard Administrativo</a>
         
-                    <a href="#" class="list-group-item list-group-item-action">Salir</a>
+                    <a href="../../Backend/ajax/ajax-company/company.php?action=logoutCompany" class="list-group-item list-group-item-action">Salir</a>
             </div>
         </div>
                     <!-- /#sidebar-wrapper -->
         <div id="page-content-wrapper">
             <div class="container2">
                 <div id="companyVisual" class="row">
-                    <div class="col-md-3 col-xs-12 col-lg-12">
-                        <div class="section-profile">
-                            <div class="profile-picture-logo">
-                                    <img src="img/logo-example.jpg">
-                            </div>
-                            <div class="profile-picture">
-                                <img src="img/background-banner-example.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="descriptionCompany">
-                            <h1>Descripción</h1>
-                            <h2>Nombre de la Empresa</h2>
-                            <label>Descripción Lorem ipsum dolor sit amet consectetur adipisicing elit. Et optio deleniti iure temporibus veritatis sapiente. Ad est deleniti possimus expedita ipsa, nihil reiciendis praesentium incidunt ullam. Ea minus impedit doloribus nisi accusamus earum architecto, sed porro nobis nulla unde labore soluta eveniet illo provident modi dolore mollitia? Assumenda, commodi nisi?</label>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <label>Tecnología</label></br>
-                                            <label>Fecha de Fundación 12/18/09</label></br>
-                                            <label>Código Postal +504</label></br>
-                                            <label>Pais	Honduras</label></br>
-                                            <label>Estado o Departamento Francisco Morazán</label></br>
-                                            <label>Dirección Col.Tiloarque</label></br>
-                                            <label>Teléfono 8985-8595</label></br>
-                                            <label>Latitud Longitud 165.0562</label></br>
-                                        </td>
-                                        <td>
-                                                <iframe class="google-maps" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15480.31647848449!2d-87.2208135802246!3d14.072505100000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2shn!4v1569123241819!5m2!1ses-419!2shn" width="600" height="450" frameborder="0" allowfullscreen=""></iframe>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="branchs-office">
                         <h1 class="title-new-branch-office">Sucursales Actuales</h1>
                         <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-xs-12 col-lg-12">
-                                    <div class="branchs-office-item">
-                                        <h1 class="title-branch-unique">Sucursal Los Angeles</h1>
-                                        <div class="branchs-office-description">
-                                            <div class="col-md-4 col-xs-12 col-lg-12">
-                                                <img class="img-branchs-office" src="img/branch-office-example.jpg"> 
-                                            </div>
-                                            <div class="col-md-12 col-xs-12 col-lg-12">
-                                                <table>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><label >Ubicación</label></td>
-                                                            <td>Col: 3 de Mayo</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><label >Latitud-Longitud</label></td>
-                                                            <td>+18.500</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><label >Cantidad total de Personal</label></td>
-                                                            <td>10</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><label >Teléfono</label></td>
-                                                            <td>8585-9522</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><label >Correo Electrónico</label></td>
-                                                            <td>losangeles@gmail.com</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="tcol-md-12 col-xs-12 col-lg-12">
-                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15480.179707066367!2d-87.2128529!3d14.0745244!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbdb7f2ff72f90fc0!2sMetroMall!5e0!3m2!1ses-419!2shn!4v1568608983160!5m2!1ses-419!2shn" width="600" height="450" frameborder="0" class="google-maps2" allowfullscreen=""></iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row" id="branchData">
+                                
                             </div>
                         </div>
                     </div>

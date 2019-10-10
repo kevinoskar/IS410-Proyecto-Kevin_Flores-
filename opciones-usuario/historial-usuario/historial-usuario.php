@@ -31,7 +31,7 @@ if(!User::verifyAuthenticity($database->getDB()))
                 <div class="row">
                     <div class="col-md-3 col-xs-12 col-lg-6">
                         <div class="header-logo">
-                            <a href="../../Pagina-Central/index.html" class="logo">
+                            <a href="../../Pagina-Central/index.php" class="logo">
                                 <img src="img/Fly-blue2.png" alt="">
                             </a>
                         </div>
@@ -42,8 +42,8 @@ if(!User::verifyAuthenticity($database->getDB()))
                             <div class="dropdown" id="dropdown">
                                 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="../configuracion-usuario/perfil-usuario.html"><i class="fa fa-cog icon-profile-dropdown"></i>Configuración</a>
-                                    <a class="dropdown-item" href="../historial-usuario/historial-usuario.html"><i class="fas fa-shopping-bag icon-profile-dropdown"></i>Historial de compras</a>
+                                    <a class="dropdown-item" href="../configuracion-usuario/perfil-usuario.php"><i class="fa fa-cog icon-profile-dropdown"></i>Configuración</a>
+                                    <a class="dropdown-item" href="../historial-usuario/historial-usuario.php"><i class="fas fa-shopping-bag icon-profile-dropdown"></i>Historial de compras</a>
                                     <a class="dropdown-item" href="../lista-deseos-usuario/lista-deseos-usuario.html"><i class="fas fa-heart icon-profile-dropdown"></i></i>Lista de Deseos</a>
                                     <a class="dropdown-item" href="../empresas-siguiendo-usuario/empresas-siguiendo.html"><i class="fas fa-building icon-profile-dropdown"></i>Empresas Siguiendo</a>
                                     <a class="dropdown-item" href="#"><i class="fa fa-sign-out icon-profile-dropdown"></i>Salir</a>
@@ -67,7 +67,7 @@ if(!User::verifyAuthenticity($database->getDB()))
             <!-- Sidebar -->
             <div class="border-right" id="sidebar-wrapper">
               <div class="list-group list-group-flush">
-                <a href="../configuracion-usuario/perfil-usuario.html" class="list-group-item list-group-item-action ">Configuración</a>
+                <a href="../configuracion-usuario/perfil-usuario.php" class="list-group-item list-group-item-action ">Configuración</a>
                 <a href="#" class="list-group-item list-group-item-action  selected-sidebar">Historial de compras</a>
                 <a href="../lista-deseos-usuario/lista-deseos-usuario.html" class="list-group-item list-group-item-action ">Lista de Deseos</a>
                 <a href="../empresas-siguiendo-usuario/empresas-siguiendo.html" class="list-group-item list-group-item-action ">Empresas que sigues</a>

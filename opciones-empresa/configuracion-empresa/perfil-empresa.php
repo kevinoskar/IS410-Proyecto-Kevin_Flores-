@@ -34,7 +34,7 @@ if(!Company::verifyAuthenticity($database->getDB())){
                 <div class="row">
                     <div class="col-md-3 col-xs-12 col-lg-6">
                         <div class="header-logo">
-                            <a href="../../Pagina-Central/index.html" class="logo">
+                            <a href="../../Pagina-Central/index.php" class="logo">
                                 <img src="img/Fly-blue2.png" alt="">
                             </a>
                         </div>
@@ -64,7 +64,7 @@ if(!Company::verifyAuthenticity($database->getDB())){
             <div class="border-right" id="sidebar-wrapper">
               <div class="list-group list-group-flush">
                 <a href="../configuracion-empresa/perfil-empresa.php" class="list-group-item list-group-item-action selected-sidebar">Actualizar Perfil</a>
-                <a href="../visualizar-empresa/visualizar-empresa.html" class="list-group-item list-group-item-action">Visualizar Perfil</a>
+                <a href="../visualizar-empresa/visualizar-empresa.php" class="list-group-item list-group-item-action">Visualizar Perfil</a>
                 <a href="../registrar-sucursal/registrar-sucursal.php" class="list-group-item list-group-item-action">Registrar Sucursal</a>
                 <a href="../registrar-promociones/registrar-promociones.php" class="list-group-item list-group-item-action">Registrar Promociones</a>
                 <a href="../dashboard-admin/dashboard-admin.html" class="list-group-item list-group-item-action">Dashboard Administrativo</a>
